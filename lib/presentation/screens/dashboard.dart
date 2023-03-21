@@ -1,3 +1,4 @@
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -35,7 +36,7 @@ class _DashboardState extends State<Dashboard> {
             ),
             Text(
               "FerryEasy",
-              style: TextStyle(color: ferryPrimaryColor),
+              style: TextStyle(color: kcPrimaryColor),
             ),
           ],
         ),
@@ -43,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.menu),
-            color: ferryPrimaryColor,
+            color: kcPrimaryColor,
           ),
         ],
       ),
@@ -67,7 +68,7 @@ class _DashboardState extends State<Dashboard> {
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 40, 0, 40),
                 decoration: const BoxDecoration(
-                  color: ferryPrimaryColor,
+                  color: kcPrimaryColor,
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(50.0),
@@ -116,7 +117,7 @@ class _DashboardState extends State<Dashboard> {
                       child: Text(
                         'Active Ferries',
                         style: TextStyle(
-                          color: ferryPrimaryColor,
+                          color: kcPrimaryColor,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -148,7 +149,7 @@ class _DashboardState extends State<Dashboard> {
                                 estTimeArrival: '10:45:00',
                               ),
                               Divider(
-                                color: ferryPrimaryColor,
+                                color: kcPrimaryColor,
                                 height: 50,
                               ),
                               ShipNameWidget(
@@ -225,7 +226,7 @@ class _DashboardState extends State<Dashboard> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: ferryPrimaryColor,
+        selectedItemColor: kcPrimaryColor,
         onTap: _onItemTapped,
       ),
 
@@ -234,7 +235,7 @@ class _DashboardState extends State<Dashboard> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(15.0),
         child: FloatingActionButton(
-          backgroundColor: ferryPrimaryColor,
+          backgroundColor: kcPrimaryColor,
           splashColor: Colors.white,
           tooltip: 'My Wallet',
           onPressed: () {},
@@ -261,7 +262,7 @@ class ShipNameWidget extends StatelessWidget {
         Text(
           shipName,
           style: const TextStyle(
-            color: ferryPrimaryColor,
+            color: kcPrimaryColor,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
@@ -301,14 +302,14 @@ class DestinationWidget extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 3.0, left: 3.0),
               child: Text(
                 firstLocation,
-                style: const TextStyle(color: ferryPrimaryColor),
+                style: const TextStyle(color: kcPrimaryColor),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 3.0, left: 3.0),
               child: Text(
                 secondLocation,
-                style: const TextStyle(color: ferryPrimaryColor),
+                style: const TextStyle(color: kcPrimaryColor),
               ),
             ),
           ],
@@ -327,7 +328,7 @@ class DestinationWidget extends StatelessWidget {
                 child: Text(
                   countdownTimer,
                   style: const TextStyle(
-                    color: ferryPrimaryColor,
+                    color: kcPrimaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -359,7 +360,7 @@ class EtaWidget extends StatelessWidget {
           const TextSpan(
             text: 'Est. Arrival Time: ',
             style: TextStyle(
-              color: ferryPrimaryColor,
+              color: kcPrimaryColor,
               fontFamily: 'Montserrat',
               fontSize: 11,
               fontWeight: FontWeight.w400,
@@ -368,7 +369,7 @@ class EtaWidget extends StatelessWidget {
           TextSpan(
             text: '$estTimeArrival AM',
             style: const TextStyle(
-              color: ferryPrimaryColor,
+              color: kcPrimaryColor,
               fontFamily: 'Montserrat',
               fontSize: 11,
               fontWeight: FontWeight.w700,

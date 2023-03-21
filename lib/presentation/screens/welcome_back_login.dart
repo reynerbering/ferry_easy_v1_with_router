@@ -1,5 +1,6 @@
 import 'package:ferry_easy/constants/constants.dart';
 import 'package:ferry_easy/presentation/widgets/button_widget.dart';
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeBackLoginScreen extends StatelessWidget {
@@ -60,7 +61,7 @@ class WelcomeBackLoginScreen extends StatelessWidget {
                             child: const Text(
                               'Forgot Password?',
                               style: TextStyle(
-                                  color: ferryPrimaryColor,
+                                  color: kcPrimaryColor,
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -72,7 +73,7 @@ class WelcomeBackLoginScreen extends StatelessWidget {
                       // todo: validation for database login
                       ButtonWidget(
                         buttonTitle: 'Log In',
-                        buttonBackgroundColor: ferryPrimaryColor,
+                        buttonBackgroundColor: kcPrimaryColor,
                         buttonForegroundColor: Colors.white,
                         buttonSideColor: Colors.transparent,
                         onPressed: () =>
@@ -113,8 +114,8 @@ class WelcomeBackLoginScreen extends StatelessWidget {
                       ButtonWidget(
                         buttonTitle: 'Sign Up',
                         buttonBackgroundColor: Colors.transparent,
-                        buttonForegroundColor: ferryPrimaryColor,
-                        buttonSideColor: ferryPrimaryColor,
+                        buttonForegroundColor: kcPrimaryColor,
+                        buttonSideColor: kcPrimaryColor,
                         onPressed: () => Navigator.of(context)
                             .pushNamed('/CreateAccountScreen'),
                       ),
@@ -147,15 +148,15 @@ class UsernameForm extends StatelessWidget {
         hintStyle: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
         // ! White color underline when not tapped
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: ferryPrimaryColor),
+          borderSide: BorderSide(color: kcPrimaryColor),
         ),
         // ! White color underline when tapped and used
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: ferryPrimaryColor),
+          borderSide: BorderSide(color: kcPrimaryColor),
         ),
         // ! Icon beside the the form
         prefixIcon: IconTheme(
-          data: IconThemeData(color: ferryPrimaryColor),
+          data: IconThemeData(color: kcPrimaryColor),
           child: Icon(Icons.person),
         ),
       ),
@@ -181,15 +182,15 @@ class PasswordForm extends StatelessWidget {
         hintStyle: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
         // ! White color underline when not tapped
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: ferryPrimaryColor),
+          borderSide: BorderSide(color: kcPrimaryColor),
         ),
         // ! White color underline when tapped and used
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: ferryPrimaryColor),
+          borderSide: BorderSide(color: kcPrimaryColor),
         ),
         // ! Icon beside the the form
         prefixIcon: IconTheme(
-          data: IconThemeData(color: ferryPrimaryColor),
+          data: IconThemeData(color: kcPrimaryColor),
           child: Icon(Icons.lock),
         ),
       ),

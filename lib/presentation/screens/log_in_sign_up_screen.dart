@@ -1,4 +1,5 @@
 import 'package:ferry_easy/constants/constants.dart';
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/button_widget.dart';
@@ -52,7 +53,7 @@ class LogInSignUpScreen extends StatelessWidget {
                   // ! Directs to button_widget.dart
                   ButtonWidget(
                     buttonBackgroundColor: Colors.white,
-                    buttonForegroundColor: ferryPrimaryColor,
+                    buttonForegroundColor: kcPrimaryColor,
                     buttonSideColor: Colors.transparent,
                     buttonTitle: 'Log In',
                     onPressed: () => Navigator.of(context)

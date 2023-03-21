@@ -1,4 +1,5 @@
 import 'package:ferry_easy/constants/constants.dart';
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -31,14 +32,14 @@ class PassChangedSuccessfulScreen extends StatelessWidget {
                         'assets/icons/check.svg',
                         height: 72,
                         width: 52,
-                        color: ferryPrimaryColor,
+                        color: kcPrimaryColor,
                       ),
                     ),
                     const Text(
                       'Password Changed \nSuccesfully',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ferryPrimaryColor,
+                        color: kcPrimaryColor,
                         fontSize: 23,
                         fontWeight: FontWeight.bold,
                       ),

@@ -1,3 +1,4 @@
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
@@ -64,7 +65,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       //! add account validation
                       ButtonWidget(
                         buttonTitle: 'Confirm',
-                        buttonBackgroundColor: ferryPrimaryColor,
+                        buttonBackgroundColor: kcPrimaryColor,
                         buttonForegroundColor: Colors.white,
                         buttonSideColor: Colors.transparent,
                         onPressed: () =>
@@ -108,11 +109,11 @@ class PasswordForm extends StatelessWidget {
             const TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
         // ! White color underline when not tapped
         enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: ferryPrimaryColor),
+          borderSide: BorderSide(color: kcPrimaryColor),
         ),
         // ! White color underline when tapped and used
         focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: ferryPrimaryColor),
+          borderSide: BorderSide(color: kcPrimaryColor),
         ),
       ),
     );
