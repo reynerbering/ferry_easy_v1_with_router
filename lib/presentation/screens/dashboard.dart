@@ -3,8 +3,21 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../constants/constants.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,6 +174,61 @@ class Dashboard extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: true,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/home-outline.svg',
+              height: 25,
+              width: 25,
+              fit: BoxFit.scaleDown,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/wallet-outline.svg',
+              height: 25,
+              width: 25,
+              fit: BoxFit.scaleDown,
+            ),
+            label: 'Wallet',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/ticket-outline.svg',
+              height: 25,
+              width: 25,
+              fit: BoxFit.scaleDown,
+            ),
+            label: 'Buy Ticket',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/history.svg',
+              height: 25,
+              width: 25,
+              fit: BoxFit.scaleDown,
+            ),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/notifications-outline.svg',
+              height: 25,
+              width: 25,
+              fit: BoxFit.scaleDown,
+            ),
+            label: 'Settings',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: ferryPrimaryColor,
+        onTap: _onItemTapped,
+      ),
+
       // ! Floating action button for shortcut to wallet
       // todo: Add routing for wallet directory
       floatingActionButton: Padding(
@@ -209,6 +277,7 @@ class DestinationWidget extends StatelessWidget {
   final String firstLocation;
   final String secondLocation;
   final String countdownTimer;
+
   const DestinationWidget({
     Key? key,
     required this.firstLocation,
