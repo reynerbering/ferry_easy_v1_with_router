@@ -1,9 +1,9 @@
 import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
-import '../widgets/button_widget.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({super.key});
@@ -59,14 +59,11 @@ class CreateAccountScreen extends StatelessWidget {
                       const SizedBox(
                         height: 40,
                       ),
-                      ButtonWidget(
-                        buttonTitle: 'Sign Up',
-                        buttonBackgroundColor: kcPrimaryColor,
-                        buttonForegroundColor: Colors.white,
-                        buttonSideColor: Colors.transparent,
-                        onPressed: () =>
+                      FerryEasyButton(
+                        title: 'Sign Up',
+                        onTap: () =>
                             Navigator.of(context).pushNamed('/Dashboard'),
-                      ),
+                      )
                     ],
                   ),
                 ),

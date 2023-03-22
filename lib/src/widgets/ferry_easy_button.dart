@@ -33,7 +33,7 @@ class FerryEasyButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               )
             : BoxDecoration(
-                color: Colors.transparent,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
                   color: kcPrimaryColor,

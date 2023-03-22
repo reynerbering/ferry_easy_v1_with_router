@@ -1,7 +1,7 @@
 import 'package:ferry_easy/constants/constants.dart';
-import 'package:ferry_easy/presentation/widgets/button_widget.dart';
 import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeBackLoginScreen extends StatelessWidget {
@@ -69,12 +69,9 @@ class WelcomeBackLoginScreen extends StatelessWidget {
                       // ! Button Widget Login and Signup button
                       // todo: need to add on tap function for login/signup directory
                       // todo: validation for database login
-                      ButtonWidget(
-                        buttonTitle: 'Log In',
-                        buttonBackgroundColor: kcPrimaryColor,
-                        buttonForegroundColor: Colors.white,
-                        buttonSideColor: Colors.transparent,
-                        onPressed: () =>
+                      FerryEasyButton(
+                        title: 'Log In',
+                        onTap: () =>
                             Navigator.of(context).pushNamed('/Dashboard'),
                       ),
                       Row(
@@ -109,14 +106,12 @@ class WelcomeBackLoginScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      ButtonWidget(
-                        buttonTitle: 'Sign Up',
-                        buttonBackgroundColor: Colors.transparent,
-                        buttonForegroundColor: kcPrimaryColor,
-                        buttonSideColor: kcPrimaryColor,
-                        onPressed: () => Navigator.of(context)
+                      FerryEasyButton(
+                        title: 'Sign Up',
+                        outline: true,
+                        onTap: () => Navigator.of(context)
                             .pushNamed('/CreateAccountScreen'),
-                      ),
+                      )
                     ],
                   ),
                 ),

@@ -1,9 +1,8 @@
 import 'package:ferry_easy/constants/constants.dart';
 import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/button_widget.dart';
 
 class LogInSignUpScreen extends StatelessWidget {
   const LogInSignUpScreen({super.key});
@@ -49,22 +48,17 @@ class LogInSignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   // ! Directs to button_widget.dart
-                  ButtonWidget(
-                    buttonBackgroundColor: Colors.white,
-                    buttonForegroundColor: kcPrimaryColor,
-                    buttonSideColor: Colors.transparent,
-                    buttonTitle: 'Log In',
-                    onPressed: () => Navigator.of(context)
+                  FerryEasyButton(
+                    title: 'Log In',
+                    outline: true,
+                    onTap: () => Navigator.of(context)
                         .pushNamed('/WelcomeBackLoginScreen'),
                   ),
                   const SizedBox(height: 20),
                   // ! Directs to button_widget.dart
-                  ButtonWidget(
-                    buttonBackgroundColor: Colors.transparent,
-                    buttonForegroundColor: Colors.white,
-                    buttonSideColor: Colors.white,
-                    buttonTitle: 'Sign Up',
-                    onPressed: () =>
+                  FerryEasyButton(
+                    title: 'Sign Up',
+                    onTap: () =>
                         Navigator.of(context).pushNamed('/CreateAccountScreen'),
                   ),
                   const SizedBox(height: 50),
