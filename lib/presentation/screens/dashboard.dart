@@ -1,8 +1,7 @@
 import 'package:ferry_easy/src/shared/app_colors.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../constants/constants.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -52,13 +51,9 @@ class _DashboardState extends State<Dashboard> {
       body: Stack(
         children: [
           // ! Background image container
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/ferryboat.jpg'),
-                  opacity: 0.2,
-                  fit: BoxFit.cover),
-            ),
+          const BackgroundWidget(
+            assetImage: AssetImage('assets/images/ferryboat.jpg'),
+            opacity: 0.2,
           ),
           // ! Column for all the widgets arranged at start
           Column(

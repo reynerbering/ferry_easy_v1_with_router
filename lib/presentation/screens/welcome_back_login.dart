@@ -1,6 +1,7 @@
 import 'package:ferry_easy/constants/constants.dart';
 import 'package:ferry_easy/presentation/widgets/button_widget.dart';
 import 'package:ferry_easy/src/shared/app_colors.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeBackLoginScreen extends StatelessWidget {
@@ -8,14 +9,11 @@ class WelcomeBackLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // ! Background image holder + transparent color on scaffold to show the bg image
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/images/login-welcome.png'),
-            fit: BoxFit.cover),
+    return BackgroundWidget(
+      assetImage: const AssetImage(
+        ('assets/images/login-welcome.png'),
       ),
-      child: Scaffold(
+      bgChild: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [

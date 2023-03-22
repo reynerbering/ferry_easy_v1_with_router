@@ -1,5 +1,4 @@
 import 'package:ferry_easy/presentation/screens/forgot_password_screen.dart';
-import 'package:ferry_easy/presentation/screens/splash_screen.dart';
 import 'package:ferry_easy/presentation/screens/welcome_back_login.dart';
 import 'package:flutter/material.dart';
 

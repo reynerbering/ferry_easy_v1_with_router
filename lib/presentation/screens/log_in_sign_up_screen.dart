@@ -1,5 +1,6 @@
 import 'package:ferry_easy/constants/constants.dart';
 import 'package:ferry_easy/src/shared/app_colors.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/button_widget.dart';
@@ -14,13 +15,10 @@ class LogInSignUpScreen extends StatelessWidget {
         children: [
           // ! Background image perting hasola from Box Decoration
           // ! Background image technique is to wrap arn box deco and boxfit.cover
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/login.png'),
-                  fit: BoxFit.cover),
-            ),
+          const BackgroundWidget(
+            assetImage: AssetImage('assets/images/login.png'),
           ),
+
           // ! Background image container above
 
           // ! Centered padding with 25px
@@ -35,21 +33,21 @@ class LogInSignUpScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
+                  const Text(
                     'Escape The Line',
                     style: defaultHeadingBold,
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Get your tickets in advance.',
                     style: TextStyle(color: Colors.white),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     'Avoid standing in line to purchase a ticket.',
                     style: TextStyle(color: Colors.white),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   // ! Directs to button_widget.dart
                   ButtonWidget(
                     buttonBackgroundColor: Colors.white,
@@ -59,7 +57,7 @@ class LogInSignUpScreen extends StatelessWidget {
                     onPressed: () => Navigator.of(context)
                         .pushNamed('/WelcomeBackLoginScreen'),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // ! Directs to button_widget.dart
                   ButtonWidget(
                     buttonBackgroundColor: Colors.transparent,
@@ -69,7 +67,7 @@ class LogInSignUpScreen extends StatelessWidget {
                     onPressed: () =>
                         Navigator.of(context).pushNamed('/CreateAccountScreen'),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                 ],
               ),
             ),

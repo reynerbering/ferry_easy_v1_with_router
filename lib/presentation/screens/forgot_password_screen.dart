@@ -1,4 +1,5 @@
 import 'package:ferry_easy/src/shared/app_colors.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
@@ -9,14 +10,11 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // ! Background image holder + transparent color on scaffold to show the bg image
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/images/forgot-password.png'),
-            fit: BoxFit.cover),
+    return BackgroundWidget(
+      assetImage: const AssetImage(
+        ('assets/images/forgot-password.png'),
       ),
-      child: Scaffold(
+      bgChild: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
