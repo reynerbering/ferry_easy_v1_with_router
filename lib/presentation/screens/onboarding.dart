@@ -1,18 +1,15 @@
 import 'package:ferry_easy/constants/constants.dart';
-import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
-import 'package:flutter/material.dart';
 
-class LogInSignUpScreen extends StatelessWidget {
-  const LogInSignUpScreen({super.key});
+class Onboarding extends StatelessWidget {
+  const Onboarding({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // ! Background image perting hasola from Box Decoration
           // ! Background image technique is to wrap arn box deco and boxfit.cover
           const BackgroundWidget(
             assetImage: AssetImage('assets/images/login.png'),

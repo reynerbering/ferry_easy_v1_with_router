@@ -2,10 +2,9 @@ import 'package:ferry_easy/constants/constants.dart';
 import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
-import 'package:flutter/material.dart';
 
-class WelcomeBackLoginScreen extends StatelessWidget {
-  const WelcomeBackLoginScreen({super.key});
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
