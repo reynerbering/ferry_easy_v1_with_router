@@ -1,4 +1,3 @@
-import 'package:ferry_easy/constants/constants.dart';
 import 'package:ferry_easy/presentation/routes/route.dart';
 import 'package:flutter/material.dart';
 
@@ -16,15 +15,34 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FerryEasy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: TextButton.styleFrom(
-            padding: const EdgeInsets.all(defaultPadding),
-          ),
-        ),
+        brightness: Brightness.light,
+        primaryColor: Colors.white,
+        fontFamily: 'Inter',
+        // textTheme: const TextTheme(
+        //   displayLarge: TextStyle(
+        //     fontSize: 24,
+        //     fontWeight: FontWeight.bold,
+        //     fontFamily: 'Inter',
+        //   ),
+        //   displayMedium: TextStyle(
+        //     fontSize: 18,
+        //     fontWeight: FontWeight.bold,
+        //     fontFamily: 'Inter',
+        //   ),
+        //   bodyLarge: TextStyle(
+        //     fontSize: 16,
+        //     fontWeight: FontWeight.normal,
+        //     fontFamily: 'Inter',
+        //   ),
+        //   bodyMedium: TextStyle(
+        //     fontSize: 14,
+        //     fontWeight: FontWeight.normal,
+        //     fontFamily: 'Inter',
+        //   ),
+        // ),
       ),
       onGenerateRoute: appRouter.onGenerateRoute,
     );

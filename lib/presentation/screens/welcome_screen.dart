@@ -1,5 +1,6 @@
 import 'package:ferry_easy/constants/constants.dart';
 import 'package:ferry_easy/src/shared/app_colors.dart';
+import 'package:ferry_easy/src/shared/ui_helpers.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
 
@@ -36,23 +37,16 @@ class WelcomeScreen extends StatelessWidget {
                           style: defaultHeadingBold,
                         ),
                       ),
-
-                      // ! Username Text Field Form
                       const UsernameForm(),
                       const SizedBox(
                         height: 20,
                       ),
-                      // ! Password Text Field Form
-
                       const PasswordForm(),
-                      const SizedBox(height: 20),
-                      // ! Forgot Password area
+                      verticalSpaceRegular,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           InkWell(
-                            // ! Added Inkwell onTap function for forgot password
-                            // todo: add navigating screen for forgot password
                             onTap: () => Navigator.of(context)
                                 .pushNamed('/ForgotPasswordScreen'),
                             child: const Text(
@@ -64,10 +58,7 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      // ! Button Widget Login and Signup button
-                      // todo: need to add on tap function for login/signup directory
-                      // todo: validation for database login
+                      verticalSpaceRegular,
                       FerryEasyButton(
                         title: 'Log In',
                         onTap: () =>
@@ -122,9 +113,6 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
-
-// ! Usename Text widget and Password Text Widget modifiables
-// todo : validators and firebase
 
 class UsernameForm extends StatelessWidget {
   const UsernameForm({
