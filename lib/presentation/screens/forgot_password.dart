@@ -1,5 +1,5 @@
 import 'package:ferry_easy/src/shared/app_colors.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
 
 import '../../constants/constants.dart';

@@ -22,3 +22,15 @@ double screenHeightPercentage(BuildContext context, {double percentage = 1}) =>
 
 double screenWidthPercentage(BuildContext context, {double percentage = 1}) =>
     screenWidth(context) * percentage;
+
+Size displaySize(BuildContext context) {
+  return MediaQuery.of(context).size;
+}
+
+double displayHeight(BuildContext context) {
+  return displaySize(context).height;
+}
+
+double displayWidth(BuildContext context) {
+  return displaySize(context).width;
+}

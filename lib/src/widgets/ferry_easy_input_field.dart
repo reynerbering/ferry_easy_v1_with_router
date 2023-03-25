@@ -1,3 +1,4 @@
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
 export 'package:flutter/material.dart';
@@ -25,16 +26,30 @@ class FerryEasyInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      style: const TextStyle(height: 1),
       obscureText: password,
+      style: const TextStyle(
+        height: 1,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+      ),
       decoration: InputDecoration(
         hintText: placeholder,
+        hintStyle: const TextStyle(
+          color: kcMediumGrayColor,
+          fontWeight: FontWeight.normal,
+        ),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 15,
           horizontal: 20,
         ),
-        prefix: leading,
-        suffix: trailing != null
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: kcPrimaryColor),
+        ),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: kcPrimaryColor),
+        ),
+        prefixIcon: leading,
+        suffixIcon: trailing != null
             ? GestureDetector(
                 onTap: trailingTapped,
                 child: trailing,

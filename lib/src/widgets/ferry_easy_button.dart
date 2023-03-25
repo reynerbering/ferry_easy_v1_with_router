@@ -24,9 +24,13 @@ class FerryEasyButton extends StatelessWidget {
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        width: double.infinity,
-        height: 50,
         alignment: Alignment.center,
+        constraints: const BoxConstraints(
+          minWidth: 50.0,
+          maxWidth: double.infinity,
+          minHeight: 25.0,
+          maxHeight: 50.0,
+        ),
         decoration: !outline
             ? BoxDecoration(
                 color: !disabled ? kcPrimaryColor : kcMediumGrayColor,

@@ -1,5 +1,5 @@
 import 'package:ferry_easy/src/shared/ui_helpers.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_background_image_reusable.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_text.dart';
 
