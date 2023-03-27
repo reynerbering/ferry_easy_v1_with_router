@@ -15,7 +15,6 @@ class BackgroundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // ! Background image holder + transparent color on scaffold to show the bg image
       decoration: BoxDecoration(
         image: DecorationImage(
           image: assetImage,

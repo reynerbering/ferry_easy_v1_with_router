@@ -11,27 +11,27 @@ class AppRouter {
     switch (routeSettings.name) {
       case '/WelcomeBackLoginScreen':
         return MaterialPageRoute(
-          builder: (context) => WelcomeScreen(),
+          builder: (context) => const WelcomeScreen(),
         );
       case '/LoginSignUpScreen':
         return MaterialPageRoute(
-          builder: (context) => Onboarding(),
+          builder: (context) => const Onboarding(),
         );
       case '/CreateAccountScreen':
         return MaterialPageRoute(
-          builder: (context) => CreateAccount(),
+          builder: (context) => const CreateAccount(),
         );
       case '/Dashboard':
         return MaterialPageRoute(
-          builder: (context) => Dashboard(),
+          builder: (context) => const Dashboard(),
         );
       case '/ForgotPasswordScreen':
         return MaterialPageRoute(
-          builder: (context) => ForgotPassword(),
+          builder: (context) => const ForgotPassword(),
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => Onboarding(),
+          builder: (context) => const Onboarding(),
         );
     }
   }

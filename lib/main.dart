@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.white,
+        textTheme: Typography.whiteCupertino,
         fontFamily: 'Inter',
         // textTheme: const TextTheme(
         //   displayLarge: TextStyle(
