@@ -21,220 +21,223 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // ! FerryEasy appbar, centered logo and name, menu on the right size and back on the left side, action property always on the right
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Image(
-              image: AssetImage('assets/images/ferryeasy-logo-03.png'),
-              height: 50,
-              width: 50,
-            ),
-            Text(
-              "FerryEasy",
-              style: TextStyle(color: kcPrimaryColor),
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-            color: kcPrimaryColor,
-          ),
-        ],
-      ),
-      // ! Stack body for image container and arrangement
-      body: Stack(
-        children: [
-          // ! Background image container
-          const BackgroundWidget(
-            assetImage: AssetImage('assets/images/ferryboat.jpg'),
-            opacity: 0.2,
-          ),
-          // ! Column for all the widgets arranged at start
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // ! Goodmorning/evening container and padding with specific horizontal width and height
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 40, 0, 40),
-                decoration: const BoxDecoration(
-                  color: kcPrimaryColor,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(50.0),
-                    topRight: Radius.circular(50.0),
-                  ),
-                ),
-                height: 65,
-                width: 300,
-                // ! Greetings dialog with icon on the right side
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // ! Text Widget for username
-                    // todo: Parse username to text e.g. {$username}
-                    const Text(
-                      'Good Morning, SUSSY!',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    // ! Svg picture with padding
-                    // todo: Parse icon to day/night e.g. if AM = Sun : PM = Moon
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SvgPicture.asset(
-                        'assets/icons/sun.svg',
-                        height: 40,
-                        width: 40,
-                      ),
-                    ),
-                  ],
-                ),
+    return BackgroundWidget(
+      opacity: 0.2,
+      assetImage: const AssetImage('assets/images/ferryboat.jpg'),
+      bgChild: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Image(
+                image: AssetImage('assets/images/ferryeasy-logo-03.png'),
+                height: 50,
+                width: 50,
               ),
-              // ! Added Padding to column for spacing outside the area of the card
-              Padding(
-                padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                // ! added column to put all widgets at the left side (crossAxisAlignment.start)
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // ! Active Ferries Title
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 10.0),
-                      child: Text(
-                        'Active Ferries',
-                        style: TextStyle(
-                          color: kcPrimaryColor,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    // ! Card with circular border
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      // ! Card width size wrapped inside a sized box
-                      child: SizedBox(
-                        width: double.infinity,
-                        // ! Added padding for spacing for all the widgets inside the card
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          // ! Column for arrangement of all widgets inside the card
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              ShipNameWidget(
-                                shipName: 'MV Carmen Uno',
-                              ),
-                              DestinationWidget(
-                                firstLocation: 'From: Cebu City',
-                                secondLocation: 'To: Lapu-lapu City',
-                                countdownTimer: '0:30:29',
-                              ),
-                              EtaWidget(
-                                estTimeArrival: '10:45:00',
-                              ),
-                              Divider(
-                                color: kcPrimaryColor,
-                                height: 50,
-                              ),
-                              ShipNameWidget(
-                                shipName: 'MV Princesa',
-                              ),
-                              DestinationWidget(
-                                firstLocation: 'From: Lapu-lapu City',
-                                secondLocation: 'To: Cebu City',
-                                countdownTimer: '0:45:21',
-                              ),
-                              EtaWidget(
-                                estTimeArrival: '10:50:00',
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              Text(
+                "FerryEasy",
+                style: TextStyle(color: kcPrimaryColor),
               ),
             ],
           ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        showUnselectedLabels: true,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/home-outline.svg',
-              height: 25,
-              width: 25,
-              fit: BoxFit.scaleDown,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.menu),
+              color: kcPrimaryColor,
             ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/wallet-outline.svg',
-              height: 25,
-              width: 25,
-              fit: BoxFit.scaleDown,
+          ],
+        ),
+        // ! Stack body for image container and arrangement
+        body: Stack(
+          children: [
+            // ! Background image container
+            const BackgroundWidget(
+              assetImage: AssetImage('assets/images/ferryboat.jpg'),
+              opacity: 0.2,
             ),
-            label: 'Wallet',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/ticket-outline.svg',
-              height: 25,
-              width: 25,
-              fit: BoxFit.scaleDown,
+            // ! Column for all the widgets arranged at start
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ! Goodmorning/evening container and padding with specific horizontal width and height
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 40, 0, 40),
+                  decoration: const BoxDecoration(
+                    color: kcPrimaryColor,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(50.0),
+                      topRight: Radius.circular(50.0),
+                    ),
+                  ),
+                  height: 65,
+                  width: 300,
+                  // ! Greetings dialog with icon on the right side
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // ! Text Widget for username
+                      // todo: Parse username to text e.g. {$username}
+                      const Text(
+                        'Good Morning, SUSSY!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      // ! Svg picture with padding
+                      // todo: Parse icon to day/night e.g. if AM = Sun : PM = Moon
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SvgPicture.asset(
+                          'assets/icons/sun.svg',
+                          height: 40,
+                          width: 40,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // ! Added Padding to column for spacing outside the area of the card
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
+                  // ! added column to put all widgets at the left side (crossAxisAlignment.start)
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // ! Active Ferries Title
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 10.0),
+                        child: Text(
+                          'Active Ferries',
+                          style: TextStyle(
+                            color: kcPrimaryColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      // ! Card with circular border
+                      Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        // ! Card width size wrapped inside a sized box
+                        child: SizedBox(
+                          width: double.infinity,
+                          // ! Added padding for spacing for all the widgets inside the card
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            // ! Column for arrangement of all widgets inside the card
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                ShipNameWidget(
+                                  shipName: 'MV Carmen Uno',
+                                ),
+                                DestinationWidget(
+                                  firstLocation: 'From: Cebu City',
+                                  secondLocation: 'To: Lapu-lapu City',
+                                  countdownTimer: '0:30:29',
+                                ),
+                                EtaWidget(
+                                  estTimeArrival: '10:45:00',
+                                ),
+                                Divider(
+                                  color: kcPrimaryColor,
+                                  height: 50,
+                                ),
+                                ShipNameWidget(
+                                  shipName: 'MV Princesa',
+                                ),
+                                DestinationWidget(
+                                  firstLocation: 'From: Lapu-lapu City',
+                                  secondLocation: 'To: Cebu City',
+                                  countdownTimer: '0:45:21',
+                                ),
+                                EtaWidget(
+                                  estTimeArrival: '10:50:00',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            label: 'Buy Ticket',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/history.svg',
-              height: 25,
-              width: 25,
-              fit: BoxFit.scaleDown,
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          showUnselectedLabels: true,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/home-outline.svg',
+                height: 25,
+                width: 25,
+                fit: BoxFit.scaleDown,
+              ),
+              label: 'Home',
             ),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/notifications-outline.svg',
-              height: 25,
-              width: 25,
-              fit: BoxFit.scaleDown,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/wallet-outline.svg',
+                height: 25,
+                width: 25,
+                fit: BoxFit.scaleDown,
+              ),
+              label: 'Wallet',
             ),
-            label: 'Settings',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: kcPrimaryColor,
-        onTap: _onItemTapped,
-      ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/ticket-outline.svg',
+                height: 25,
+                width: 25,
+                fit: BoxFit.scaleDown,
+              ),
+              label: 'Buy Ticket',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/history.svg',
+                height: 25,
+                width: 25,
+                fit: BoxFit.scaleDown,
+              ),
+              label: 'History',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/notifications-outline.svg',
+                height: 25,
+                width: 25,
+                fit: BoxFit.scaleDown,
+              ),
+              label: 'Settings',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: kcPrimaryColor,
+          onTap: _onItemTapped,
+        ),
 
-      // ! Floating action button for shortcut to wallet
-      // todo: Add routing for wallet directory
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: FloatingActionButton(
-          backgroundColor: kcPrimaryColor,
-          splashColor: Colors.white,
-          tooltip: 'My Wallet',
-          onPressed: () {},
-          child: const Icon(Icons.wallet),
+        // ! Floating action button for shortcut to wallet
+        // todo: Add routing for wallet directory
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: FloatingActionButton(
+            backgroundColor: kcPrimaryColor,
+            splashColor: Colors.white,
+            tooltip: 'My Wallet',
+            onPressed: () {},
+            child: const Icon(Icons.wallet),
+          ),
         ),
       ),
     );

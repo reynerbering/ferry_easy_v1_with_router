@@ -1,3 +1,4 @@
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DividerOrWidget extends StatelessWidget {
@@ -22,7 +23,10 @@ class DividerOrWidget extends StatelessWidget {
         ),
         const Text(
           'or',
-          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w600),
+          style: TextStyle(
+            color: kcMediumGrayColor,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         Expanded(
           child: Container(

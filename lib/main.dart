@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         textTheme: Typography.whiteCupertino,
         fontFamily: 'Inter',
+        scaffoldBackgroundColor: Colors.transparent,
         // textTheme: const TextTheme(
         //   displayLarge: TextStyle(
         //     fontSize: 24,
