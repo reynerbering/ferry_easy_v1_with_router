@@ -10,7 +10,7 @@ class CreateAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return FEBackgroundWidget(
       assetImage: const AssetImage(
         ('assets/images/create-account.png'),
       ),
@@ -28,49 +28,49 @@ class CreateAccount extends StatelessWidget {
                   verticalSpaceLarge,
                   verticalSpaceLarge,
                   verticalSpaceLarge,
-                  const FerryEasyText.onBoardingHead('Create Account'),
+                  const FEText.onBoardingHead('Create Account'),
                   verticalSpaceLarge,
                   verticalSpaceLarge,
                   verticalSpaceLarge,
                   verticalSpaceLarge,
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'First Name'),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Last Name'),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Email'),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Username'),
-                  FerryEasyInputField(
+                  FEInputField(
                     controller: TextEditingController(),
                     placeholder: 'Password',
                     password: true,
                   ),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Street'),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(), placeholder: 'City'),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Province'),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Contact No.'),
-                  FerryEasyInputField(
+                  FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Date of Birth'),
                   verticalSpaceLarge,
-                  FerryEasyButton(
+                  FEButton(
                     title: 'Sign Up',
                     onTap: () => showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return FerryEasyAlertBox(
+                        return FEAlertBox(
                           message: 'Registered \n Sucessfully!',
                           onTap: () =>
                               Navigator.popAndPushNamed(context, '/Dashboard'),
