@@ -1,3 +1,4 @@
+import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
 // Text styles
@@ -20,24 +21,29 @@ const TextStyle dashTextTitle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 const TextStyle dashFerryName = TextStyle(
-  fontSize: 16,
+  fontSize: 20,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle dashDestination = TextStyle(
   fontSize: 13,
   fontWeight: FontWeight.w400,
+  color: kcPrimaryColor,
 );
 const TextStyle dashEta = TextStyle(
   fontSize: 11,
   fontWeight: FontWeight.w400,
+  color: kcPrimaryColor,
 );
 const TextStyle dashEtaTime = TextStyle(
   fontSize: 11,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle dashCdTimer = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 
 // Side Bar
