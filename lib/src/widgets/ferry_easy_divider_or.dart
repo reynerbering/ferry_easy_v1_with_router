@@ -1,8 +1,8 @@
 import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class DividerOrWidget extends StatelessWidget {
-  const DividerOrWidget({
+class FEDividerOrWidget extends StatelessWidget {
+  const FEDividerOrWidget({
     super.key,
   });
 

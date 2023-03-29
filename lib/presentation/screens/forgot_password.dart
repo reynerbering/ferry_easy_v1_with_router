@@ -9,7 +9,7 @@ class ForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return FEBackgroundWidget(
       assetImage: const AssetImage(
         ('assets/images/forgot-password.png'),
       ),
@@ -26,27 +26,27 @@ class ForgotPassword extends StatelessWidget {
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
-                const FerryEasyText.onBoardingHead('Forgot Password'),
+                const FEText.onBoardingHead('Forgot Password'),
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
-                FerryEasyInputField(
+                FEInputField(
                     controller: TextEditingController(),
                     password: true,
                     placeholder: 'Current Password'),
                 verticalSpaceMedium,
-                FerryEasyInputField(
+                FEInputField(
                     controller: TextEditingController(),
                     password: true,
                     placeholder: 'New Password'),
                 verticalSpaceMedium,
-                FerryEasyInputField(
+                FEInputField(
                     controller: TextEditingController(),
                     password: true,
                     placeholder: 'Confirm New Password'),
                 verticalSpaceLarge,
-                FerryEasyButton(
+                FEButton(
                   title: 'Dashboard',
                   onTap: () => Navigator.of(context).pushNamed('/Dashboard'),
                 )

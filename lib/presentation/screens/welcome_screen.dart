@@ -11,7 +11,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return FEBackgroundWidget(
       assetImage: const AssetImage('assets/images/login-welcome.png'),
       bgChild: Scaffold(
         body: Padding(
@@ -24,12 +24,12 @@ class WelcomeScreen extends StatelessWidget {
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
-                const FerryEasyText.onBoardingHead('Welcome Back'),
+                const FEText.onBoardingHead('Welcome Back'),
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
-                FerryEasyInputField(
+                FEInputField(
                   controller: TextEditingController(),
                   placeholder: 'Username',
                   leading: const Icon(
@@ -38,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 verticalSpaceRegular,
-                FerryEasyInputField(
+                FEInputField(
                   controller: TextEditingController(),
                   placeholder: 'Password',
                   password: true,
@@ -62,12 +62,12 @@ class WelcomeScreen extends StatelessWidget {
                   ],
                 ),
                 verticalSpaceRegular,
-                FerryEasyButton(
+                FEButton(
                   title: 'Log In',
                   onTap: () => Navigator.of(context).pushNamed('/Dashboard'),
                 ),
-                const DividerOrWidget(),
-                FerryEasyButton(
+                const FEDividerOrWidget(),
+                FEButton(
                   title: 'Sign Up',
                   outline: true,
                   onTap: () =>

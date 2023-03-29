@@ -1,7 +1,11 @@
 import 'package:ferry_easy/src/shared/app_colors.dart';
+import 'package:ferry_easy/src/shared/ui_helpers.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image.dart';
-import 'package:flutter/material.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_greeting_banner.dart';
+import 'package:ferry_easy/src/widgets/ferry_easy_text.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../src/widgets/ferry_easy_app_bar.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -21,154 +25,60 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
-      opacity: 0.2,
+    return FEBackgroundWidget(
+      opacity: 0.5,
       assetImage: const AssetImage('assets/images/ferryboat.jpg'),
       bgChild: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Image(
-                image: AssetImage('assets/images/ferryeasy-logo-03.png'),
-                height: 50,
-                width: 50,
-              ),
-              Text(
-                "FerryEasy",
-                style: TextStyle(color: kcPrimaryColor),
-              ),
-            ],
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          child: FEAppBar(
+            title: 'FerryEasy',
+            logo: 'assets/images/ferryeasy-logo-03.png',
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-              color: kcPrimaryColor,
-            ),
-          ],
         ),
-        // ! Stack body for image container and arrangement
-        body: Stack(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ! Background image container
-            const BackgroundWidget(
-              assetImage: AssetImage('assets/images/ferryboat.jpg'),
-              opacity: 0.2,
-            ),
-            // ! Column for all the widgets arranged at start
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // ! Goodmorning/evening container and padding with specific horizontal width and height
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 40, 0, 40),
-                  decoration: const BoxDecoration(
+            verticalSpaceMedium,
+            const FEGreetingBanner(name: 'Suzy'),
+            verticalSpaceMedium,
+            const FEText.dashTextTitle('Active Ferries'),
+            verticalSpaceMedium,
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  ShipNameWidget(
+                    shipName: 'MV Carmen Uno',
+                  ),
+                  DestinationWidget(
+                    firstLocation: 'From: Cebu City',
+                    secondLocation: 'To: Lapu-lapu City',
+                    countdownTimer: '0:30:29',
+                  ),
+                  EtaWidget(
+                    estTimeArrival: '10:45:00',
+                  ),
+                  Divider(
                     color: kcPrimaryColor,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(50.0),
-                      topRight: Radius.circular(50.0),
-                    ),
+                    height: 50,
                   ),
-                  height: 65,
-                  width: 300,
-                  // ! Greetings dialog with icon on the right side
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // ! Text Widget for username
-                      // todo: Parse username to text e.g. {$username}
-                      const Text(
-                        'Good Morning, SUSSY!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      // ! Svg picture with padding
-                      // todo: Parse icon to day/night e.g. if AM = Sun : PM = Moon
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.asset(
-                          'assets/icons/sun.svg',
-                          height: 40,
-                          width: 40,
-                        ),
-                      ),
-                    ],
+                  ShipNameWidget(
+                    shipName: 'MV Princesa',
                   ),
-                ),
-                // ! Added Padding to column for spacing outside the area of the card
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                  // ! added column to put all widgets at the left side (crossAxisAlignment.start)
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // ! Active Ferries Title
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 10.0),
-                        child: Text(
-                          'Active Ferries',
-                          style: TextStyle(
-                            color: kcPrimaryColor,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                      // ! Card with circular border
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        // ! Card width size wrapped inside a sized box
-                        child: SizedBox(
-                          width: double.infinity,
-                          // ! Added padding for spacing for all the widgets inside the card
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            // ! Column for arrangement of all widgets inside the card
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                ShipNameWidget(
-                                  shipName: 'MV Carmen Uno',
-                                ),
-                                DestinationWidget(
-                                  firstLocation: 'From: Cebu City',
-                                  secondLocation: 'To: Lapu-lapu City',
-                                  countdownTimer: '0:30:29',
-                                ),
-                                EtaWidget(
-                                  estTimeArrival: '10:45:00',
-                                ),
-                                Divider(
-                                  color: kcPrimaryColor,
-                                  height: 50,
-                                ),
-                                ShipNameWidget(
-                                  shipName: 'MV Princesa',
-                                ),
-                                DestinationWidget(
-                                  firstLocation: 'From: Lapu-lapu City',
-                                  secondLocation: 'To: Cebu City',
-                                  countdownTimer: '0:45:21',
-                                ),
-                                EtaWidget(
-                                  estTimeArrival: '10:50:00',
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  DestinationWidget(
+                    firstLocation: 'From: Lapu-lapu City',
+                    secondLocation: 'To: Cebu City',
+                    countdownTimer: '0:45:21',
                   ),
-                ),
-              ],
+                  EtaWidget(
+                    estTimeArrival: '10:50:00',
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -226,9 +136,6 @@ class _DashboardState extends State<Dashboard> {
           selectedItemColor: kcPrimaryColor,
           onTap: _onItemTapped,
         ),
-
-        // ! Floating action button for shortcut to wallet
-        // todo: Add routing for wallet directory
         floatingActionButton: Padding(
           padding: const EdgeInsets.all(15.0),
           child: FloatingActionButton(
@@ -312,7 +219,6 @@ class DestinationWidget extends StatelessWidget {
             ),
           ],
         ),
-        // ! Time widget countdown timer
         Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,

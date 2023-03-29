@@ -2,17 +2,19 @@ import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
 import 'dart:ui';
 
-class FerryEasyAlertBox extends StatelessWidget {
+class FEAlertBox extends StatelessWidget {
   final String message;
   final String content;
   final void Function()? onTap;
 
-  const FerryEasyAlertBox({
+  const FEAlertBox({
     super.key,
     required this.message,
     this.content = '',
     this.onTap,
   });
+
+  // ! Need refactoring
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class FerryEasyAlertBox extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: onTap,
-            child: const FerryEasyButton(title: 'OK'),
+            child: const FEButton(title: 'OK'),
           ),
         ],
       ),

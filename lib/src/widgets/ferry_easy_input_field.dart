@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 export 'package:flutter/material.dart';
 export 'ferry_easy_input_field.dart';
 
-class FerryEasyInputField extends StatelessWidget {
+class FEInputField extends StatelessWidget {
   final TextEditingController controller;
   final String placeholder;
   final Widget? leading;
@@ -12,7 +12,7 @@ class FerryEasyInputField extends StatelessWidget {
   final void Function()? trailingTapped;
   final bool password;
 
-  const FerryEasyInputField({
+  const FEInputField({
     super.key,
     required this.controller,
     this.placeholder = '',

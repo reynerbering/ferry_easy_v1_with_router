@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 export 'package:flutter/material.dart';
 export 'ferry_easy_button.dart';
 
-class FerryEasyButton extends StatelessWidget {
+class FEButton extends StatelessWidget {
   final String title;
   final bool disabled;
   final bool outline;
   final void Function()? onTap;
-  const FerryEasyButton({
+  const FEButton({
     super.key,
     required this.title,
     this.disabled = false,

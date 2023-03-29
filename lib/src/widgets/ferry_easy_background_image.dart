@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BackgroundWidget extends StatelessWidget {
+class FEBackgroundWidget extends StatelessWidget {
   final AssetImage assetImage;
   final Widget? bgChild;
   final double? opacity;
 
-  const BackgroundWidget({
+  const FEBackgroundWidget({
     super.key,
     required this.assetImage,
     this.bgChild,
