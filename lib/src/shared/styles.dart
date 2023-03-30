@@ -21,7 +21,7 @@ const TextStyle dashTextTitle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 const TextStyle dashFerryName = TextStyle(
-  fontSize: 20,
+  fontSize: 16,
   fontWeight: FontWeight.w700,
   color: kcPrimaryColor,
 );
