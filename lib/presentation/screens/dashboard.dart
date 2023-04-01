@@ -1,3 +1,6 @@
+import 'package:ferry_easy/presentation/screens/history.dart';
+import 'package:ferry_easy/presentation/screens/settings.dart';
+import 'package:ferry_easy/presentation/screens/wallet.dart';
 import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/shared/ui_helpers.dart';
 import 'package:ferry_easy/src/widgets/ferry_easy_background_image.dart';
@@ -8,6 +11,7 @@ import 'package:ferry_easy/src/widgets/ferry_easy_text.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../src/widgets/ferry_easy_app_bar.dart';
+import 'home.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -18,6 +22,48 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _selectedIndex = 0;
+  final screens = [
+    Home(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: FEAppBar(
+          title: 'Ticket History',
+        ),
+      ),
+    ),
+    Wallet(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: FEAppBar(
+          title: 'Ticket History',
+        ),
+      ),
+    ),
+    Wallet(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: FEAppBar(
+          title: 'Ticket History',
+        ),
+      ),
+    ),
+    History(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: FEAppBar(
+          title: 'Ticket History',
+        ),
+      ),
+    ),
+    Settings(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: FEAppBar(
+          title: 'Ticket History',
+        ),
+      ),
+    ),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -28,9 +74,10 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
-      opacity: 0.5,
+      opacity: 0.1,
       assetImage: const AssetImage('assets/images/ferryboat.jpg'),
       bgChild: Scaffold(
+        extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
@@ -74,7 +121,11 @@ class _DashboardState extends State<Dashboard> {
                     ),
                     FEDivider(),
                     FEShipDetails(
-                      shipName: 'Tommy 2',
+                      shipName: 'Tommy 1',
+                    ),
+                    FEDivider(),
+                    FEShipDetails(
+                      shipName: 'Tommy 1',
                     ),
                   ],
                 ),
@@ -84,31 +135,38 @@ class _DashboardState extends State<Dashboard> {
         ),
         bottomNavigationBar: BottomAppBar(
           elevation: 0,
-          clipBehavior: Clip.antiAlias,
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             showUnselectedLabels: true,
             currentIndex: _selectedIndex,
             selectedItemColor: kcPrimaryColor,
             onTap: _onItemTapped,
+            selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
+            unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
+                label: 'Home',
                 icon: SvgPicture.asset(
                   'assets/icons/home-outline.svg',
                   height: 25,
                   width: 25,
                   fit: BoxFit.scaleDown,
+                  colorFilter: _selectedIndex == 0
+                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
+                      : null,
                 ),
-                label: 'Home',
               ),
               BottomNavigationBarItem(
+                label: 'Wallet',
                 icon: SvgPicture.asset(
                   'assets/icons/wallet-filled.svg',
                   height: 25,
                   width: 25,
                   fit: BoxFit.scaleDown,
+                  colorFilter: _selectedIndex == 1
+                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
+                      : null,
                 ),
-                label: 'Wallet',
               ),
               const BottomNavigationBarItem(
                 icon: Icon(Icons.add, color: Colors.transparent),
@@ -120,6 +178,9 @@ class _DashboardState extends State<Dashboard> {
                   height: 25,
                   width: 25,
                   fit: BoxFit.scaleDown,
+                  colorFilter: _selectedIndex == 3
+                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
+                      : null,
                 ),
                 label: 'History',
               ),
@@ -129,6 +190,9 @@ class _DashboardState extends State<Dashboard> {
                   height: 25,
                   width: 25,
                   fit: BoxFit.scaleDown,
+                  colorFilter: _selectedIndex == 4
+                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
+                      : null,
                 ),
                 label: 'Settings',
               ),

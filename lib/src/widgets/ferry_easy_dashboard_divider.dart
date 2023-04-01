@@ -1,6 +1,7 @@
 import 'package:ferry_easy/src/shared/app_colors.dart';
 import 'package:ferry_easy/src/shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class FECustomFAB extends StatelessWidget {
   final void Function()? onTap;
@@ -17,13 +18,11 @@ class FECustomFAB extends StatelessWidget {
         shape: const CircleBorder(),
         elevation: 0.0,
         onPressed: onTap,
-        child: const SizedBox.expand(
-          child: SizedBox(
-            child: Icon(
-              Icons.wallet,
-              color: Colors.white,
-            ),
-          ),
+        child: SvgPicture.asset(
+          'assets/icons/ticket-outline.svg',
+          height: displayWidth(context) * 0.12,
+          width: displayWidth(context) * 0.12,
+          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
         ),
       ),
     );

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "745823349273",
+    "project_id": "ferryeasy-14311",
+    "storage_bucket": "ferryeasy-14311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745823349273:android:632e7aa1df73bb4d0d1888",
+        "android_client_info": {
+          "package_name": "com.example.ferry_easy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745823349273-3vpm5t9jdsci8liugs5r7qcru05tacir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNfURQmXc0Bx9Pv9-HSkNtvM8B5O6o51Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745823349273-3vpm5t9jdsci8liugs5r7qcru05tacir.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "745823349273-ohvtuv873tlqrljj4dv7ksei93ve1aic.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ferryEasy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
