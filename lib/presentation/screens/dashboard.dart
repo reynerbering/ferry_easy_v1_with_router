@@ -1,16 +1,16 @@
 import 'package:ferry_easy/presentation/screens/history.dart';
 import 'package:ferry_easy/presentation/screens/settings.dart';
 import 'package:ferry_easy/presentation/screens/wallet.dart';
-import 'package:ferry_easy/src/shared/app_colors.dart';
-import 'package:ferry_easy/src/shared/ui_helpers.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_dashboard_divider.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_greeting_banner.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_ship_details.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/source/shared/app_colors.dart';
+import 'package:ferry_easy/source/shared/ui_helpers.dart';
+import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
+import 'package:ferry_easy/source/widgets/ferry_easy_dashboard_divider.dart';
+import 'package:ferry_easy/source/widgets/ferry_easy_greeting_banner.dart';
+import 'package:ferry_easy/source/widgets/ferry_easy_ship_details.dart';
+import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../src/widgets/ferry_easy_app_bar.dart';
+import '../../source/widgets/ferry_easy_app_bar.dart';
 import 'home.dart';
 
 class Dashboard extends StatefulWidget {

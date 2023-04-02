@@ -1,6 +1,6 @@
-import 'package:ferry_easy/src/shared/app_colors.dart';
-import 'package:ferry_easy/src/shared/ui_helpers.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/source/shared/app_colors.dart';
+import 'package:ferry_easy/source/shared/ui_helpers.dart';
+import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FEShipDetails extends StatelessWidget {

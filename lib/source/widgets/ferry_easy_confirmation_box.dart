@@ -1,6 +1,6 @@
-import 'package:ferry_easy/src/shared/app_colors.dart';
-import 'package:ferry_easy/src/shared/ui_helpers.dart';
-import 'package:ferry_easy/src/widgets/ferry_easy_button.dart';
+import 'package:ferry_easy/source/shared/app_colors.dart';
+import 'package:ferry_easy/source/shared/ui_helpers.dart';
+import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
 import 'dart:ui';
 
 class FEConfirmationBox extends StatelessWidget {
