@@ -1,7 +1,11 @@
-import 'package:ferry_easy/presentation/routes/route.dart';
+import 'package:ferry_easy/route.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(MyApp(
     appRouter: AppRouter(),
   ));

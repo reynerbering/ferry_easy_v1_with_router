@@ -1,10 +1,10 @@
-import 'package:ferry_easy/presentation/screens/forgot_password.dart';
-import 'package:ferry_easy/presentation/screens/welcome_screen.dart';
+import 'package:ferry_easy/src/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 
-import '../screens/create_account.dart';
-import '../screens/dashboard.dart';
-import '../screens/onboarding.dart';
+import 'src/authentication/presentation/create_account.dart';
+import 'src/authentication/presentation/forgot_password.dart';
+import 'src/authentication/presentation/onboarding.dart';
+import 'src/authentication/presentation/welcome_screen.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings routeSettings) {

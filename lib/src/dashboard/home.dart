@@ -4,7 +4,6 @@ import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_greeting_banner.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_ship_details.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
-import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   final PreferredSizeWidget appBar;

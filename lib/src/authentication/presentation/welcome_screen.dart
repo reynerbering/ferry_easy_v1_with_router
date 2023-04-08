@@ -5,9 +5,25 @@ import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_divider_or.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_input_field.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
+
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 FEInputField(
-                  controller: TextEditingController(),
+                  controller: emailController,
                   placeholder: 'Username',
                   leading: const Icon(
                     Icons.person,
@@ -39,7 +55,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 verticalSpaceRegular,
                 FEInputField(
-                  controller: TextEditingController(),
+                  controller: passwordController,
                   placeholder: 'Password',
                   password: true,
                   leading: const Icon(
@@ -63,9 +79,11 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 verticalSpaceRegular,
                 FEButton(
-                  title: 'Log In',
-                  onTap: () => Navigator.of(context).pushNamed('/Dashboard'),
-                ),
+                    title: 'Log In',
+                    onTap: () {
+                      logIn();
+                      Navigator.of(context).pushNamed('/Dashboard');
+                    }),
                 const FEDividerOrWidget(),
                 FEButton(
                   title: 'Sign Up',
@@ -78,6 +96,13 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Future logIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
     );
   }
 }
