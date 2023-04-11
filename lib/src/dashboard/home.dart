@@ -13,9 +13,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
-      opacity: 0.1,
-      assetImage: const AssetImage('assets/images/ferryboat.jpg'),
+      assetImage: const AssetImage('assets/images/dashboard.png'),
       bgChild: Scaffold(
+        backgroundColor: Colors.transparent,
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: SingleChildScrollView(
@@ -29,7 +29,7 @@ class Home extends StatelessWidget {
               Row(
                 children: const [
                   horizontalSpaceRegular,
-                  FEText.dashTextTitle('Active Ferries'),
+                  FEText.dashActiveFerries('Active Ferries'),
                 ],
               ),
               Container(

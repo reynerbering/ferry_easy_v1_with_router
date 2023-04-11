@@ -8,12 +8,7 @@ class History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'HISTORY',
-          style: TextStyle(fontSize: 60),
-        ),
-      ),
+      body: Text('History'),
     );
   }
 }

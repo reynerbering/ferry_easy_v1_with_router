@@ -51,7 +51,8 @@ class ForgotPassword extends StatelessWidget {
                 verticalSpaceLarge,
                 FEButton(
                   title: 'Dashboard',
-                  onTap: () => Navigator.of(context).pushNamed(Dashboard.id),
+                  onTap: () =>
+                      Navigator.of(context).pushReplacementNamed(Dashboard.id),
                 )
               ],
             ),

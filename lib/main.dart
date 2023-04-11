@@ -1,4 +1,5 @@
 import 'package:ferry_easy/route.dart';
+import 'package:ferry_easy/source/shared/app_colors.dart';
 import 'package:ferry_easy/src/authentication/data/auth_repository.dart';
 import 'package:ferry_easy/src/authentication/presentation/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';

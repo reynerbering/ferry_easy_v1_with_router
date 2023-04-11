@@ -8,20 +8,23 @@ class FEAppBar extends StatelessWidget {
   final AssetImage? image;
   final String? logo;
   final void Function()? onTap;
+  final TabBar? tabBar;
 
-  const FEAppBar({
-    super.key,
-    required this.title,
-    this.leading,
-    this.trailing,
-    this.image,
-    this.logo,
-    this.onTap,
-  });
+  const FEAppBar(
+      {super.key,
+      required this.title,
+      this.leading,
+      this.trailing,
+      this.image,
+      this.logo,
+      this.onTap,
+      this.tabBar});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      bottom: tabBar,
+      iconTheme: const IconThemeData(color: kcPrimaryColor),
       backgroundColor: Colors.white,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,

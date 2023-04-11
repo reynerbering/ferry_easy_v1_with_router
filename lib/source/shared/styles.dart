@@ -20,6 +20,9 @@ const TextStyle dashTextTitle = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w600,
 );
+
+const TextStyle dashActiveFerries =
+    TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: kcPrimaryColor);
 const TextStyle dashFerryName = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w700,
@@ -64,28 +67,42 @@ const TextStyle sidebarChoice = TextStyle(
 // Profile
 
 const TextStyle profileLNHeader = TextStyle(
-  fontSize: 16,
+  fontSize: 20,
   fontWeight: FontWeight.w800,
+  color: kcPrimaryColor,
 );
 const TextStyle profileFNHeader = TextStyle(
-  fontSize: 12,
+  fontSize: 40,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle profileDetailsHeader = TextStyle(
   fontSize: 8,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle profileCardTitle = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle profileCardDetails = TextStyle(
   fontSize: 11,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle profileCardInfo = TextStyle(
   fontSize: 11,
   fontWeight: FontWeight.w400,
+  color: kcPrimaryColor,
+);
+
+// Drawer
+
+const TextStyle drawerListTile = TextStyle(
+  fontSize: 11,
+  fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 
 // Wallet
@@ -93,10 +110,12 @@ const TextStyle profileCardInfo = TextStyle(
 const TextStyle walletHeaderTitle = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle walletCurrencyText = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle walletCashInText = TextStyle(
   fontSize: 10,
@@ -105,30 +124,38 @@ const TextStyle walletCashInText = TextStyle(
 const TextStyle walletCreditText = TextStyle(
   fontSize: 32,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
+  letterSpacing: 2,
 );
 const TextStyle walletBalIndicator = TextStyle(
-  fontSize: 10,
+  fontSize: 13,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle walletTicketTitle = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle walletTicketCompany = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle walletTicketSubtext = TextStyle(
   fontSize: 6,
   fontWeight: FontWeight.w500,
+  color: kcPrimaryColor,
 );
 const TextStyle walletTicketPriceText = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle walletTicketQuantity = TextStyle(
   fontSize: 10,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 
 // Transactions

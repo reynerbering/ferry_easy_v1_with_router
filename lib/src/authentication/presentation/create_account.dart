@@ -76,8 +76,8 @@ class CreateAccount extends StatelessWidget {
                       builder: (BuildContext context) {
                         return FEAlertBox(
                           message: 'Registered Sucessfully!',
-                          onTap: () =>
-                              Navigator.popAndPushNamed(context, Dashboard.id),
+                          onTap: () => Navigator.pushReplacementNamed(
+                              context, Dashboard.id),
                         );
                         // ! Sample confirmation box call
                         // return FEConfirmationBox(
