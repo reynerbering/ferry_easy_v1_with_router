@@ -1,12 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-/// {@template user}
-/// User model
-///
 /// [User.empty] represents an unauthenticated user.
-/// {@endtemplate}
 class User extends Equatable {
-  /// {@macro user}
   const User({
     required this.id,
     this.email,
@@ -15,11 +10,8 @@ class User extends Equatable {
   });
 
   final String? email;
-
   final String id;
-
   final String? name;
-
   final String? photo;
 
   static const empty = User(id: '');

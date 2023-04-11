@@ -5,25 +5,18 @@ import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_divider_or.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_input_field.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/src/authentication/presentation/create_account.dart';
+import 'package:ferry_easy/src/authentication/presentation/forgot_password.dart';
+import 'package:ferry_easy/src/dashboard/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+class WelcomeScreen extends StatelessWidget {
+  WelcomeScreen({super.key});
 
-  @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
-}
+  static const id = 'welcome_screen';
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +65,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         'Forgot Password',
                         style: TextStyle(color: kcPrimaryColor),
                       ),
-                      onTap: () => Navigator.of(context)
-                          .pushNamed('/ForgotPasswordScreen'),
+                      onTap: () =>
+                          Navigator.of(context).pushNamed(ForgotPassword.id),
                     )
                   ],
                 ),
@@ -81,15 +74,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 FEButton(
                     title: 'Log In',
                     onTap: () {
-                      logIn();
-                      Navigator.of(context).pushNamed('/Dashboard');
+                      // logIn();
+                      Navigator.of(context).pushNamed(Dashboard.id);
                     }),
                 const FEDividerOrWidget(),
                 FEButton(
                   title: 'Sign Up',
                   outline: true,
                   onTap: () =>
-                      Navigator.of(context).pushNamed('/CreateAccountScreen'),
+                      Navigator.of(context).pushNamed(CreateAccount.id),
                 ),
               ],
             ),
@@ -99,10 +92,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
-  Future logIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
-  }
+  // Future logIn() async {
+  //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //     email: emailController.text.trim(),
+  //     password: passwordController.text.trim(),
+  //   );
+  // }
 }

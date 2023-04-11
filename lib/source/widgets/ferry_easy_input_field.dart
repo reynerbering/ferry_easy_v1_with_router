@@ -11,6 +11,8 @@ class FEInputField extends StatelessWidget {
   final Widget? trailing;
   final void Function()? trailingTapped;
   final bool password;
+  final String Function(String?)? validator;
+  final TextInputType? keyboardType;
 
   const FEInputField({
     super.key,
@@ -20,6 +22,8 @@ class FEInputField extends StatelessWidget {
     this.trailing,
     this.trailingTapped,
     this.password = false,
+    this.validator,
+    this.keyboardType,
   });
 
   @override
@@ -27,6 +31,8 @@ class FEInputField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: password,
+      validator: validator,
+      keyboardType: keyboardType,
       style: const TextStyle(
         height: 1,
         color: Colors.black,

@@ -2,10 +2,13 @@ import 'package:ferry_easy/source/shared/ui_helpers.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ferry_easy/src/authentication/presentation/create_account.dart';
+import 'package:ferry_easy/src/authentication/presentation/welcome_screen.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
+
+  static const id = 'onboarding';
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +31,12 @@ class Onboarding extends StatelessWidget {
               FEButton(
                 title: 'Log In',
                 outline: true,
-                onTap: () =>
-                    Navigator.of(context).pushNamed('/WelcomeBackLoginScreen'),
+                onTap: () => Navigator.of(context).pushNamed(WelcomeScreen.id),
               ),
               verticalSpaceRegular,
               FEButton(
                 title: 'Sign Up',
-                onTap: () =>
-                    Navigator.of(context).pushNamed('/CreateAccountScreen'),
+                onTap: () => Navigator.of(context).pushNamed(CreateAccount.id),
               ),
               verticalSpaceLarge,
             ],

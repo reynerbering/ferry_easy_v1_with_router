@@ -6,8 +6,9 @@ import 'package:ferry_easy/source/widgets/ferry_easy_ship_details.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
 
 class Home extends StatelessWidget {
-  final PreferredSizeWidget appBar;
-  const Home({super.key, required this.appBar});
+  const Home({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +18,6 @@ class Home extends StatelessWidget {
       bgChild: Scaffold(
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
-          child: FEAppBar(
-            title: 'FerryEasy',
-            logo: 'assets/images/ferryeasy-logo-03.png',
-          ),
-        ),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(

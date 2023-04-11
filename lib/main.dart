@@ -1,6 +1,9 @@
 import 'package:ferry_easy/route.dart';
+import 'package:ferry_easy/src/authentication/data/auth_repository.dart';
+import 'package:ferry_easy/src/authentication/presentation/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,16 +21,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FerryEasy',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        textTheme: Typography.whiteCupertino,
-        fontFamily: 'Inter',
-        scaffoldBackgroundColor: Colors.transparent,
+    return RepositoryProvider(
+      create: (context) => AuthRepository(),
+      child: MaterialApp(
+        title: 'FerryEasy',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.light,
+          textTheme: Typography.whiteCupertino,
+          fontFamily: 'Inter',
+          scaffoldBackgroundColor: Colors.transparent,
+        ),
+        home: WelcomeScreen(),
+        onGenerateRoute: appRouter.onGenerateRoute,
       ),
-      onGenerateRoute: appRouter.onGenerateRoute,
     );
   }
 }

@@ -3,9 +3,12 @@ import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_input_field.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/src/dashboard/dashboard.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
+
+  static const id = 'forgot_password';
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class ForgotPassword extends StatelessWidget {
                 verticalSpaceLarge,
                 FEButton(
                   title: 'Dashboard',
-                  onTap: () => Navigator.of(context).pushNamed('/Dashboard'),
+                  onTap: () => Navigator.of(context).pushNamed(Dashboard.id),
                 )
               ],
             ),

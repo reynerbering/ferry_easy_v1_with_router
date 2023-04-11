@@ -38,13 +38,6 @@ class FEAppBar extends StatelessWidget {
           ),
         ],
       ),
-      actions: [
-        IconButton(
-          onPressed: onTap,
-          icon: const Icon(Icons.menu),
-          color: kcPrimaryColor,
-        ),
-      ],
     );
   }
 }

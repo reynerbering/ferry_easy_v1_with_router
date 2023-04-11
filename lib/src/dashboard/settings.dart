@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Settings extends StatelessWidget {
-  final PreferredSizeWidget appBar;
-  const Settings({super.key, required this.appBar});
+class Notifications extends StatelessWidget {
+  const Notifications({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Text(
-          'SETTINGS',
+          'NOTIFS',
           style: TextStyle(fontSize: 60),
         ),
       ),

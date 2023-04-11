@@ -2,12 +2,14 @@ import 'package:ferry_easy/source/shared/ui_helpers.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_alert_box.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_confirmation_box.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_input_field.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/src/dashboard/dashboard.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({super.key});
+
+  static const id = 'create_account';
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +43,9 @@ class CreateAccount extends StatelessWidget {
                       controller: TextEditingController(),
                       placeholder: 'Last Name'),
                   FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'Email'),
+                    controller: TextEditingController(),
+                    placeholder: 'Email',
+                  ),
                   FEInputField(
                       controller: TextEditingController(),
                       placeholder: 'Username'),
@@ -74,9 +77,8 @@ class CreateAccount extends StatelessWidget {
                         return FEAlertBox(
                           message: 'Registered Sucessfully!',
                           onTap: () =>
-                              Navigator.popAndPushNamed(context, '/Dashboard'),
+                              Navigator.popAndPushNamed(context, Dashboard.id),
                         );
-
                         // ! Sample confirmation box call
                         // return FEConfirmationBox(
                         //     message: 'Register?',

@@ -7,32 +7,30 @@ import 'src/authentication/presentation/onboarding.dart';
 import 'src/authentication/presentation/welcome_screen.dart';
 
 class AppRouter {
-  Route onGenerateRoute(RouteSettings routeSettings) {
+  Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case '/WelcomeBackLoginScreen':
+      case WelcomeScreen.id:
         return MaterialPageRoute(
-          builder: (context) => const WelcomeScreen(),
+          builder: (context) => WelcomeScreen(),
         );
-      case '/LoginSignUpScreen':
+      case Onboarding.id:
         return MaterialPageRoute(
           builder: (context) => const Onboarding(),
         );
-      case '/CreateAccountScreen':
+      case CreateAccount.id:
         return MaterialPageRoute(
           builder: (context) => const CreateAccount(),
         );
-      case '/Dashboard':
+      case Dashboard.id:
         return MaterialPageRoute(
           builder: (context) => const Dashboard(),
         );
-      case '/ForgotPasswordScreen':
+      case ForgotPassword.id:
         return MaterialPageRoute(
           builder: (context) => const ForgotPassword(),
         );
       default:
-        return MaterialPageRoute(
-          builder: (context) => const Onboarding(),
-        );
+        return null;
     }
   }
 }
