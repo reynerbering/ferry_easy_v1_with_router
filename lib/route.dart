@@ -1,4 +1,5 @@
 import 'package:ferry_easy/src/dashboard/dashboard.dart';
+import 'package:ferry_easy/src/dashboard/load_details.dart';
 import 'package:flutter/material.dart';
 
 import 'src/authentication/presentation/create_account.dart';
@@ -29,6 +30,11 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const ForgotPassword(),
         );
+      case LoadDetails.id:
+        return MaterialPageRoute(
+          builder: (context) => const LoadDetails(),
+        );
+
       default:
         return null;
     }

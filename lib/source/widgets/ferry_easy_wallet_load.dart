@@ -3,28 +3,25 @@ import '../shared/ui_helpers.dart';
 import 'ferry_easy_text.dart';
 
 class WalletLoad extends StatelessWidget {
+  final void Function()? onTap;
+
   const WalletLoad({
     super.key,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         height: 100,
         width: double.infinity,
         margin: const EdgeInsets.all(25),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-              ),
-            ]),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

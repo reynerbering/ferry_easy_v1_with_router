@@ -13,6 +13,7 @@ class FEInputField extends StatelessWidget {
   final bool password;
   final String Function(String?)? validator;
   final TextInputType? keyboardType;
+  final bool isEnabled;
 
   const FEInputField({
     super.key,
@@ -24,11 +25,13 @@ class FEInputField extends StatelessWidget {
     this.password = false,
     this.validator,
     this.keyboardType,
+    this.isEnabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: isEnabled,
       controller: controller,
       obscureText: password,
       validator: validator,

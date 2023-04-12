@@ -167,10 +167,12 @@ const TextStyle transacHeaderTitle = TextStyle(
 const TextStyle transacSubTitle = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w400,
+  color: kcMediumGrayColor,
 );
 const TextStyle transacTileText = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w400,
+  color: kcMediumGrayColor,
 );
 
 //Buy Ticket
@@ -248,18 +250,22 @@ const TextStyle historyTitle = TextStyle(
 const TextStyle historyPassTicket = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w700,
+  color: kcMediumGrayColor,
 );
 const TextStyle historyTicketLoc = TextStyle(
   fontSize: 8,
   fontWeight: FontWeight.w600,
+  color: kcMediumGrayColor,
 );
 const TextStyle historyTicketPrice = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w700,
+  color: kcMediumGrayColor,
 );
 const TextStyle historyTicketType = TextStyle(
   fontSize: 8,
   fontWeight: FontWeight.w800,
+  color: kcMediumGrayColor,
 );
 
 // Notification
@@ -267,10 +273,12 @@ const TextStyle historyTicketType = TextStyle(
 const TextStyle notifHeader = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle notifSubtext = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w400,
+  color: kcPrimaryColor,
 );
 
 // body in general

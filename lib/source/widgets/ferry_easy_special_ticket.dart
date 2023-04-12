@@ -3,16 +3,12 @@ import '../shared/app_colors.dart';
 import '../shared/ui_helpers.dart';
 import 'ferry_easy_text.dart';
 
-class SpecialTicketWidget extends StatelessWidget {
+class SpecialTicket extends StatelessWidget {
   final void Function()? onTap;
-  final Color? color;
-  final String? title;
 
-  const SpecialTicketWidget({
+  const SpecialTicket({
     super.key,
     this.onTap,
-    this.color,
-    this.title,
   });
 
   @override
@@ -38,10 +34,11 @@ class SpecialTicketWidget extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      color: Colors.yellowAccent,
+                      color: const Color(0xffEFCBDE),
                       width: double.infinity,
                       padding: const EdgeInsets.all(25),
-                      child: const FEText.walletTicketTitle('REGULAR'),
+                      child: const FEText.walletTicketTitle(
+                          'STUDENT / PWD / SENIOR CITIZEN'),
                     ),
                     verticalSpaceSmall,
                     Row(
@@ -114,5 +111,39 @@ class SpecialTicketWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class RPSCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint0 = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 1;
+
+    Path path0 = Path();
+    path0.moveTo(0, 0);
+    path0.lineTo(0, size.height * 0.5424865);
+    path0.quadraticBezierTo(size.width * 0.0673667, size.height * 0.5410811,
+        size.width * 0.0669333, size.height * 0.6477838);
+    path0.quadraticBezierTo(size.width * 0.0673667, size.height * 0.7588108, 0,
+        size.height * 0.7571892);
+    path0.lineTo(0, size.height);
+    path0.lineTo(size.width, size.height);
+    path0.lineTo(size.width, size.height * 0.7563243);
+    path0.quadraticBezierTo(size.width * 0.9322333, size.height * 0.7574054,
+        size.width * 0.9319000, size.height * 0.6480000);
+    path0.quadraticBezierTo(size.width * 0.9317667, size.height * 0.5422703,
+        size.width, size.height * 0.5405405);
+    path0.lineTo(size.width, 0);
+    path0.lineTo(0, 0);
+
+    canvas.drawPath(path0, paint0);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }

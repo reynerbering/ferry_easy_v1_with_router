@@ -6,13 +6,11 @@ import 'dart:ui';
 class FEConfirmationBox extends StatelessWidget {
   final String message;
   final void Function()? yesTap;
-  final void Function()? noTap;
 
   const FEConfirmationBox({
     super.key,
     required this.message,
     this.yesTap,
-    this.noTap,
   });
 
   @override
@@ -53,7 +51,7 @@ class FEConfirmationBox extends StatelessWidget {
                     RawMaterialButton(
                       fillColor: Colors.white,
                       elevation: 10,
-                      onPressed: noTap,
+                      onPressed: () => Navigator.pop(context),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),

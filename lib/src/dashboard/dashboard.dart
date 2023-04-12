@@ -3,7 +3,7 @@ import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_dashboard_divider.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/history.dart';
-import 'package:ferry_easy/src/dashboard/settings.dart';
+import 'package:ferry_easy/src/dashboard/notifications.dart';
 import 'package:ferry_easy/src/dashboard/wallet.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -24,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
   final List<Map<String, dynamic>> _pageDetails = [
     {'pageName': const Home(), 'title': 'FerryEasy'},
     {'pageName': const Wallet(), 'title': 'My Wallet'},
-    {'pageName': const Wallet(), 'title': 'My Wallety'},
+    {'pageName': const Placeholder(), 'title': ''},
     {'pageName': const History(), 'title': 'Ticket History'},
     {'pageName': const Notifications(), 'title': 'Notifications'},
   ];
@@ -132,7 +132,7 @@ class _DashboardState extends State<Dashboard> {
                       ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
                       : null,
                 ),
-                label: 'Settings',
+                label: 'Notifs',
               ),
             ],
           ),

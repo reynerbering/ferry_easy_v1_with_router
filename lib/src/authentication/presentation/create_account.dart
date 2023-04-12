@@ -1,3 +1,5 @@
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:ferry_easy/source/shared/app_colors.dart';
 import 'package:ferry_easy/source/shared/ui_helpers.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_alert_box.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
@@ -6,11 +8,19 @@ import 'package:ferry_easy/source/widgets/ferry_easy_input_field.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/dashboard.dart';
 
-class CreateAccount extends StatelessWidget {
+class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
 
   static const id = 'create_account';
 
+  @override
+  State<CreateAccount> createState() => _CreateAccountState();
+}
+
+class _CreateAccountState extends State<CreateAccount> {
+  List<DateTime?> _datePicked = [
+    DateTime.now(),
+  ];
   @override
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
@@ -66,8 +76,25 @@ class CreateAccount extends StatelessWidget {
                       controller: TextEditingController(),
                       placeholder: 'Contact No.'),
                   FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'Date of Birth'),
+                    controller: TextEditingController(),
+                    placeholder: 'Birthday',
+                    trailing: const Icon(Icons.date_range),
+                    trailingTapped: () => showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return CalendarDatePicker2WithActionButtons(
+                            value: _datePicked,
+                            onValueChanged: (date) {
+                              setState(() {
+                                _datePicked = date;
+                              });
+                            },
+                            config: CalendarDatePicker2WithActionButtonsConfig(
+                              selectedDayHighlightColor: kcPrimaryColor,
+                            ),
+                          );
+                        }),
+                  ),
                   verticalSpaceLarge,
                   FEButton(
                     title: 'Sign Up',
@@ -76,8 +103,8 @@ class CreateAccount extends StatelessWidget {
                       builder: (BuildContext context) {
                         return FEAlertBox(
                           message: 'Registered Sucessfully!',
-                          onTap: () => Navigator.pushReplacementNamed(
-                              context, Dashboard.id),
+                          onTap: () =>
+                              Navigator.popAndPushNamed(context, Dashboard.id),
                         );
                         // ! Sample confirmation box call
                         // return FEConfirmationBox(
