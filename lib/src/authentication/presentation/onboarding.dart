@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:ferry_easy/shared/styles/ui_helpers.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
@@ -21,7 +22,32 @@ class Onboarding extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const FEText.onBoardingHead('Escape The Line'),
+              AnimatedTextKit(
+                repeatForever: true,
+                animatedTexts: [
+                  FadeAnimatedText(
+                    'Escape The Line',
+                    textStyle: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  FadeAnimatedText(
+                    'Buy Tickets in Advance',
+                    textStyle: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  FadeAnimatedText(
+                    'View Ferry Schedules',
+                    textStyle: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
               verticalSpaceRegular,
               const FEText.onBoardingSub('Get your tickets in advance.'),
               verticalSpaceTiny,

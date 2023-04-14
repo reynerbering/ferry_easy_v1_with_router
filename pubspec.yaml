@@ -29,6 +29,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_text_kit: ^4.2.2
+  calendar_date_picker2: ^0.5.1
   cloud_firestore: ^4.5.0
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
@@ -38,7 +40,6 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.2
   flutter_svg: ^2.0.4
-  calendar_date_picker2: ^0.5.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0

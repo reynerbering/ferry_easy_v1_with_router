@@ -1,3 +1,5 @@
+import 'package:ferry_easy/shared/widgets/ferry_easy_safety_tips_bottom_sheet.dart';
+
 import '../styles/app_colors.dart';
 import '../styles/ui_helpers.dart';
 import 'ferry_easy_alert_box.dart';
@@ -112,16 +114,15 @@ class FEUseTicket extends StatelessWidget {
                   ),
                   verticalSpaceSmall,
                   GestureDetector(
-                    onTap: () => showDialog(
+                    onTap: () => showModalBottomSheet(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(25.0),
+                        ),
+                      ),
                       context: context,
                       builder: (BuildContext context) {
-                        return FEAlertBox(
-                          message: 'Ticket succesfully used',
-                          onTap: () => Navigator.popUntil(
-                            context,
-                            ModalRoute.withName('home'),
-                          ),
-                        );
+                        return const FESafetyTips();
                       },
                     ),
                     child: Container(
