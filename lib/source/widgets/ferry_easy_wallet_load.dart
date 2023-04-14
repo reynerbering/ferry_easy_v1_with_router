@@ -1,19 +1,17 @@
+import '../../src/dashboard/load_details.dart';
 import '../shared/app_colors.dart';
 import '../shared/ui_helpers.dart';
 import 'ferry_easy_text.dart';
 
-class WalletLoad extends StatelessWidget {
-  final void Function()? onTap;
-
-  const WalletLoad({
+class FEWalletLoad extends StatelessWidget {
+  const FEWalletLoad({
     super.key,
-    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () => Navigator.of(context).pushNamed(LoadDetails.id),
       child: Container(
         height: 100,
         width: double.infinity,

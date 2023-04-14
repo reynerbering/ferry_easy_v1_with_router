@@ -5,7 +5,10 @@ import 'package:ferry_easy/source/shared/styles.dart';
 import 'package:ferry_easy/source/shared/ui_helpers.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/src/dashboard/dashboard.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../src/dashboard/profile.dart';
 
 class FEDrawer extends StatelessWidget {
   const FEDrawer({super.key});
@@ -20,7 +23,7 @@ class FEDrawer extends StatelessWidget {
         ),
         child: FEBackgroundWidget(
           assetImage: const AssetImage('assets/images/splash-bg-image.png'),
-          bgChild: ListView(
+          child: ListView(
             children: [
               SizedBox(
                 height: 250,
@@ -44,8 +47,11 @@ class FEDrawer extends StatelessWidget {
                 )),
               ),
               ListTile(
-                title: const FEText.drawerListTile('Profile ',
-                    textAlign: TextAlign.end),
+                onTap: () => Navigator.popAndPushNamed(context, Profile.id),
+                title: const FEText.drawerListTile(
+                  'Profile ',
+                  textAlign: TextAlign.end,
+                ),
                 trailing: SvgPicture.asset(
                   'assets/icons/profile.svg',
                   colorFilter:
@@ -55,8 +61,17 @@ class FEDrawer extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: const FEText.drawerListTile('Home',
-                    textAlign: TextAlign.end),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Dashboard(selectedIndex: 0)),
+                  );
+                },
+                title: const FEText.drawerListTile(
+                  'Home',
+                  textAlign: TextAlign.end,
+                ),
                 trailing: SvgPicture.asset(
                   'assets/icons/home-filled.svg',
                   colorFilter:
@@ -66,8 +81,17 @@ class FEDrawer extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: const FEText.drawerListTile('Wallet',
-                    textAlign: TextAlign.end),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Dashboard(selectedIndex: 1)),
+                  );
+                },
+                title: const FEText.drawerListTile(
+                  'Wallet',
+                  textAlign: TextAlign.end,
+                ),
                 trailing: SvgPicture.asset(
                   'assets/icons/wallet-outline.svg',
                   colorFilter:
@@ -77,8 +101,17 @@ class FEDrawer extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: const FEText.drawerListTile('History',
-                    textAlign: TextAlign.end),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Dashboard(selectedIndex: 3)),
+                  );
+                },
+                title: const FEText.drawerListTile(
+                  'History',
+                  textAlign: TextAlign.end,
+                ),
                 trailing: SvgPicture.asset(
                   'assets/icons/history.svg',
                   colorFilter:
@@ -88,8 +121,17 @@ class FEDrawer extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: const FEText.drawerListTile('Notifications',
-                    textAlign: TextAlign.end),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Dashboard(selectedIndex: 4)),
+                  );
+                },
+                title: const FEText.drawerListTile(
+                  'Notifications',
+                  textAlign: TextAlign.end,
+                ),
                 trailing: SvgPicture.asset(
                   'assets/icons/notifications-filled.svg',
                   colorFilter:
@@ -101,8 +143,10 @@ class FEDrawer extends StatelessWidget {
               const Divider(),
               verticalSpaceMedium,
               const ListTile(
-                title:
-                    FEText.drawerListTile('Logout', textAlign: TextAlign.end),
+                title: FEText.drawerListTile(
+                  'Logout',
+                  textAlign: TextAlign.end,
+                ),
                 trailing: Icon(
                   Icons.logout,
                   color: kcPrimaryColor,

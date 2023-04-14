@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
       assetImage: const AssetImage('assets/images/login-welcome.png'),
-      bgChild: Scaffold(
+      child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(25.0),
           child: SingleChildScrollView(

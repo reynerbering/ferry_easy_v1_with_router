@@ -9,16 +9,19 @@ class FEAppBar extends StatelessWidget {
   final String? logo;
   final void Function()? onTap;
   final TabBar? tabBar;
+  final bool? isDisabled;
 
-  const FEAppBar(
-      {super.key,
-      required this.title,
-      this.leading,
-      this.trailing,
-      this.image,
-      this.logo,
-      this.onTap,
-      this.tabBar});
+  const FEAppBar({
+    super.key,
+    required this.title,
+    this.leading,
+    this.trailing,
+    this.image,
+    this.logo,
+    this.onTap,
+    this.tabBar,
+    this.isDisabled = false,
+  });
 
   @override
   Widget build(BuildContext context) {

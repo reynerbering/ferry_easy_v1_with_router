@@ -1,4 +1,3 @@
-import '../../src/dashboard/wallet.dart';
 import '../shared/app_colors.dart';
 import '../shared/ui_helpers.dart';
 import 'ferry_easy_text.dart';

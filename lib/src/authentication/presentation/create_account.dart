@@ -27,7 +27,7 @@ class _CreateAccountState extends State<CreateAccount> {
       assetImage: const AssetImage(
         ('assets/images/create-account.png'),
       ),
-      bgChild: Scaffold(
+      child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(25.0),
           child: SizedBox(
@@ -102,10 +102,13 @@ class _CreateAccountState extends State<CreateAccount> {
                       context: context,
                       builder: (BuildContext context) {
                         return FEAlertBox(
-                          message: 'Registered Sucessfully!',
-                          onTap: () =>
-                              Navigator.popAndPushNamed(context, Dashboard.id),
+                          message: 'Thank you for your purchase!',
+                          onTap: () => Navigator.popUntil(
+                            context,
+                            ModalRoute.withName('welcome'),
+                          ),
                         );
+
                         // ! Sample confirmation box call
                         // return FEConfirmationBox(
                         //     message: 'Register?',

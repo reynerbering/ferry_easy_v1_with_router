@@ -1,9 +1,8 @@
 import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/shared/styles.dart';
 import 'package:ferry_easy/source/shared/ui_helpers.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_confirmation_box.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_used_special_ticket.dart';
+import 'package:ferry_easy/src/dashboard/use_ticket.dart';
 
 import '../../source/widgets/ferry_easy_background_image.dart';
 import '../../source/widgets/ferry_easy_special_ticket.dart';
@@ -22,20 +21,21 @@ class Wallet extends StatelessWidget {
         children: [
           FEBackgroundWidget(
             assetImage: const AssetImage('assets/images/login.png'),
-            bgChild: SingleChildScrollView(
+            child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
                   verticalSpaceRegular,
-                  WalletLoad(
-                    onTap: () =>
-                        Navigator.of(context).pushNamed(LoadDetails.id),
-                  ),
+                  FEWalletLoad(),
                   RegularTicket(
                     onTap: () => showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return const FEConfirmationBox(message: 'Use Ticket?');
+                        return FEConfirmationBox(
+                          message: 'Use Ticket?',
+                          yesTap: () =>
+                              Navigator.of(context).pushNamed(UseTicket.id),
+                        );
                       },
                     ),
                   ),
@@ -43,7 +43,11 @@ class Wallet extends StatelessWidget {
                     onTap: () => showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return const FEConfirmationBox(message: 'Use Ticket?');
+                        return FEConfirmationBox(
+                          message: 'Use Ticket?',
+                          yesTap: () =>
+                              Navigator.of(context).pushNamed(UseTicket.id),
+                        );
                       },
                     ),
                   ),

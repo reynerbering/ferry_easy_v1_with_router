@@ -1,18 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:ferry_easy/src/dashboard/buy_ticket.dart';
+import 'package:flutter_svg/svg.dart';
+
 import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_dashboard_divider.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/history.dart';
 import 'package:ferry_easy/src/dashboard/notifications.dart';
 import 'package:ferry_easy/src/dashboard/wallet.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../source/widgets/ferry_easy_app_bar.dart';
 import '../../source/widgets/ferry_easy_drawer.dart';
 import 'home.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+  int selectedIndex = 0;
+  Dashboard({
+    Key? key,
+    required this.selectedIndex,
+  }) : super(key: key);
 
   static const id = 'dashboard';
 
@@ -33,8 +39,15 @@ class _DashboardState extends State<Dashboard> {
 
   void _onItemTapped(index) {
     setState(() {
+      widget.selectedIndex = index;
       _selectedPageIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    _onItemTapped(widget.selectedIndex);
+    super.initState();
   }
 
   @override
@@ -137,7 +150,9 @@ class _DashboardState extends State<Dashboard> {
             ],
           ),
         ),
-        floatingActionButton: const FECustomFAB(),
+        floatingActionButton: FECustomFAB(
+          onTap: () => Navigator.pushNamed(context, BuyTicket.id),
+        ),
       ),
     );
   }

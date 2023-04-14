@@ -57,6 +57,18 @@ class FEText extends StatelessWidget {
       {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
       : style = sidebarChoice;
 
+  //User ( Own Profile Page )
+
+  const FEText.userLNHeader(this.text,
+      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
+      : style = userLNHeader;
+  const FEText.userFNHeader(this.text,
+      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
+      : style = userFNHeader;
+  const FEText.userSubText(this.text,
+      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
+      : style = userSubText;
+
   //Profile
 
   const FEText.profileLNHeader(this.text,

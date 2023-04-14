@@ -64,6 +64,23 @@ const TextStyle sidebarChoice = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+// User (Own Profile Page)
+const TextStyle userLNHeader = TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.w800,
+  color: kcPrimaryColor,
+);
+const TextStyle userFNHeader = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.w400,
+  color: kcPrimaryColor,
+);
+const TextStyle userSubText = TextStyle(
+  fontSize: 10,
+  fontWeight: FontWeight.w400,
+  color: kcPrimaryColor,
+);
+
 // Profile
 
 const TextStyle profileLNHeader = TextStyle(
@@ -180,38 +197,47 @@ const TextStyle transacTileText = TextStyle(
 const TextStyle buyCurrencyText = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle buyCashInText = TextStyle(
   fontSize: 10,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle buyCreditText = TextStyle(
   fontSize: 32,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle buyBalIndicator = TextStyle(
   fontSize: 10,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle buyTicketTitle = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle buyTicketCompany = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle buyTicketSubtext = TextStyle(
   fontSize: 6,
   fontWeight: FontWeight.w500,
+  color: kcPrimaryColor,
 );
 const TextStyle buyTicketPriceText = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle buyTicketQuantity = TextStyle(
   fontSize: 10,
   fontWeight: FontWeight.w700,
+  color: Colors.white,
 );
 
 //Use Ticket
@@ -219,22 +245,27 @@ const TextStyle buyTicketQuantity = TextStyle(
 const TextStyle useTitleHeader = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle useTitleSubtext = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w600,
+  color: kcPrimaryColor,
 );
 const TextStyle useTicketCompany = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w700,
+  color: kcPrimaryColor,
 );
 const TextStyle useTicketSubtext = TextStyle(
   fontSize: 6,
   fontWeight: FontWeight.w500,
+  color: kcPrimaryColor,
 );
 const TextStyle useTotalPrice = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w800,
+  color: kcPrimaryColor,
 );
 const TextStyle useExplodedPrice = TextStyle(
   fontSize: 16,

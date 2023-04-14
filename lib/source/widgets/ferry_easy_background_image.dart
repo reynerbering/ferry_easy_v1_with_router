@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class FEBackgroundWidget extends StatelessWidget {
   final AssetImage assetImage;
-  final Widget? bgChild;
+  final Widget? child;
   final double? opacity;
 
   const FEBackgroundWidget({
     super.key,
     required this.assetImage,
-    this.bgChild,
+    this.child,
     this.opacity,
   });
 
@@ -22,7 +22,7 @@ class FEBackgroundWidget extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: bgChild,
+      child: child,
     );
   }
 }

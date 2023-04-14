@@ -16,7 +16,7 @@ class ForgotPassword extends StatelessWidget {
       assetImage: const AssetImage(
         ('assets/images/forgot-password.png'),
       ),
-      bgChild: Scaffold(
+      child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(25.0),
           child: SingleChildScrollView(

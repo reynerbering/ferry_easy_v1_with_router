@@ -1,5 +1,4 @@
 import 'package:ferry_easy/source/shared/ui_helpers.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_app_bar.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_greeting_banner.dart';
 import 'package:ferry_easy/source/widgets/ferry_easy_ship_details.dart';
@@ -14,7 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
       assetImage: const AssetImage('assets/images/dashboard.png'),
-      bgChild: Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

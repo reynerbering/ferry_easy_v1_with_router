@@ -14,30 +14,36 @@ class History extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          verticalSpaceMedium,
-          Container(
-              padding: const EdgeInsets.all(15.0),
-              width: double.infinity,
-              color: kcVeryLightGrayColor,
-              child: FEText.transacSubTitle('Tickets Used in 2022-23-09')),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            verticalSpaceMedium,
+            Container(
+                padding: const EdgeInsets.all(15.0),
+                width: double.infinity,
+                color: kcVeryLightGrayColor,
+                child: FEText.transacSubTitle('Tickets Used in 2022-23-09')),
 
-          // ! TODO refactor for dynamic widget
-          ListView(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            children: [
-              UsedSpecialTicket(),
-              UsedRegularTicket(),
-              UsedSpecialTicket(),
-              UsedRegularTicket(),
-              UsedSpecialTicket(),
-              UsedRegularTicket(),
-            ],
-          ),
-        ],
+            // ! TODO refactor for dynamic widget
+            ListView(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: [
+                UsedSpecialTicket(),
+                UsedRegularTicket(),
+                UsedSpecialTicket(),
+                UsedRegularTicket(),
+                UsedSpecialTicket(),
+                UsedRegularTicket(),
+                UsedRegularTicket(),
+                UsedRegularTicket(),
+                UsedRegularTicket(),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

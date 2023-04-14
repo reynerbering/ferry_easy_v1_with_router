@@ -14,7 +14,7 @@ class Onboarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
       assetImage: const AssetImage('assets/images/login.png'),
-      bgChild: Scaffold(
+      child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(25),
           child: Column(
