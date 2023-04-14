@@ -1,19 +1,16 @@
-import '../shared/app_colors.dart';
-import '../shared/ui_helpers.dart';
-import 'ferry_easy_alert_box.dart';
+import '../styles/app_colors.dart';
+import '../styles/ui_helpers.dart';
 import 'ferry_easy_text.dart';
 
-class FEUseTicket extends StatelessWidget {
-  const FEUseTicket({
+class FEBuyRegularTicket extends StatelessWidget {
+  const FEBuyRegularTicket({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 25,
-      ),
+      padding: const EdgeInsets.all(25.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(35),
         child: LayoutBuilder(
@@ -24,7 +21,7 @@ class FEUseTicket extends StatelessWidget {
             painter: RPSCustomPainter(),
             child: SizedBox(
               width: double.infinity,
-              height: 500,
+              height: 300,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -60,6 +57,10 @@ class FEUseTicket extends StatelessWidget {
                       '(VAT REG. TIN: 004-271-832-00000'),
                   verticalSpaceSmall,
                   const FEText.walletTicketTitle('REGULAR'),
+                  const SizedBox(
+                    width: 300,
+                    child: Divider(),
+                  ),
                   verticalSpaceRegular,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -105,33 +106,7 @@ class FEUseTicket extends StatelessWidget {
                       horizontalSpaceMedium,
                       FEText.buyTicketPriceText('32.00'),
                     ],
-                  ),
-                  const SizedBox(
-                    width: 300,
-                    child: Divider(),
-                  ),
-                  verticalSpaceSmall,
-                  GestureDetector(
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return FEAlertBox(
-                          message: 'Ticket succesfully used',
-                          onTap: () => Navigator.popUntil(
-                            context,
-                            ModalRoute.withName('home'),
-                          ),
-                        );
-                      },
-                    ),
-                    child: Container(
-                      color: Colors.grey,
-                      height: 150,
-                      width: 150,
-                    ),
-                  ),
-                  verticalSpaceSmall,
-                  const FEText.buyTicketPriceText('Scan to use Ticket'),
+                  )
                 ],
               ),
             ),

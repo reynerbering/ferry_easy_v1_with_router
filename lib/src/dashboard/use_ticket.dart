@@ -1,9 +1,9 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/shared/ui_helpers.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_app_bar.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_use_ticket.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:ferry_easy/shared/styles/ui_helpers.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_app_bar.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_use_ticket.dart';
 
 class UseTicket extends StatelessWidget {
   static const id = 'use_ticket';

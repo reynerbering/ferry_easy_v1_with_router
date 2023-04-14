@@ -1,7 +1,7 @@
-import 'package:ferry_easy/source/shared/ui_helpers.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/styles/ui_helpers.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/authentication/presentation/create_account.dart';
 import 'package:ferry_easy/src/authentication/presentation/welcome_screen.dart';
 

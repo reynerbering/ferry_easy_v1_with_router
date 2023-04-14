@@ -1,11 +1,11 @@
-import '../shared/app_colors.dart';
-import '../shared/ui_helpers.dart';
+import '../styles/app_colors.dart';
+import '../styles/ui_helpers.dart';
 import 'ferry_easy_text.dart';
 
-class SpecialTicket extends StatelessWidget {
+class RegularTicket extends StatelessWidget {
   final void Function()? onTap;
 
-  const SpecialTicket({
+  const RegularTicket({
     super.key,
     this.onTap,
   });
@@ -33,11 +33,10 @@ class SpecialTicket extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      color: const Color(0xffEFCBDE),
+                      color: const Color(0xffEAE7A9),
                       width: double.infinity,
                       padding: const EdgeInsets.all(25),
-                      child: const FEText.walletTicketTitle(
-                          'STUDENT / PWD / SENIOR CITIZEN'),
+                      child: const FEText.walletTicketTitle('REGULAR'),
                     ),
                     verticalSpaceSmall,
                     Row(

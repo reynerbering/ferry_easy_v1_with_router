@@ -1,4 +1,4 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class FEAppBar extends StatelessWidget {

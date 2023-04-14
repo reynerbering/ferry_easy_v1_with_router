@@ -1,8 +1,8 @@
-import 'package:ferry_easy/source/shared/ui_helpers.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_input_field.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/styles/ui_helpers.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_input_field.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/dashboard.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -37,7 +37,7 @@ class ForgotPassword extends StatelessWidget {
                 FEInputField(
                     controller: TextEditingController(),
                     password: true,
-                    placeholder: 'Current Password'),
+                    placeholder: 'Email'),
                 verticalSpaceMedium,
                 FEInputField(
                     controller: TextEditingController(),
@@ -50,9 +50,8 @@ class ForgotPassword extends StatelessWidget {
                     placeholder: 'Confirm New Password'),
                 verticalSpaceLarge,
                 FEButton(
-                  title: 'Dashboard',
-                  onTap: () =>
-                      Navigator.of(context).pushReplacementNamed(Dashboard.id),
+                  title: 'Continue',
+                  onTap: () => Navigator.pop(context),
                 )
               ],
             ),

@@ -1,5 +1,5 @@
-import '../shared/app_colors.dart';
-import '../shared/ui_helpers.dart';
+import '../styles/app_colors.dart';
+import '../styles/ui_helpers.dart';
 import 'ferry_easy_notification_dialog.dart';
 import 'ferry_easy_text.dart';
 

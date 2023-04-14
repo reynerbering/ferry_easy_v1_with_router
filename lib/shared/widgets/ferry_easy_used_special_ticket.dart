@@ -1,6 +1,6 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
 
-import '../shared/ui_helpers.dart';
+import '../styles/ui_helpers.dart';
 import 'ferry_easy_text.dart';
 
 class UsedSpecialTicket extends StatelessWidget {

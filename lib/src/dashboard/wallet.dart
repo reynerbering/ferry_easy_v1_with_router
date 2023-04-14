@@ -1,14 +1,13 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/shared/ui_helpers.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_confirmation_box.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:ferry_easy/shared/styles/ui_helpers.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_confirmation_box.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/use_ticket.dart';
 
-import '../../source/widgets/ferry_easy_background_image.dart';
-import '../../source/widgets/ferry_easy_special_ticket.dart';
-import '../../source/widgets/ferry_easy_regular_ticket.dart';
-import '../../source/widgets/ferry_easy_wallet_load.dart';
-import 'load_details.dart';
+import '../../shared/widgets/ferry_easy_background_image.dart';
+import '../../shared/widgets/ferry_easy_special_ticket.dart';
+import '../../shared/widgets/ferry_easy_regular_ticket.dart';
+import '../../shared/widgets/ferry_easy_wallet_load.dart';
 
 class Wallet extends StatelessWidget {
   const Wallet({super.key});

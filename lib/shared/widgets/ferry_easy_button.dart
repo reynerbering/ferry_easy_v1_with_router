@@ -1,5 +1,5 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/shared/styles.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:ferry_easy/shared/styles/styles.dart';
 import 'package:flutter/material.dart';
 
 export 'package:flutter/material.dart';

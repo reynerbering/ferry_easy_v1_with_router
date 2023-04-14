@@ -1,8 +1,8 @@
-import 'package:ferry_easy/source/shared/ui_helpers.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_alert_box.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_app_bar.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/styles/ui_helpers.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_alert_box.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_app_bar.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/dashboard.dart';
 
 class TicketConfirmationPage extends StatelessWidget {

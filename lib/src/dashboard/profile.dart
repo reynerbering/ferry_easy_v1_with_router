@@ -1,8 +1,8 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_app_bar.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_app_bar.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 
-import '../../source/widgets/ferry_easy_profile_card.dart';
+import '../../shared/widgets/ferry_easy_profile_card.dart';
 
 class Profile extends StatelessWidget {
   static const id = 'profile';

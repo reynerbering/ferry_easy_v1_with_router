@@ -1,5 +1,5 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
 import 'dart:ui';
 
 class FENotificationDialog extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
-import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/shared/ui_helpers.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_alert_box.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_button.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_input_field.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:ferry_easy/shared/styles/ui_helpers.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_alert_box.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_input_field.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/dashboard.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -102,7 +102,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       context: context,
                       builder: (BuildContext context) {
                         return FEAlertBox(
-                          message: 'Thank you for your purchase!',
+                          message: 'User Registered Succesfully!',
                           onTap: () => Navigator.popUntil(
                             context,
                             ModalRoute.withName('welcome'),

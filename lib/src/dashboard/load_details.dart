@@ -1,6 +1,8 @@
-import 'package:ferry_easy/source/shared/app_colors.dart';
-import 'package:ferry_easy/source/widgets/ferry_easy_app_bar.dart';
-import 'package:flutter/material.dart';
+import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:ferry_easy/shared/styles/ui_helpers.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_app_bar.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 
 class LoadDetails extends StatelessWidget {
   const LoadDetails({super.key});
@@ -19,17 +21,58 @@ class LoadDetails extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 250,
-            width: 250,
-            child: Text(
-              'INFO',
-              style: TextStyle(
+          const Text(
+            'PLEASE SHOW THIS PAGE TO THE CASHIER',
+            style: TextStyle(
                 color: kcPrimaryColor,
-                fontSize: 28,
-              ),
+                fontSize: 15,
+                fontWeight: FontWeight.w900),
+            textAlign: TextAlign.center,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: kcLightGrayColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            margin: const EdgeInsets.all(25),
+            padding: const EdgeInsets.all(15),
+            height: 200,
+            width: double.infinity,
+            child: Column(
+              children: [
+                verticalSpaceLarge,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        FEText.buyTicketCompany('User:'),
+                        FEText.buyTicketCompany('First Name:'),
+                        FEText.buyTicketCompany('Last Name:'),
+                      ],
+                    ),
+                    horizontalSpaceRegular,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FEText.buyTicketCompany('25616512'),
+                        FEText.buyTicketCompany('Fabian Miguel'),
+                        FEText.buyTicketCompany('Canizares'),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: FEButton(
+              title: 'Close this page',
+              onTap: () => Navigator.pop(context),
             ),
           ),
         ],

@@ -1,6 +1,6 @@
-import 'package:ferry_easy/source/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 
-import '../../source/widgets/ferry_easy_notification_tile.dart';
+import '../../shared/widgets/ferry_easy_notification_tile.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({super.key});
