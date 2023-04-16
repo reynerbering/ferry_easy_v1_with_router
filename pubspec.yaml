@@ -1,5 +1,5 @@
 name: ferry_easy
-description: A new Flutter project.
+description: An App for Cebuano commuters, based on Metro Ferry Inc. .
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -34,12 +34,14 @@ dependencies:
   cloud_firestore: ^4.5.0
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
-  firebase_auth: ^4.4.0
+  firebase_auth: ^4.4.1
+  firebase_auth_web: ^5.3.1
   firebase_core: ^2.9.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
   flutter_svg: ^2.0.4
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
