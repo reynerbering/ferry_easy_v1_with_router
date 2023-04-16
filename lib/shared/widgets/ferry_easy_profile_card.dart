@@ -1,8 +1,6 @@
-import '../styles/app_colors.dart';
-import '../styles/ui_helpers.dart';
-import 'ferry_easy_text.dart';
-
 // ! Make dynamic from firebase
+
+import '../shared_exports.dart';
 
 class ProfileCard extends StatelessWidget {
   final String? firstName;

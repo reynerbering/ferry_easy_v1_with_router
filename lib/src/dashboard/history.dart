@@ -1,9 +1,6 @@
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-import 'package:ferry_easy/shared/styles/ui_helpers.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
-
 import '../../shared/widgets/ferry_easy_used_regular_ticket.dart';
 import '../../shared/widgets/ferry_easy_used_special_ticket.dart';
+import '../../shared/shared_exports.dart';
 
 class History extends StatelessWidget {
   const History({

@@ -1,7 +1,4 @@
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-
-import '../styles/ui_helpers.dart';
-import 'ferry_easy_text.dart';
+import '../shared_exports.dart';
 
 class UsedRegularTicket extends StatelessWidget {
   const UsedRegularTicket({

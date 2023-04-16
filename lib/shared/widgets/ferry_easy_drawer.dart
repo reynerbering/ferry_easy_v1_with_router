@@ -1,14 +1,10 @@
 import 'dart:ui';
 
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-import 'package:ferry_easy/shared/styles/styles.dart';
-import 'package:ferry_easy/shared/styles/ui_helpers.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
-import 'package:ferry_easy/src/dashboard/dashboard.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../src/dashboard/dashboard.dart';
 import '../../src/dashboard/profile.dart';
+import '../shared_exports.dart';
 
 class FEDrawer extends StatelessWidget {
   const FEDrawer({super.key});

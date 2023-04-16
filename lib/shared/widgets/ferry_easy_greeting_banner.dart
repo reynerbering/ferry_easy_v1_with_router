@@ -1,7 +1,6 @@
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-import 'package:ferry_easy/shared/styles/ui_helpers.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../shared_exports.dart';
 
 class FEGreetingBanner extends StatelessWidget {
   final String name;

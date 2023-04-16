@@ -1,7 +1,6 @@
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-import 'package:ferry_easy/shared/styles/ui_helpers.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
 import 'dart:ui';
+
+import '../shared_exports.dart';
 
 class FEAlertBox extends StatelessWidget {
   final String message;

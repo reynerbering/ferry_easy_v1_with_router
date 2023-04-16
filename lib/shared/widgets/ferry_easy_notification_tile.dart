@@ -1,7 +1,4 @@
-import '../styles/app_colors.dart';
-import '../styles/ui_helpers.dart';
-import 'ferry_easy_notification_dialog.dart';
-import 'ferry_easy_text.dart';
+import '../shared_exports.dart';
 
 class FENotificationTile extends StatelessWidget {
   final String title;

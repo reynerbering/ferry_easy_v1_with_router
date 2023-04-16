@@ -1,7 +1,6 @@
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-import 'package:ferry_easy/shared/styles/ui_helpers.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../shared_exports.dart';
 
 class FECustomFAB extends StatelessWidget {
   final void Function()? onTap;

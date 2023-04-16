@@ -1,16 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+
+import '../../shared/shared_exports.dart';
 import 'package:ferry_easy/src/dashboard/buy_ticket.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_dashboard_divider.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/dashboard/history.dart';
 import 'package:ferry_easy/src/dashboard/notifications.dart';
 import 'package:ferry_easy/src/dashboard/wallet.dart';
 
-import '../../shared/widgets/ferry_easy_app_bar.dart';
-import '../../shared/widgets/ferry_easy_drawer.dart';
 import 'home.dart';
 
 class Dashboard extends StatefulWidget {

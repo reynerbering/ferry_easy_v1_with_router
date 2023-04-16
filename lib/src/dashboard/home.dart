@@ -1,8 +1,4 @@
-import 'package:ferry_easy/shared/styles/ui_helpers.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_greeting_banner.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_ship_details.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
+import '../../shared/shared_exports.dart';
 
 class Home extends StatelessWidget {
   const Home({

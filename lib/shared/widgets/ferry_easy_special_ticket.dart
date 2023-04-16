@@ -1,6 +1,4 @@
-import '../styles/app_colors.dart';
-import '../styles/ui_helpers.dart';
-import 'ferry_easy_text.dart';
+import '../shared_exports.dart';
 
 class SpecialTicket extends StatelessWidget {
   final void Function()? onTap;

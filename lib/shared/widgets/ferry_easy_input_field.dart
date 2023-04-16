@@ -1,8 +1,8 @@
-import 'package:ferry_easy/shared/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../shared_exports.dart';
+
 export 'package:flutter/material.dart';
-export 'ferry_easy_input_field.dart';
 
 class FEInputField extends StatelessWidget {
   final TextEditingController controller;

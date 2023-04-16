@@ -1,9 +1,4 @@
-import 'package:ferry_easy/shared/styles/app_colors.dart';
-import 'package:ferry_easy/shared/styles/styles.dart';
-import 'package:flutter/material.dart';
-
-export 'package:flutter/material.dart';
-export 'ferry_easy_button.dart';
+import '../shared_exports.dart';
 
 class FEButton extends StatelessWidget {
   final String title;

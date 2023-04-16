@@ -1,11 +1,6 @@
-import 'package:ferry_easy/shared/widgets/ferry_easy_app_bar.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_buy_regular_ticket.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_quantity_selector.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_wallet_load.dart';
 import 'package:ferry_easy/src/dashboard/ticket_confirmation.dart';
+
+import '../../shared/shared_exports.dart';
 
 class BuyTicket extends StatefulWidget {
   static const id = 'buy_ticket';
