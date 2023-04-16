@@ -208,8 +208,7 @@ class FESafetyTips extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: MaterialButton(
-              onPressed: () =>
-                  Navigator.popUntil(context, ModalRoute.withName('home')),
+              onPressed: () => Navigator.pop(context),
               color: Colors.white,
               shape: const CircleBorder(),
               child: const Icon(

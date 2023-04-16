@@ -115,7 +115,6 @@ class FEUseTicket extends StatelessWidget {
                   verticalSpaceSmall,
                   GestureDetector(
                     onTap: () => showModalBottomSheet(
-                      isDismissible: false,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(25.0),
