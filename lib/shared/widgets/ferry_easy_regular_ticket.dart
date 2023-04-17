@@ -1,3 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../src/dashboard/application/bloc_exports.dart';
+import '../../src/dashboard/domain/ticket.dart';
 import '../shared_exports.dart';
 
 class RegularTicket extends StatelessWidget {
@@ -73,7 +77,7 @@ class RegularTicket extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const FEText.walletTicketPriceText('P 32.00'),
+                        const FEText.walletTicketPriceText('P 35.00'),
                         horizontalSpaceLarge,
                         horizontalSpaceLarge,
                         horizontalSpaceLarge,
@@ -88,13 +92,17 @@ class RegularTicket extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: kcLightGrayColor,
                               borderRadius: BorderRadius.circular(5)),
-                          child: const Text(
-                            '1',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              color: kcPrimaryColor,
-                            ),
+                          child: BlocBuilder<TicketBloc, TicketState>(
+                            builder: (context, state) {
+                              return Text(
+                                '${state.activeRegularTickets.length}',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                  color: kcPrimaryColor,
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ],

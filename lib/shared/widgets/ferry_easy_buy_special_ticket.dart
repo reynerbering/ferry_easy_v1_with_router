@@ -1,7 +1,7 @@
 import '../shared_exports.dart';
 
-class FEBuyRegularTicket extends StatelessWidget {
-  const FEBuyRegularTicket({
+class FEBuySpecialTicket extends StatelessWidget {
+  const FEBuySpecialTicket({
     super.key,
   });
 
@@ -54,7 +54,8 @@ class FEBuyRegularTicket extends StatelessWidget {
                   const FEText.walletTicketSubtext(
                       '(VAT REG. TIN: 004-271-832-00000'),
                   verticalSpaceSmall,
-                  const FEText.walletTicketTitle('REGULAR'),
+                  const FEText.walletTicketTitle(
+                      'STUDENT / PWD / SENIOR CITIZEN'),
                   const SizedBox(
                     width: 300,
                     child: Divider(),
@@ -82,7 +83,7 @@ class FEBuyRegularTicket extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: const [
-                          FEText.buyTicketPriceText('32.00'),
+                          FEText.buyTicketPriceText('25.00'),
                           FEText.buyTicketPriceText('3.00'),
                         ],
                       ),
@@ -102,7 +103,7 @@ class FEBuyRegularTicket extends StatelessWidget {
                       horizontalSpaceLarge,
                       FEText.buyTicketPriceText('P'),
                       horizontalSpaceMedium,
-                      FEText.buyTicketPriceText('35.00'),
+                      FEText.buyTicketPriceText('28.00'),
                     ],
                   )
                 ],

@@ -16,8 +16,11 @@ export './widgets/ferry_easy_input_field.dart';
 export './widgets/ferry_easy_notification_dialog.dart';
 export './widgets/ferry_easy_notification_tile.dart';
 export './widgets/ferry_easy_profile_card.dart';
-export './widgets/ferry_easy_quantity_selector.dart';
+export './widgets/ferry_easy_special_quantity_selector.dart';
+export './widgets/ferry_easy_regular_quantity_selector.dart';
 export './widgets/ferry_easy_safety_tips_bottom_sheet.dart';
 export './widgets/ferry_easy_ship_details.dart';
 export './widgets/ferry_easy_text.dart';
 export './widgets/ferry_easy_wallet_load.dart';
+
+export './shared_exports.dart';

@@ -20,7 +20,7 @@ class Wallet extends StatelessWidget {
               child: Column(
                 children: [
                   verticalSpaceRegular,
-                  FEWalletLoad(),
+                  const FEWalletLoad(),
                   RegularTicket(
                     onTap: () => showDialog(
                       context: context,

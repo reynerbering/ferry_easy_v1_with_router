@@ -50,10 +50,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const BuyTicket(),
         );
-      case TicketConfirmationPage.id:
-        return MaterialPageRoute(
-          builder: (context) => const TicketConfirmationPage(),
-        );
+
       case UseTicket.id:
         return MaterialPageRoute(
           builder: (context) => const UseTicket(),

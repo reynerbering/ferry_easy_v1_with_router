@@ -28,20 +28,10 @@ class FEAppBar extends StatelessWidget {
       bottom: tabBar,
       iconTheme: const IconThemeData(color: kcPrimaryColor),
       backgroundColor: Colors.white,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (logo != null)
-            Image(
-              image: AssetImage(logo!),
-              height: 50.0,
-              width: 50.0,
-            ),
-          Text(
-            title,
-            style: const TextStyle(color: kcPrimaryColor),
-          ),
-        ],
+      centerTitle: true,
+      title: Text(
+        title,
+        style: const TextStyle(color: kcPrimaryColor),
       ),
     );
   }
