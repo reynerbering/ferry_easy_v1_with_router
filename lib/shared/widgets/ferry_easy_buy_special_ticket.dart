@@ -83,7 +83,7 @@ class FEBuySpecialTicket extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: const [
-                          FEText.buyTicketPriceText('25.00'),
+                          FEText.buyTicketPriceText('26.00'),
                           FEText.buyTicketPriceText('3.00'),
                         ],
                       ),
@@ -103,7 +103,7 @@ class FEBuySpecialTicket extends StatelessWidget {
                       horizontalSpaceLarge,
                       FEText.buyTicketPriceText('P'),
                       horizontalSpaceMedium,
-                      FEText.buyTicketPriceText('28.00'),
+                      FEText.buyTicketPriceText('29.00'),
                     ],
                   )
                 ],

@@ -1,8 +1,12 @@
+import '../../src/dashboard/domain/ticket.dart';
 import '../shared_exports.dart';
 
 class UsedSpecialTicket extends StatelessWidget {
+  final Ticket ticket;
+
   const UsedSpecialTicket({
     super.key,
+    required this.ticket,
   });
 
   @override
@@ -49,7 +53,7 @@ class UsedSpecialTicket extends StatelessWidget {
                           verticalSpaceTiny,
                           FEText.historyTicketLoc('LAPU-LAPU | CEBU'),
                           verticalSpaceTiny,
-                          FEText.historyTicketPrice('PHP 32.00')
+                          FEText.historyTicketPrice('PHP 29.00')
                         ],
                       ),
                       horizontalSpaceMedium,

@@ -1,6 +1,7 @@
 import 'package:ferry_easy/shared/services/guid_gen.dart';
 import 'package:ferry_easy/src/dashboard/application/bloc_exports.dart';
 import 'package:ferry_easy/src/dashboard/domain/ticket.dart';
+import 'package:intl/intl.dart';
 
 import '../../shared/shared_exports.dart';
 
@@ -101,7 +102,10 @@ class TicketConfirmationPage extends StatelessWidget {
                     // loops when creating a ticket
                     if (ticket == 'Regular') {
                       for (int i = 0; i < quantity; i++) {
-                        var ticket = Ticket(id: GUIDGen.generate());
+                        var ticket = Ticket(
+                            id: GUIDGen.generate(),
+                            datePurchased: DateFormat('MM-dd-yyyy')
+                                .format(DateTime.now()));
                         context
                             .read<TicketBloc>()
                             .add(BuyRegularTicket(ticket: ticket));
@@ -120,7 +124,10 @@ class TicketConfirmationPage extends StatelessWidget {
                       );
                     } else if (ticket == 'Special') {
                       for (int i = 0; i < quantity; i++) {
-                        var ticket = Ticket(id: GUIDGen.generate());
+                        var ticket = Ticket(
+                            id: GUIDGen.generate(),
+                            datePurchased: DateFormat('MM-dd-yyyy')
+                                .format(DateTime.now()));
                         context
                             .read<TicketBloc>()
                             .add(BuySpecialTicket(ticket: ticket));

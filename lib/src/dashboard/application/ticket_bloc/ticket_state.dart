@@ -14,9 +14,9 @@ class TicketState extends Equatable {
     this.activeSpecialTickets = const <Ticket>[],
     this.usedRegularTickets = const <Ticket>[],
     this.usedSpecialTickets = const <Ticket>[],
-    this.walletBalance = 28,
+    this.walletBalance = 1000,
     this.regularTicketPrice = 35,
-    this.specialTicketPrice = 28,
+    this.specialTicketPrice = 29,
   });
 
   @override

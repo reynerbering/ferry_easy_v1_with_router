@@ -110,7 +110,7 @@ class FESafetyTips extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text(
-                  '     Also\, give careful attention to the elderly and individuals accompanied by caregivers or who use mobility aids. Let them go in front so they have room to board. This also gives them time to do so safely.',
+                  '     Also, give careful attention to the elderly and individuals accompanied by caregivers or who use mobility aids. Let them go in front so they have room to board. This also gives them time to do so safely.',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
@@ -206,7 +206,8 @@ class FESafetyTips extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: MaterialButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () =>
+                  Navigator.popUntil(context, ModalRoute.withName('home')),
               color: Colors.white,
               shape: const CircleBorder(),
               child: const Icon(

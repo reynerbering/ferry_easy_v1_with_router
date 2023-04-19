@@ -25,10 +25,19 @@ class BuySpecialTicket extends TicketEvent {
   List<Object> get props => [ticket];
 }
 
-class UseTicket extends TicketEvent {
+class UseRegularTicket extends TicketEvent {
   final Ticket ticket;
 
-  const UseTicket({required this.ticket});
+  const UseRegularTicket({required this.ticket});
+
+  @override
+  List<Object> get props => [ticket];
+}
+
+class UseSpecialTicket extends TicketEvent {
+  final Ticket ticket;
+
+  const UseSpecialTicket({required this.ticket});
 
   @override
   List<Object> get props => [ticket];

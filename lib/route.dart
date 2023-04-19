@@ -1,8 +1,9 @@
+import 'package:ferry_easy/src/dashboard/consume_special_ticket.dart';
 import 'package:ferry_easy/src/dashboard/dashboard.dart';
 import 'package:ferry_easy/src/dashboard/load_details.dart';
 import 'package:ferry_easy/src/dashboard/profile.dart';
 import 'package:ferry_easy/src/dashboard/ticket_confirmation.dart';
-import 'package:ferry_easy/src/dashboard/use_ticket.dart';
+import 'package:ferry_easy/src/dashboard/consume_regular_ticket.dart';
 import 'package:flutter/material.dart';
 
 import 'src/authentication/presentation/create_account.dart';
@@ -51,9 +52,13 @@ class AppRouter {
           builder: (context) => const BuyTicket(),
         );
 
-      case UseTicket.id:
+      case ConsumeRegularTicket.id:
         return MaterialPageRoute(
-          builder: (context) => const UseTicket(),
+          builder: (context) => const ConsumeRegularTicket(),
+        );
+      case ConsumeSpecialTicket.id:
+        return MaterialPageRoute(
+          builder: (context) => const ConsumeSpecialTicket(),
         );
 
       default:

@@ -1,9 +1,13 @@
+import '../../src/dashboard/domain/ticket.dart';
 import '../shared_exports.dart';
 
 class UsedRegularTicket extends StatelessWidget {
+  final Ticket ticket;
+
   const UsedRegularTicket({
-    super.key,
-  });
+    Key? key,
+    required this.ticket,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +49,7 @@ class UsedRegularTicket extends StatelessWidget {
                           verticalSpaceTiny,
                           FEText.historyTicketLoc('LAPU-LAPU | CEBU'),
                           verticalSpaceTiny,
-                          FEText.historyTicketPrice('PHP 27.00')
+                          FEText.historyTicketPrice('PHP 35.00')
                         ],
                       ),
                       horizontalSpaceMedium,
