@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:ferry_easy/src/authentication/presentation/welcome_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../src/dashboard/application/bloc_exports.dart';
@@ -8,7 +10,8 @@ import '../../src/dashboard/profile.dart';
 import '../shared_exports.dart';
 
 class FEDrawer extends StatelessWidget {
-  const FEDrawer({super.key});
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FEDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -143,12 +146,21 @@ class FEDrawer extends StatelessWidget {
                   const Divider(),
                   verticalSpaceMedium,
                   ListTile(
-                    title: FEText.drawerListTile(
+                    title: const FEText.drawerListTile(
                       'Logout',
                       textAlign: TextAlign.end,
                     ),
-                    onTap: () async {},
-                    trailing: Icon(
+                    onTap: () async {
+                      await _auth.signOut().then(
+                        (value) {
+                          Navigator.pushReplacementNamed(
+                            context,
+                            WelcomeScreen.id,
+                          );
+                        },
+                      );
+                    },
+                    trailing: const Icon(
                       Icons.logout,
                       color: kcPrimaryColor,
                       size: 15,

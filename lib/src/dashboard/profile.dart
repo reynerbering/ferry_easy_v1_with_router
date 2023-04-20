@@ -1,4 +1,3 @@
-import '../../shared/widgets/ferry_easy_profile_card.dart';
 import '../../shared/shared_exports.dart';
 
 class Profile extends StatelessWidget {
@@ -23,8 +22,8 @@ class Profile extends StatelessWidget {
             const ProfileCard(),
             Container(
               margin: const EdgeInsets.all(25),
-              height: 500,
               width: double.infinity,
+              height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 color: Colors.white,
@@ -36,6 +35,7 @@ class Profile extends StatelessWidget {
                 ],
               ),
               child: ListView(
+                shrinkWrap: true,
                 children: [
                   UserInfo(
                     title: 'First Name',
@@ -76,7 +76,7 @@ class UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       leading: Text(
         title,
         style: const TextStyle(color: kcMediumGrayColor),

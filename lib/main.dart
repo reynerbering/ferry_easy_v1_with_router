@@ -1,3 +1,4 @@
+import 'package:ferry_easy/firebase_options.dart';
 import 'package:ferry_easy/route.dart';
 import 'package:ferry_easy/src/authentication/data/auth_repository.dart';
 import 'package:ferry_easy/src/authentication/presentation/onboarding.dart';
@@ -9,7 +10,9 @@ import 'src/dashboard/application/bloc_exports.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),

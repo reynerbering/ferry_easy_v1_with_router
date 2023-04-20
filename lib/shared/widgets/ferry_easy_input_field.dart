@@ -11,7 +11,7 @@ class FEInputField extends StatelessWidget {
   final Widget? trailing;
   final void Function()? trailingTapped;
   final bool password;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final bool isEnabled;
 

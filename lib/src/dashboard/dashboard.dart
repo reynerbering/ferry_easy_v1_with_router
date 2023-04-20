@@ -79,7 +79,7 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
         body: _pageDetails[_selectedPageIndex]['pageName'],
-        endDrawer: const FEDrawer(),
+        endDrawer: FEDrawer(),
         bottomNavigationBar: BottomAppBar(
           elevation: 0,
           child: BottomNavigationBar(

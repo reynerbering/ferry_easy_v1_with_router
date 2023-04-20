@@ -14,9 +14,10 @@ class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
 
   static const id = 'welcome_screen';
-
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final _email = TextEditingController();
+  final _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +40,14 @@ class WelcomeScreen extends StatelessWidget {
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 FEInputField(
-                  controller: emailController,
+                  controller: _email,
                   placeholder: 'Username',
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Email is required';
+                    }
+                    return null;
+                  },
                   leading: const Icon(
                     Icons.person,
                     color: kcPrimaryColor,
@@ -48,9 +55,17 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 verticalSpaceRegular,
                 FEInputField(
-                  controller: passwordController,
+                  controller: _password,
                   placeholder: 'Password',
                   password: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Password is required';
+                    } else if (value.length < 6) {
+                      return 'Password should be at least 6 characters';
+                    }
+                    return null;
+                  },
                   leading: const Icon(
                     Icons.lock,
                     color: kcPrimaryColor,
@@ -72,11 +87,33 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 verticalSpaceRegular,
                 FEButton(
-                    title: 'Log In',
-                    onTap: () {
-                      // logIn();
-                      Navigator.of(context).pushNamed(Dashboard.id);
-                    }),
+                  title: 'Log In',
+                  onTap: () async {
+                    final isValid = _formKey.currentState?.validate();
+                    try {
+                      await _auth
+                          .signInWithEmailAndPassword(
+                              email: _email.text, password: _password.text)
+                          .then((value) {
+                        Navigator.pushReplacementNamed(context, Dashboard.id);
+                      });
+                    } catch (error) {
+                      var snackBar = SnackBar(
+                          backgroundColor: Colors.red,
+                          duration: const Duration(milliseconds: 2000),
+                          content: Text(
+                            error.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Inter',
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700),
+                          ));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  },
+                ),
                 const FEDividerOrWidget(),
                 FEButton(
                   title: 'Sign Up',

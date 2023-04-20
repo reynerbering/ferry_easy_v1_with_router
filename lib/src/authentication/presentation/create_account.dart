@@ -6,7 +6,7 @@ import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_input_field.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
-import 'package:ferry_easy/src/dashboard/dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -18,9 +18,16 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   List<DateTime?> _datePicked = [
     DateTime.now(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
@@ -46,77 +53,109 @@ class _CreateAccountState extends State<CreateAccount> {
                   verticalSpaceLarge,
                   verticalSpaceLarge,
                   verticalSpaceLarge,
+                  // FEInputField(
+                  //     controller: TextEditingController(),
+                  //     placeholder: 'First Name'),
+                  // FEInputField(
+                  //     controller: TextEditingController(),
+                  //     placeholder: 'Last Name'),
                   FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'First Name'),
-                  FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'Last Name'),
-                  FEInputField(
-                    controller: TextEditingController(),
+                    controller: _email,
                     placeholder: 'Email',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Email is required';
+                      }
+                      return null;
+                    },
                   ),
+                  verticalSpaceLarge,
+                  // FEInputField(
+                  //     controller: TextEditingController(),
+                  //     placeholder: 'Username'),
                   FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'Username'),
-                  FEInputField(
-                    controller: TextEditingController(),
+                    controller: _password,
                     placeholder: 'Password',
                     password: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password is required';
+                      } else if (value.length < 6) {
+                        return 'Password should be at least 6 characters';
+                      }
+                      return null;
+                    },
                   ),
-                  FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'Street'),
-                  FEInputField(
-                      controller: TextEditingController(), placeholder: 'City'),
-                  FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'Province'),
-                  FEInputField(
-                      controller: TextEditingController(),
-                      placeholder: 'Contact No.'),
-                  FEInputField(
-                    controller: TextEditingController(),
-                    placeholder: 'Birthday',
-                    trailing: const Icon(Icons.date_range),
-                    trailingTapped: () => showModalBottomSheet(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return CalendarDatePicker2WithActionButtons(
-                            value: _datePicked,
-                            onValueChanged: (date) {
-                              setState(() {
-                                _datePicked = date;
-                              });
-                            },
-                            config: CalendarDatePicker2WithActionButtonsConfig(
-                              selectedDayHighlightColor: kcPrimaryColor,
-                            ),
-                          );
-                        }),
-                  ),
+                  // FEInputField(
+                  //     controller: TextEditingController(),
+                  //     placeholder: 'Street'),
+                  // FEInputField(
+                  //     controller: TextEditingController(), placeholder: 'City'),
+                  // FEInputField(
+                  //     controller: TextEditingController(),
+                  //     placeholder: 'Province'),
+                  // FEInputField(
+                  //     controller: TextEditingController(),
+                  //     placeholder: 'Contact No.'),
+                  // FEInputField(
+                  //   controller: TextEditingController(),
+                  //   placeholder: 'Birthday',
+                  //   trailing: const Icon(Icons.date_range),
+                  //   trailingTapped: () => showModalBottomSheet(
+                  //       context: context,
+                  //       builder: (BuildContext context) {
+                  //         return CalendarDatePicker2WithActionButtons(
+                  //           value: _datePicked,
+                  //           onValueChanged: (date) {
+                  //             setState(() {
+                  //               _datePicked = date;
+                  //             });
+                  //           },
+                  //           config: CalendarDatePicker2WithActionButtonsConfig(
+                  //             selectedDayHighlightColor: kcPrimaryColor,
+                  //           ),
+                  //         );
+                  //       }),
+                  // ),
                   verticalSpaceLarge,
                   FEButton(
                     title: 'Sign Up',
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return FEAlertBox(
-                          message: 'User Registered Succesfully!',
-                          onTap: () => Navigator.popUntil(
-                            context,
-                            ModalRoute.withName('welcome'),
+                    onTap: () async {
+                      final isValid = _formKey.currentState?.validate();
+                      try {
+                        await _auth.createUserWithEmailAndPassword(
+                            email: _email.text, password: _password.text);
+                        if (context.mounted) {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return FEAlertBox(
+                                message: 'User Registered Succesfully!',
+                                onTap: () => Navigator.popUntil(
+                                  context,
+                                  ModalRoute.withName('welcome'),
+                                ),
+                              );
+                            },
+                          );
+                        }
+                      } catch (error) {
+                        var snackBar = SnackBar(
+                          backgroundColor: Colors.red,
+                          duration: const Duration(milliseconds: 2000),
+                          content: Text(
+                            error.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Inter',
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700),
                           ),
                         );
-
-                        // ! Sample confirmation box call
-                        // return FEConfirmationBox(
-                        //     message: 'Register?',
-                        //     noTap: Navigator.of(context).pop,
-                        //     yesTap: () => Navigator.popAndPushNamed(
-                        //         context, '/Dashboard'));
-                      },
-                    ),
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      }
+                    },
                   ),
                 ],
               ),
