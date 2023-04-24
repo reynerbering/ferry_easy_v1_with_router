@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               verticalSpaceMedium,
-              const FEGreetingBanner(name: 'Suzy'),
+              const FEGreetingBanner(),
               verticalSpaceMedium,
               Row(
                 children: const [

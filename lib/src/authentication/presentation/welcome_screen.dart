@@ -9,6 +9,7 @@ import 'package:ferry_easy/src/authentication/presentation/create_account.dart';
 import 'package:ferry_easy/src/authentication/presentation/forgot_password.dart';
 import 'package:ferry_easy/src/dashboard/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get_storage/get_storage.dart';
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
@@ -96,6 +97,7 @@ class WelcomeScreen extends StatelessWidget {
                               email: _email.text, password: _password.text)
                           .then((value) {
                         Navigator.pushReplacementNamed(context, Dashboard.id);
+                        GetStorage().write('token', value.user!.uid);
                       });
                     } catch (error) {
                       var snackBar = SnackBar(

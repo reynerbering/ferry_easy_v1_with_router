@@ -1,7 +1,6 @@
 import 'package:ferry_easy/firebase_options.dart';
 import 'package:ferry_easy/route.dart';
-import 'package:ferry_easy/src/authentication/data/auth_repository.dart';
-import 'package:ferry_easy/src/authentication/presentation/onboarding.dart';
+import 'package:ferry_easy/src/authentication/presentation/load_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -30,22 +29,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider(
-      create: (context) => AuthRepository(),
-      child: BlocProvider(
-        create: (context) => TicketBloc(),
-        child: MaterialApp(
-          title: 'FerryEasy',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            brightness: Brightness.light,
-            textTheme: Typography.whiteCupertino,
-            fontFamily: 'Inter',
-            scaffoldBackgroundColor: Colors.transparent,
-          ),
-          home: const Onboarding(),
-          onGenerateRoute: appRouter.onGenerateRoute,
+    return BlocProvider(
+      create: (context) => TicketBloc(),
+      child: MaterialApp(
+        title: 'FerryEasy',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.light,
+          textTheme: Typography.whiteCupertino,
+          fontFamily: 'Inter',
+          scaffoldBackgroundColor: Colors.transparent,
         ),
+        home: const LoadScreen(),
+        onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
   }

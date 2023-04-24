@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../shared/shared_exports.dart';
+import '../authentication/domain/user_model.dart';
 
 class Profile extends StatelessWidget {
   static const id = 'profile';
@@ -7,59 +10,71 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kcLightGrayColor,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
-        child: FEAppBar(
-          title: 'Profile',
-        ),
-      ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            const ProfileCard(),
-            Container(
-              margin: const EdgeInsets.all(25),
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                color: Colors.white,
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey, //New
-                    blurRadius: 25.0,
-                  ),
-                ],
+    FirebaseAuth auth = FirebaseAuth.instance;
+    return StreamBuilder<UserModel?>(
+        stream: getUser(auth.currentUser!.uid),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final user = snapshot.data!;
+            return Scaffold(
+              backgroundColor: kcLightGrayColor,
+              appBar: const PreferredSize(
+                preferredSize: Size.fromHeight(kToolbarHeight),
+                child: FEAppBar(
+                  title: 'Profile',
+                ),
               ),
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  UserInfo(
-                    title: 'First Name',
-                    info: 'Fabian',
-                  ),
-                  UserInfo(
-                    title: 'First Name',
-                    info: 'Fabian',
-                  ),
-                  UserInfo(
-                    title: 'First Name',
-                    info: 'Fabian',
-                  ),
-                  UserInfo(
-                    title: 'First Name',
-                    info: 'Fabian',
-                  ),
-                ],
+              body: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    const ProfileCard(),
+                    Container(
+                      margin: const EdgeInsets.all(25),
+                      width: double.infinity,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.grey, //New
+                            blurRadius: 25.0,
+                          ),
+                        ],
+                      ),
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: [
+                          UserInfo(
+                            title: 'Contact Number',
+                            info: user.contactNum,
+                          ),
+                          UserInfo(
+                            title: 'Birth Date',
+                            info: user.birthDate.toString(),
+                          ),
+                          UserInfo(
+                            title: 'Username',
+                            info: user.username,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            )
-          ],
-        ),
-      ),
-    );
+            );
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: kcPrimaryColor,
+              ),
+            );
+          }
+        });
   }
 }
 

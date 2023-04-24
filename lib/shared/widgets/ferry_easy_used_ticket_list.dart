@@ -5,50 +5,6 @@ import '../../src/dashboard/application/bloc_exports.dart';
 import '../../src/dashboard/domain/ticket.dart';
 import 'ferry_easy_used_special_ticket.dart';
 
-// class UsedTicketList extends StatelessWidget {
-//   const UsedTicketList({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocBuilder<TicketBloc, TicketState>(
-//       builder: (context, state) {
-//         List<Ticket> combinedUsedTickets = [];
-//         List<Ticket> usedRegularTickets = state.usedRegularTickets;
-//         List<Ticket> usedSpecialTickets = state.usedSpecialTickets;
-
-//         combinedUsedTickets.addAll(usedRegularTickets);
-//         combinedUsedTickets.addAll(usedSpecialTickets);
-//         return Expanded(
-//           child: ListView.builder(
-//             shrinkWrap: true,
-//             itemCount: combinedUsedTickets.length,
-//             itemBuilder: (context, index) {
-//               if (index < usedRegularTickets.length) {
-//                 var ticketRegular = usedRegularTickets[index];
-//                 return UsedRegularTicket(
-//                   ticket: ticketRegular,
-//                 );
-//               } else  {
-//                 var ticketSpecial = usedSpecialTickets[index];
-//                 return UsedSpecialTicket(
-//                   ticket: ticketSpecial,
-//                 );
-//               }
-
-//               // var ticket = usedRegularTickets[index];
-//               // return UsedRegularTicket(
-//               // ticket: ticket,
-//               // );
-//             },
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
-
 class UsedTicketList extends StatelessWidget {
   const UsedTicketList({
     super.key,
@@ -69,26 +25,24 @@ class UsedTicketList extends StatelessWidget {
 
         // combinedUsedTickets.addAll(usedRegularTickets);
         // combinedUsedTickets.addAll(usedSpecialTickets);
-        return Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: combinedUsedTickets.length,
-            itemBuilder: (context, index) {
-              if (index < usedRegularTickets.length) {
-                var ticketRegular = usedRegularTickets[index];
-                return UsedRegularTicket(
-                  ticket: ticketRegular,
-                );
-              } else {
-                // Adjust the index to the second list's index range
-                var ticketSpecial =
-                    usedSpecialTickets[index - usedRegularTickets.length];
-                return UsedSpecialTicket(
-                  ticket: ticketSpecial,
-                );
-              }
-            },
-          ),
+        return ListView.builder(
+          shrinkWrap: true,
+          itemCount: combinedUsedTickets.length,
+          itemBuilder: (context, index) {
+            if (index < usedRegularTickets.length) {
+              var ticketRegular = usedRegularTickets[index];
+              return UsedRegularTicket(
+                ticket: ticketRegular,
+              );
+            } else {
+              // Adjust the index to the second list's index range
+              var ticketSpecial =
+                  usedSpecialTickets[index - usedRegularTickets.length];
+              return UsedSpecialTicket(
+                ticket: ticketSpecial,
+              );
+            }
+          },
         );
       },
     );

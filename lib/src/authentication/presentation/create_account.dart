@@ -1,11 +1,12 @@
-import 'package:calendar_date_picker2/calendar_date_picker2.dart';
-import 'package:ferry_easy/shared/styles/app_colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ferry_easy/shared/styles/ui_helpers.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_alert_box.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_input_field.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
+import 'package:ferry_easy/src/authentication/domain/user_model.dart';
+import 'package:ferry_easy/src/authentication/presentation/onboarding.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -19,17 +20,86 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
   final _formKey = GlobalKey<FormState>();
-
+  DateTime? _selectedDate;
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
+  final TextEditingController _firstName = TextEditingController();
+  final TextEditingController _lastName = TextEditingController();
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _street = TextEditingController();
+  final TextEditingController _city = TextEditingController();
+  final TextEditingController _province = TextEditingController();
+  final TextEditingController _zipcode = TextEditingController();
+  final TextEditingController _contactNum = TextEditingController();
+  final RegExp regex = RegExp(r'^\d+$');
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  List<DateTime?> _datePicked = [
-    DateTime.now(),
-  ];
+  void _registerUser() {
+    final user = UserModel(
+        uid: _auth.currentUser!.uid,
+        firstName: _firstName.text.trim(),
+        lastName: _lastName.text.trim(),
+        email: _email.text.trim(),
+        username: _username.text.trim(),
+        address: {
+          'city': _city.text.trim(),
+          'province': _province.text.trim(),
+          'street': _street.text.trim(),
+          'zipcode': _zipcode.text.trim(),
+        },
+        contactNum: _contactNum.text.trim(),
+        birthDate: _selectedDate!,
+        wallet: 0,
+        isVerified: false,
+        profileImg: '',
+        validId: '');
+
+    addUser(user);
+  }
+
+  String? validateInteger(String? value) {
+    final RegExp regex = RegExp(r'^\d+$');
+    if (value == null || value.isEmpty) {
+      return 'Please enter a value';
+    } else if (!regex.hasMatch(value)) {
+      return 'Please enter a valid integer';
+    }
+    return null;
+  }
+
+  void _onSave() async {
+    final birthday = _selectedDate;
+    if (birthday != null) {
+      final timestamp = Timestamp.fromDate(birthday);
+      // Save the timestamp to Firestore
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc('user_id')
+          .set({'birthday': timestamp}, SetOptions(merge: true));
+    }
+  }
+
+  Future<void> _showDatePicker() async {
+    final currentDate = _selectedDate ?? DateTime.now();
+    final selectedDate = await showDatePicker(
+      context: context,
+      initialDate: currentDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2100),
+    );
+
+    if (selectedDate != null) {
+      setState(() {
+        _selectedDate = selectedDate;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final dateText = _selectedDate != null
+        ? '${_selectedDate?.day}/${_selectedDate?.month}/${_selectedDate?.year}'
+        : 'Birthday';
     return FEBackgroundWidget(
       assetImage: const AssetImage(
         ('assets/images/create-account.png'),
@@ -53,12 +123,6 @@ class _CreateAccountState extends State<CreateAccount> {
                   verticalSpaceLarge,
                   verticalSpaceLarge,
                   verticalSpaceLarge,
-                  // FEInputField(
-                  //     controller: TextEditingController(),
-                  //     placeholder: 'First Name'),
-                  // FEInputField(
-                  //     controller: TextEditingController(),
-                  //     placeholder: 'Last Name'),
                   FEInputField(
                     controller: _email,
                     placeholder: 'Email',
@@ -69,11 +133,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       return null;
                     },
                   ),
-                  verticalSpaceLarge,
-                  // FEInputField(
-                  //     controller: TextEditingController(),
-                  //     placeholder: 'Username'),
                   FEInputField(
+                    textCapitalization: TextCapitalization.sentences,
                     controller: _password,
                     placeholder: 'Password',
                     password: true,
@@ -86,55 +147,79 @@ class _CreateAccountState extends State<CreateAccount> {
                       return null;
                     },
                   ),
-                  // FEInputField(
-                  //     controller: TextEditingController(),
-                  //     placeholder: 'Street'),
-                  // FEInputField(
-                  //     controller: TextEditingController(), placeholder: 'City'),
-                  // FEInputField(
-                  //     controller: TextEditingController(),
-                  //     placeholder: 'Province'),
-                  // FEInputField(
-                  //     controller: TextEditingController(),
-                  //     placeholder: 'Contact No.'),
-                  // FEInputField(
-                  //   controller: TextEditingController(),
-                  //   placeholder: 'Birthday',
-                  //   trailing: const Icon(Icons.date_range),
-                  //   trailingTapped: () => showModalBottomSheet(
-                  //       context: context,
-                  //       builder: (BuildContext context) {
-                  //         return CalendarDatePicker2WithActionButtons(
-                  //           value: _datePicked,
-                  //           onValueChanged: (date) {
-                  //             setState(() {
-                  //               _datePicked = date;
-                  //             });
-                  //           },
-                  //           config: CalendarDatePicker2WithActionButtonsConfig(
-                  //             selectedDayHighlightColor: kcPrimaryColor,
-                  //           ),
-                  //         );
-                  //       }),
-                  // ),
+                  FEInputField(
+                    textCapitalization: TextCapitalization.sentences,
+                    controller: _firstName,
+                    placeholder: 'First Name',
+                  ),
+                  FEInputField(
+                    textCapitalization: TextCapitalization.sentences,
+                    controller: _lastName,
+                    placeholder: 'Last Name',
+                    keyboardType: TextInputType.name,
+                  ),
+                  FEInputField(
+                    controller: _username,
+                    placeholder: 'Username',
+                    keyboardType: TextInputType.name,
+                  ),
+                  FEInputField(
+                    controller: _street,
+                    placeholder: 'Street',
+                    textCapitalization: TextCapitalization.sentences,
+                  ),
+                  FEInputField(
+                    controller: _city,
+                    placeholder: 'City',
+                    textCapitalization: TextCapitalization.sentences,
+                  ),
+                  FEInputField(
+                    controller: _province,
+                    placeholder: 'Province',
+                    textCapitalization: TextCapitalization.sentences,
+                  ),
+                  FEInputField(
+                    controller: _zipcode,
+                    placeholder: 'Zipcode',
+                    keyboardType: TextInputType.number,
+                  ),
+                  FEInputField(
+                    controller: _contactNum,
+                    placeholder: 'Contact Number',
+                    keyboardType: TextInputType.number,
+                    validator: validateInteger,
+                  ),
+                  FEInputField(
+                    onTap: _showDatePicker,
+                    controller: TextEditingController(text: dateText),
+                    validator: (value) {
+                      if (_selectedDate == null) {
+                        return 'Please select a date';
+                      }
+                      return null;
+                    },
+                    isReadOnly: true,
+                  ),
                   verticalSpaceLarge,
                   FEButton(
                     title: 'Sign Up',
                     onTap: () async {
                       final isValid = _formKey.currentState?.validate();
+
                       try {
                         await _auth.createUserWithEmailAndPassword(
-                            email: _email.text, password: _password.text);
+                          email: _email.text,
+                          password: _password.text,
+                        );
+                        _registerUser();
                         if (context.mounted) {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return FEAlertBox(
                                 message: 'User Registered Succesfully!',
-                                onTap: () => Navigator.popUntil(
-                                  context,
-                                  ModalRoute.withName('welcome'),
-                                ),
+                                onTap: () => Navigator.pushNamedAndRemoveUntil(
+                                    context, Onboarding.id, (route) => false),
                               );
                             },
                           );

@@ -14,6 +14,10 @@ class FEInputField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final bool isEnabled;
+  final bool isReadOnly;
+  final void Function()? onTap;
+  final void Function(String)? onChanged;
+  final TextCapitalization? textCapitalization;
 
   const FEInputField({
     super.key,
@@ -26,11 +30,19 @@ class FEInputField extends StatelessWidget {
     this.validator,
     this.keyboardType,
     this.isEnabled = true,
+    this.isReadOnly = false,
+    this.onTap,
+    this.onChanged,
+    this.textCapitalization = TextCapitalization.none,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textCapitalization: textCapitalization!,
+      onTap: onTap,
+      onChanged: onChanged,
+      readOnly: isReadOnly,
       enabled: isEnabled,
       controller: controller,
       obscureText: password,

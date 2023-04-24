@@ -1,11 +1,5 @@
 import 'package:ferry_easy/shared/shared_exports.dart';
-import 'package:ferry_easy/shared/styles/ui_helpers.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_button.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_input_field.dart';
-import 'package:ferry_easy/shared/widgets/ferry_easy_text.dart';
 import 'package:ferry_easy/src/authentication/presentation/welcome_screen.dart';
-import 'package:ferry_easy/src/dashboard/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -20,7 +14,6 @@ class ForgotPassword extends StatefulWidget {
 class _ForgotPasswordState extends State<ForgotPassword> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -46,21 +39,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
-                FEInputField(
-                    controller: TextEditingController(),
-                    password: true,
-                    placeholder: 'Email'),
-                // verticalSpaceMedium,
-                // FEInputField(
-                //     controller: TextEditingController(),
-                //     password: true,
-                //     placeholder: 'New Password'),
-                // verticalSpaceMedium,
-                // FEInputField(
-                //     controller: TextEditingController(),
-                //     password: true,
-                //     placeholder: 'Confirm New Password'),
-                // verticalSpaceLarge,
+                FEInputField(controller: _email, placeholder: 'Email'),
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 FEButton(
