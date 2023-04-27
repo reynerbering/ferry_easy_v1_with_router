@@ -1,4 +1,4 @@
-import '../../src/dashboard/domain/ticket.dart';
+import '../../src/dashboard/domain/ticket_model.dart';
 import '../shared_exports.dart';
 
 class UsedSpecialTicket extends StatelessWidget {

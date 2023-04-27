@@ -1,5 +1,5 @@
 import '../../src/dashboard/application/bloc_exports.dart';
-import '../../src/dashboard/domain/ticket.dart';
+import '../../src/dashboard/domain/ticket_model.dart';
 import '../shared_exports.dart';
 
 class ScanToUseRegularTicket extends StatelessWidget {

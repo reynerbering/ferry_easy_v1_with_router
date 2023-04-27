@@ -1,9 +1,9 @@
-// ! Make dynamic from firebase
-
+import 'package:ferry_easy/shared/services/image_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../src/authentication/domain/user_model.dart';
 import '../shared_exports.dart';
+import 'ferry_easy_avatar.dart';
 
 class ProfileCard extends StatelessWidget {
   final String? firstName;
@@ -24,11 +24,13 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
+
     return StreamBuilder<UserModel?>(
       stream: getUser(auth.currentUser!.uid),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final user = snapshot.data!;
+
           return Container(
             margin: const EdgeInsets.all(25),
             height: 300,
@@ -49,11 +51,22 @@ class ProfileCard extends StatelessWidget {
                 StreamBuilder<UserModel?>(
                     stream: getUser(auth.currentUser!.uid),
                     builder: (context, snapshot) {
-                      return const CircleAvatar(
-                        backgroundImage:
-                            AssetImage('assets/images/bae-suzy.jpg'),
-                        maxRadius: 50,
-                      );
+                      if (snapshot.hasData) {
+                        final user = snapshot.data!;
+                        return SizedBox(
+                          height: 75,
+                          width: 75,
+                          child: InkWell(
+                            onTap: () =>
+                                ImageService.updateProfileImage(context),
+                            child: AvatarImage(uid: user.uid),
+                          ),
+                        );
+                      } else {
+                        return const CircularProgressIndicator(
+                          backgroundColor: kcPrimaryColor,
+                        );
+                      }
                     }),
                 verticalSpaceRegular,
                 FEText.userLNHeader(user.lastName),
@@ -79,7 +92,9 @@ class ProfileCard extends StatelessWidget {
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
-          return const Text('Loading...');
+          return const CircularProgressIndicator(
+            backgroundColor: kcPrimaryColor,
+          );
         }
       },
     );

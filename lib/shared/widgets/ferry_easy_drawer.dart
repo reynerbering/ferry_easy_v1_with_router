@@ -10,6 +10,7 @@ import '../../src/dashboard/application/bloc_exports.dart';
 import '../../src/dashboard/dashboard.dart';
 import '../../src/dashboard/profile.dart';
 import '../shared_exports.dart';
+import 'ferry_easy_avatar.dart';
 
 class FEDrawer extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -41,10 +42,8 @@ class FEDrawer extends StatelessWidget {
                             child: DrawerHeader(
                                 child: Column(
                               children: [
-                                CircleAvatar(
-                                  radius: 50,
-                                  backgroundImage:
-                                      AssetImage('assets/images/bae-suzy.jpg'),
+                                AvatarImage(
+                                  uid: auth.currentUser!.uid,
                                 ),
                                 verticalSpaceRegular,
                                 Text(

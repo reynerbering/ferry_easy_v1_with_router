@@ -1,5 +1,5 @@
 import '../../src/dashboard/application/bloc_exports.dart';
-import '../../src/dashboard/domain/ticket.dart';
+import '../../src/dashboard/domain/ticket_model.dart';
 import '../shared_exports.dart';
 
 class SpecialTicket extends StatelessWidget {
@@ -12,6 +12,7 @@ class SpecialTicket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int specialTicketPrice = 29;
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -76,7 +77,8 @@ class SpecialTicket extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const FEText.walletTicketPriceText('P 29.00'),
+                        FEText.walletTicketPriceText(
+                            'P $specialTicketPrice.00'),
                         horizontalSpaceLarge,
                         horizontalSpaceLarge,
                         horizontalSpaceLarge,

@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../src/dashboard/application/bloc_exports.dart';
-import '../../src/dashboard/domain/ticket.dart';
 import '../shared_exports.dart';
 
 class RegularTicket extends StatelessWidget {

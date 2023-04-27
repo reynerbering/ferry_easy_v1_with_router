@@ -2,7 +2,7 @@ import 'package:ferry_easy/shared/widgets/ferry_easy_used_regular_ticket.dart';
 import 'package:flutter/material.dart';
 
 import '../../src/dashboard/application/bloc_exports.dart';
-import '../../src/dashboard/domain/ticket.dart';
+import '../../src/dashboard/domain/ticket_model.dart';
 import 'ferry_easy_used_special_ticket.dart';
 
 class UsedTicketList extends StatelessWidget {

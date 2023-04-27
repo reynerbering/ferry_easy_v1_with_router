@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class UserModel {
   final String uid;
@@ -65,6 +68,78 @@ class UserModel {
       validId: map['validId'],
     );
   }
+
+  static UserModel fromDocumentSnap(DocumentSnapshot snap) {
+    Map<String, dynamic> json = {};
+    if (snap.data() != null) {
+      json = snap.data() as Map<String, dynamic>;
+    }
+    return UserModel(
+      uid: snap.id,
+      firstName: json['firstName'] ?? '',
+      lastName: json['lastName'] ?? '',
+      email: json['email'] ?? '',
+      username: json['username'] ?? '',
+      address: json['address'] ?? {},
+      birthDate: (json['birthDate'] != null)
+          ? DateTime.parse(json['birthDate'])
+          : DateTime.now(),
+      wallet: json['wallet'] ?? 0,
+      isVerified: json['isVerified'] ?? false,
+      contactNum: json['contactNum'] ?? '',
+      profileImg: json['profileImg'] ?? '',
+      validId: json['validId'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> get json => {
+        'uid': uid,
+        'firstName': firstName,
+        'lastName': lastName,
+        'email': email,
+        'username': username,
+        'address': address,
+        'birthDate': birthDate.toString(),
+        'wallet': wallet,
+        'isVerified': isVerified,
+        'contactNum': contactNum,
+        'profileImg': profileImg,
+        'validId': validId,
+      };
+
+  static Future<UserModel> fromUid({required String uid}) async {
+    DocumentSnapshot snap =
+        await FirebaseFirestore.instance.collection('Users').doc(uid).get();
+    return UserModel.fromDocumentSnap(snap);
+  }
+
+  static Stream<UserModel> fromUidStream({required String uid}) {
+    return FirebaseFirestore.instance
+        .collection('Users')
+        .doc(uid)
+        .snapshots()
+        .map((snapshot) {
+      final data = snapshot.data();
+      if (data == null) {
+        throw Exception("Document does not exist!");
+      }
+      return UserModel.fromMap(data, snapshot.reference);
+    });
+  }
+
+  static Future<List<UserModel>> getUsers() async {
+    List<UserModel> users = [];
+    await FirebaseFirestore.instance
+        .collection('Users')
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      for (var doc in querySnapshot.docs) {
+        users.add(UserModel.fromDocumentSnap(doc));
+      }
+    });
+
+    return users;
+  }
 }
 
 Future<void> addUser(UserModel user) async {
@@ -73,31 +148,20 @@ Future<void> addUser(UserModel user) async {
   await usersCollection.doc(user.uid.toString()).set(user.toMap());
 }
 
-// Future<UserModel?> getUser(String userId) async {
-//   final CollectionReference usersCollection =
-//       FirebaseFirestore.instance.collection('Users');
-//   final DocumentSnapshot userDoc =
-//       await usersCollection.doc(userId.toString()).get();
-//   if (userDoc.exists) {
-//     final Map<String, dynamic> userData =
-//         userDoc.data() as Map<String, dynamic>;
-//     return UserModel.fromMap(userData, userDoc.reference);
-//   }
-//   return null;
-// }
-
 Stream<UserModel?> getUser(String userId) {
   final CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('Users');
   final DocumentReference userDocRef = usersCollection.doc(userId);
 
-  return userDocRef.snapshots().map((docSnapshot) {
-    if (docSnapshot.exists) {
-      final Map<String, dynamic> userData =
-          docSnapshot.data() as Map<String, dynamic>;
-      return UserModel.fromMap(userData, userDocRef);
-    } else {
-      return null;
-    }
-  });
+  return userDocRef.snapshots().map(
+    (docSnapshot) {
+      if (docSnapshot.exists) {
+        final Map<String, dynamic> userData =
+            docSnapshot.data() as Map<String, dynamic>;
+        return UserModel.fromMap(userData, userDocRef);
+      } else {
+        return null;
+      }
+    },
+  );
 }

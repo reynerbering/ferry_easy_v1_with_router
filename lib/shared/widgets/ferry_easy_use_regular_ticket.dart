@@ -1,6 +1,5 @@
 import 'package:ferry_easy/shared/widgets/scan_to_use_regular.dart';
 import 'package:ferry_easy/src/dashboard/application/bloc_exports.dart';
-import 'package:ferry_easy/src/dashboard/domain/ticket.dart';
 
 import '../shared_exports.dart';
 

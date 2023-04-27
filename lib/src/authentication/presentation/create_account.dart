@@ -57,14 +57,26 @@ class _CreateAccountState extends State<CreateAccount> {
     addUser(user);
   }
 
-  String? validateInteger(String? value) {
+  bool validateInteger(String? value) {
     final RegExp regex = RegExp(r'^\d+$');
     if (value == null || value.isEmpty) {
-      return 'Please enter a value';
+      return false;
     } else if (!regex.hasMatch(value)) {
-      return 'Please enter a valid integer';
+      return false;
     }
-    return null;
+    return true;
+  }
+
+  bool validateEmail(String email) {
+    // Define a regular expression for the email pattern
+    final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+
+    // Check if the email matches the regular expression
+    if (!emailRegExp.hasMatch(email)) {
+      return false;
+    }
+
+    return true;
   }
 
   void _onSave() async {
@@ -129,8 +141,11 @@ class _CreateAccountState extends State<CreateAccount> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Email is required';
+                      } else if (!validateEmail(value)) {
+                        return 'Please enter a valid email address';
+                      } else {
+                        return null;
                       }
-                      return null;
                     },
                   ),
                   FEInputField(
@@ -187,7 +202,16 @@ class _CreateAccountState extends State<CreateAccount> {
                     controller: _contactNum,
                     placeholder: 'Contact Number',
                     keyboardType: TextInputType.number,
-                    validator: validateInteger,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your phone number';
+                      } else if (value.length != 11) {
+                        return 'Phone number must be exactly 11 digits long';
+                      } else if (!validateInteger(value)) {
+                        return 'Phone number must contain only digits';
+                      }
+                      return null;
+                    },
                   ),
                   FEInputField(
                     onTap: _showDatePicker,
@@ -212,6 +236,7 @@ class _CreateAccountState extends State<CreateAccount> {
                           password: _password.text,
                         );
                         _registerUser();
+                        _onSave();
                         if (context.mounted) {
                           showDialog(
                             context: context,
