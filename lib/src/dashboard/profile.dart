@@ -1,6 +1,8 @@
+import 'package:ferry_easy/shared/services/image_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../shared/shared_exports.dart';
+import '../../shared/widgets/ferry_easy_id_container.dart';
 import '../authentication/domain/user_model.dart';
 
 class Profile extends StatelessWidget {
@@ -59,6 +61,12 @@ class Profile extends StatelessWidget {
                             info: user.username,
                           ),
                         ],
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => ImageService.updateId(context),
+                      child: IdContainer(
+                        uid: auth.currentUser!.uid,
                       ),
                     )
                   ],
