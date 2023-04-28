@@ -3,10 +3,12 @@ import '../shared_exports.dart';
 class FENotificationTile extends StatelessWidget {
   final String title;
   final String subText;
+  final String dateCreated;
   const FENotificationTile({
     super.key,
     required this.title,
     required this.subText,
+    required this.dateCreated,
   });
 
   @override
@@ -18,36 +20,50 @@ class FENotificationTile extends StatelessWidget {
           return FENotificationDialog(
             title: title,
             subText: subText,
+            dateCreated: dateCreated,
           );
         },
       ),
       child: Container(
-        width: displayWidth(context),
-        height: 190,
         padding: const EdgeInsets.all(25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                const CircleAvatar(
-                  backgroundColor: kcPrimaryColor,
-                  radius: 5,
-                ),
-                horizontalSpaceRegular,
-                FEText.notifHeader(title),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-              child: FEText.notifSubtext(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const CircleAvatar(
+                    backgroundColor: kcPrimaryColor,
+                    radius: 5,
+                  ),
+                  horizontalSpaceRegular,
+                  FEText.notifHeader(
+                    title,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+              verticalSpaceTiny,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FEText.notifHeader(
+                    dateCreated,
+                    overflow: TextOverflow.ellipsis,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+              verticalSpaceTiny,
+              FEText.notifSubtext(
                 subText,
                 maxLines: 6,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.justify,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

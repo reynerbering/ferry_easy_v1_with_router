@@ -8,7 +8,7 @@ abstract class TicketEvent extends Equatable {
 }
 
 class BuyRegularTicket extends TicketEvent {
-  final Ticket ticket;
+  final TicketModel ticket;
 
   const BuyRegularTicket({required this.ticket});
 
@@ -17,7 +17,7 @@ class BuyRegularTicket extends TicketEvent {
 }
 
 class BuySpecialTicket extends TicketEvent {
-  final Ticket ticket;
+  final TicketModel ticket;
 
   const BuySpecialTicket({required this.ticket});
 
@@ -25,8 +25,10 @@ class BuySpecialTicket extends TicketEvent {
   List<Object> get props => [ticket];
 }
 
+class GetAllTickets extends TicketEvent {}
+
 class UseRegularTicket extends TicketEvent {
-  final Ticket ticket;
+  final TicketModel ticket;
 
   const UseRegularTicket({required this.ticket});
 
@@ -35,7 +37,7 @@ class UseRegularTicket extends TicketEvent {
 }
 
 class UseSpecialTicket extends TicketEvent {
-  final Ticket ticket;
+  final TicketModel ticket;
 
   const UseSpecialTicket({required this.ticket});
 

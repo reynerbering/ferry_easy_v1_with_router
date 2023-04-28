@@ -16,10 +16,10 @@ class History extends StatelessWidget {
         children: [
           verticalSpaceMedium,
           Container(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(15.0),
               width: double.infinity,
               color: kcVeryLightGrayColor,
-              child: const FEText.transacSubTitle('Tickets Used')),
+              child: FEText.transacSubTitle('Tickets Used')),
           const Expanded(
             child: UsedTicketList(),
           ),

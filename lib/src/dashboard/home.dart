@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
               const FEGreetingBanner(),
               verticalSpaceMedium,
               Row(
-                children: const [
+                children: [
                   horizontalSpaceRegular,
                   FEText.dashActiveFerries('Active Ferries'),
                 ],
@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Column(
-                  children: const [
+                  children: [
                     FEShipDetails(
                       shipName: 'Princesa',
                     ),

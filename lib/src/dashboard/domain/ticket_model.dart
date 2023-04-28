@@ -2,14 +2,14 @@
 
 import "package:equatable/equatable.dart";
 
-class Ticket extends Equatable {
+class TicketModel extends Equatable {
   final String id;
   final String ticketType;
   bool? isUsed;
   final String datePurchased;
   final String? dateUsed;
 
-  Ticket({
+  TicketModel({
     required this.id,
     required this.ticketType,
     this.isUsed,
@@ -19,14 +19,14 @@ class Ticket extends Equatable {
     isUsed = isUsed ?? false;
   }
 
-  Ticket copyWith({
+  TicketModel copyWith({
     String? id,
     String? ticketType,
     bool? isUsed,
     String? datePurchased,
     String? dateUsed,
   }) {
-    return Ticket(
+    return TicketModel(
       id: id ?? this.id,
       ticketType: ticketType ?? this.ticketType,
       isUsed: isUsed ?? this.isUsed,
@@ -48,8 +48,8 @@ class Ticket extends Equatable {
   @override
   List<Object?> get props => [id, isUsed, datePurchased, dateUsed, ticketType];
 
-  factory Ticket.fromMap(Map<String, dynamic> map) {
-    return Ticket(
+  factory TicketModel.fromMap(Map<String, dynamic> map) {
+    return TicketModel(
       id: map['id'] as String,
       ticketType: map['ticketType'] as String,
       isUsed: map['isUsed'] != null ? map['isUsed'] as bool : null,
@@ -58,8 +58,8 @@ class Ticket extends Equatable {
     );
   }
 
-  factory Ticket.fromJson(Map<String, dynamic> json) {
-    return Ticket(
+  factory TicketModel.fromJson(Map<String, dynamic> json) {
+    return TicketModel(
       id: json['id'] as String,
       ticketType: json['ticketType'] as String,
       isUsed: json['isUsed'] != null ? json['isUsed'] as bool : null,

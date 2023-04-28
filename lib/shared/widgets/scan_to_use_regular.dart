@@ -11,13 +11,13 @@ class ScanToUseRegularTicket extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TicketBloc, TicketState>(
       builder: (context, state) {
-        List<Ticket> activeRegularTickets = state.activeRegularTickets;
+        List<TicketModel> activeRegularTickets = state.activeRegularTickets;
 
         return GestureDetector(
           onTap: () {
             var ticket = activeRegularTickets.first;
             context.read<TicketBloc>().add(UseRegularTicket(ticket: ticket));
-
+            context.read<TicketBloc>().add(GetAllTickets());
             showModalBottomSheet(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
@@ -26,7 +26,7 @@ class ScanToUseRegularTicket extends StatelessWidget {
               ),
               context: context,
               builder: (BuildContext context) {
-                return const FESafetyTips();
+                return FESafetyTips();
               },
             );
           },

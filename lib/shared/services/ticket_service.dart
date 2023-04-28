@@ -2,10 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../src/dashboard/domain/ticket_model.dart';
 
-
 class TicketService {
   // Buy Ticket
-  static Future<void> create({Ticket? ticket, required String uid}) async {
+  static Future<void> buy({TicketModel? ticket, required String uid}) async {
     try {
       await FirebaseFirestore.instance
           .collection('Users')
@@ -19,8 +18,8 @@ class TicketService {
   }
   // Get All Ticket
 
-  static Future<List<Ticket>> get({required String uid}) async {
-    List<Ticket> ticketList = [];
+  static Future<List<TicketModel>> get({required String uid}) async {
+    List<TicketModel> ticketList = [];
     try {
       final data = await FirebaseFirestore.instance
           .collection('Users')
@@ -29,7 +28,7 @@ class TicketService {
           .get();
 
       for (var ticket in data.docs) {
-        ticketList.add(Ticket.fromMap(ticket.data()));
+        ticketList.add(TicketModel.fromMap(ticket.data()));
       }
       return ticketList;
     } catch (e) {
@@ -38,4 +37,17 @@ class TicketService {
   }
 
   // Use Ticket
+
+  static Future<void> use({TicketModel? ticket, required String uid}) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(uid)
+          .collection('Tickets')
+          .doc(ticket!.id)
+          .update(ticket.toMap());
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
 }

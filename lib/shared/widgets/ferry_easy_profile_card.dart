@@ -53,6 +53,7 @@ class ProfileCard extends StatelessWidget {
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         final user = snapshot.data!;
+
                         return SizedBox(
                           height: 75,
                           width: 75,
@@ -70,7 +71,19 @@ class ProfileCard extends StatelessWidget {
                     }),
                 verticalSpaceRegular,
                 FEText.userLNHeader(user.lastName),
-                FEText.userFNHeader(user.firstName),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FEText.userFNHeader(user.firstName),
+                    horizontalSpaceTiny,
+                    user.isVerified
+                        ? const Icon(
+                            Icons.verified,
+                            color: kcPrimaryColor,
+                          )
+                        : const SizedBox.shrink(),
+                  ],
+                ),
                 verticalSpaceRegular,
                 const Divider(),
                 UserDetails(

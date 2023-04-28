@@ -49,9 +49,9 @@ class Onboarding extends StatelessWidget {
                 ],
               ),
               verticalSpaceRegular,
-              const FEText.onBoardingSub('Get your tickets in advance.'),
+              FEText.onBoardingSub('Get your tickets in advance.'),
               verticalSpaceTiny,
-              const FEText.onBoardingSub(
+              FEText.onBoardingSub(
                   'Avoid standing in line to purchase a ticket.'),
               verticalSpaceLarge,
               FEButton(

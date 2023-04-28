@@ -5,7 +5,7 @@ import '../shared_exports.dart';
 class FEShipDetails extends StatelessWidget {
   final String shipName;
 
-  const FEShipDetails({
+  FEShipDetails({
     super.key,
     required this.shipName,
   });
@@ -13,7 +13,7 @@ class FEShipDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(20.0),
+      margin: EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,7 +34,7 @@ class FEShipDetails extends StatelessWidget {
               horizontalSpaceSmall,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   FEText.dashEta('To: Cebu City'),
                   verticalSpaceSmall,
                   FEText.dashEta('From: Lapu-lapu City'),
@@ -45,12 +45,12 @@ class FEShipDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: EdgeInsets.all(15.0),
                       decoration: BoxDecoration(
                         color: kcLightGrayColor,
                         borderRadius: BorderRadius.circular(15.0),
                       ),
-                      child: const FEText.dashCdTimer('34:00'),
+                      child: FEText.dashCdTimer('34:00'),
                     ),
                   ],
                 ),
@@ -64,13 +64,13 @@ class FEShipDetails extends StatelessWidget {
 }
 
 class FEDivider extends StatelessWidget {
-  const FEDivider({
+  FEDivider({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Divider(
+    return Divider(
       color: kcPrimaryColor,
       height: 15,
     );

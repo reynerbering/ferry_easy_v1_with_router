@@ -1,5 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../src/dashboard/application/bloc_exports.dart';
 import '../shared_exports.dart';
 
@@ -20,7 +18,7 @@ class RegularTicket extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(35),
           child: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
+              builder: (BuildContext context, BoxConstraints raints) {
             return CustomPaint(
               size: Size(displayWidth(context),
                   (displayWidth(context) * 0.62).toDouble()),
@@ -37,7 +35,7 @@ class RegularTicket extends StatelessWidget {
                       color: const Color(0xffEAE7A9),
                       width: double.infinity,
                       padding: const EdgeInsets.all(25),
-                      child: const FEText.walletTicketTitle('REGULAR'),
+                      child: FEText.walletTicketTitle('REGULAR'),
                     ),
                     verticalSpaceSmall,
                     Row(
@@ -58,13 +56,13 @@ class RegularTicket extends StatelessWidget {
                       ],
                     ),
                     verticalSpaceSmall,
-                    const FEText.walletTicketCompany('MetroFerry Inc.'),
+                    FEText.walletTicketCompany('MetroFerry Inc.'),
                     verticalSpaceSmall,
-                    const FEText.walletTicketSubtext(
+                    FEText.walletTicketSubtext(
                         '(Outside CPA-Gate 6) Cebu Baseport Muelle, Osmena Wharf'),
-                    const FEText.walletTicketSubtext(
+                    FEText.walletTicketSubtext(
                         '(Poblacion 6015 Lapu-Lapu City (Opon) Cebu Philippines'),
-                    const FEText.walletTicketSubtext(
+                    FEText.walletTicketSubtext(
                         '(VAT REG. TIN: 004-271-832-00000'),
                     verticalSpaceSmall,
                     verticalSpaceSmall,
@@ -76,12 +74,12 @@ class RegularTicket extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const FEText.walletTicketPriceText('P 35.00'),
+                        FEText.walletTicketPriceText('P 35.00'),
                         horizontalSpaceLarge,
                         horizontalSpaceLarge,
                         horizontalSpaceLarge,
                         Row(
-                          children: const [
+                          children: [
                             FEText.walletTicketQuantity('Quantity'),
                           ],
                         ),

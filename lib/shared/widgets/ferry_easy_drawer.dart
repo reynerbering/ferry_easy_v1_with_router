@@ -50,9 +50,21 @@ class FEDrawer extends StatelessWidget {
                                   user.firstName,
                                   style: profileLNHeader,
                                 ),
-                                Text(
-                                  user.lastName,
-                                  style: profileFNHeader,
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      user.lastName,
+                                      style: profileFNHeader,
+                                    ),
+                                    horizontalSpaceSmall,
+                                    user.isVerified
+                                        ? const Icon(
+                                            Icons.verified,
+                                            color: kcPrimaryColor,
+                                          )
+                                        : const SizedBox.shrink(),
+                                  ],
                                 ),
                               ],
                             )),
@@ -60,7 +72,7 @@ class FEDrawer extends StatelessWidget {
                           ListTile(
                             onTap: () =>
                                 Navigator.popAndPushNamed(context, Profile.id),
-                            title: const FEText.drawerListTile(
+                            title: FEText.drawerListTile(
                               'Profile ',
                               textAlign: TextAlign.end,
                             ),
@@ -81,7 +93,7 @@ class FEDrawer extends StatelessWidget {
                                         Dashboard(selectedIndex: 0)),
                               );
                             },
-                            title: const FEText.drawerListTile(
+                            title: FEText.drawerListTile(
                               'Home',
                               textAlign: TextAlign.end,
                             ),
@@ -102,7 +114,7 @@ class FEDrawer extends StatelessWidget {
                                         Dashboard(selectedIndex: 1)),
                               );
                             },
-                            title: const FEText.drawerListTile(
+                            title: FEText.drawerListTile(
                               'Wallet',
                               textAlign: TextAlign.end,
                             ),
@@ -123,7 +135,7 @@ class FEDrawer extends StatelessWidget {
                                         Dashboard(selectedIndex: 3)),
                               );
                             },
-                            title: const FEText.drawerListTile(
+                            title: FEText.drawerListTile(
                               'History',
                               textAlign: TextAlign.end,
                             ),
@@ -144,7 +156,7 @@ class FEDrawer extends StatelessWidget {
                                         Dashboard(selectedIndex: 4)),
                               );
                             },
-                            title: const FEText.drawerListTile(
+                            title: FEText.drawerListTile(
                               'Notifications',
                               textAlign: TextAlign.end,
                             ),
@@ -159,7 +171,7 @@ class FEDrawer extends StatelessWidget {
                           const Divider(),
                           verticalSpaceMedium,
                           ListTile(
-                            title: const FEText.drawerListTile(
+                            title: FEText.drawerListTile(
                               'Logout',
                               textAlign: TextAlign.end,
                             ),

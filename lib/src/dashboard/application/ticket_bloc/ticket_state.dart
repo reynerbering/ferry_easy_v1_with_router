@@ -1,22 +1,16 @@
 part of 'ticket_bloc.dart';
 
 class TicketState extends Equatable {
-  final int walletBalance;
-  final int regularTicketPrice;
-  final int specialTicketPrice;
-  final List<Ticket> activeRegularTickets;
-  final List<Ticket> activeSpecialTickets;
-  final List<Ticket> usedRegularTickets;
-  final List<Ticket> usedSpecialTickets;
+  final List<TicketModel> activeRegularTickets;
+  final List<TicketModel> activeSpecialTickets;
+  final List<TicketModel> usedRegularTickets;
+  final List<TicketModel> usedSpecialTickets;
 
   const TicketState({
-    this.activeRegularTickets = const <Ticket>[],
-    this.activeSpecialTickets = const <Ticket>[],
-    this.usedRegularTickets = const <Ticket>[],
-    this.usedSpecialTickets = const <Ticket>[],
-    this.walletBalance = 1000,
-    this.regularTicketPrice = 35,
-    this.specialTicketPrice = 29,
+    this.activeRegularTickets = const <TicketModel>[],
+    this.activeSpecialTickets = const <TicketModel>[],
+    this.usedRegularTickets = const <TicketModel>[],
+    this.usedSpecialTickets = const <TicketModel>[],
   });
 
   @override
@@ -25,16 +19,10 @@ class TicketState extends Equatable {
         activeSpecialTickets,
         usedRegularTickets,
         usedSpecialTickets,
-        walletBalance,
-        regularTicketPrice,
-        specialTicketPrice
       ];
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'walletBalance': walletBalance,
-      'regularTicketPrice': regularTicketPrice,
-      'specialTicketPrice': specialTicketPrice,
       'activeRegularTickets':
           activeRegularTickets.map((x) => x.toMap()).toList(),
       'activeSpecialTickets':
@@ -48,17 +36,14 @@ class TicketState extends Equatable {
 
   factory TicketState.fromMap(Map<String, dynamic> map) {
     return TicketState(
-      walletBalance: map['walletBalance'] as int,
-      regularTicketPrice: map['regularTicketPrice'] as int,
-      specialTicketPrice: map['specialTicketPrice'] as int,
-      activeRegularTickets: List<Ticket>.from(
-          map['activeRegularTickets']?.map((x) => Ticket.fromMap(x))),
-      activeSpecialTickets: List<Ticket>.from(
-          map['activeSpecialTickets']?.map((x) => Ticket.fromMap(x))),
-      usedRegularTickets: List<Ticket>.from(
-          map['usedRegularTickets']?.map((x) => Ticket.fromMap(x))),
-      usedSpecialTickets: List<Ticket>.from(
-          map['usedSpecialTickets']?.map((x) => Ticket.fromMap(x))),
+      activeRegularTickets: List<TicketModel>.from(
+          map['activeRegularTickets']?.map((x) => TicketModel.fromMap(x))),
+      activeSpecialTickets: List<TicketModel>.from(
+          map['activeSpecialTickets']?.map((x) => TicketModel.fromMap(x))),
+      usedRegularTickets: List<TicketModel>.from(
+          map['usedRegularTickets']?.map((x) => TicketModel.fromMap(x))),
+      usedSpecialTickets: List<TicketModel>.from(
+          map['usedSpecialTickets']?.map((x) => TicketModel.fromMap(x))),
     );
   }
 }

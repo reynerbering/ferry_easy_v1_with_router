@@ -4,7 +4,7 @@ import 'package:ferry_easy/shared/widgets/scan_to_use_special.dart';
 import '../shared_exports.dart';
 
 class FEUseSpecialTicket extends StatelessWidget {
-  const FEUseSpecialTicket({
+  FEUseSpecialTicket({
     super.key,
   });
 
@@ -15,9 +15,9 @@ class FEUseSpecialTicket extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: const Color(0xffEFCBDE),
+            color: Color(0xffEFCBDE),
           ),
-          margin: const EdgeInsets.only(
+          margin: EdgeInsets.only(
             top: 25,
             left: 25,
             right: 25,
@@ -25,7 +25,7 @@ class FEUseSpecialTicket extends StatelessWidget {
           height: 150,
           width: double.infinity,
           child: Column(
-            children: const [
+            children: [
               verticalSpaceMedium,
               FEText.useTitleHeader('PASSENGER\'S TICKET'),
               verticalSpaceTiny,
@@ -36,13 +36,13 @@ class FEUseSpecialTicket extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: 25,
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(35),
             child: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
+                builder: (BuildContext context, BoxConstraints raints) {
               return CustomPaint(
                 size: Size(displayWidth(context),
                     (displayWidth(context) * 0.62).toDouble()),
@@ -65,7 +65,7 @@ class FEUseSpecialTicket extends StatelessWidget {
                             height: 25,
                             width: 25,
                           ),
-                          const Text(
+                          Text(
                             'FerryEasy',
                             style: TextStyle(
                               color: kcPrimaryColor,
@@ -75,23 +75,23 @@ class FEUseSpecialTicket extends StatelessWidget {
                         ],
                       ),
                       verticalSpaceSmall,
-                      const FEText.walletTicketCompany('MetroFerry Inc.'),
+                      FEText.walletTicketCompany('MetroFerry Inc.'),
                       verticalSpaceSmall,
-                      const FEText.walletTicketSubtext(
+                      FEText.walletTicketSubtext(
                           '(Outside CPA-Gate 6) Cebu Baseport Muelle, Osmena Wharf'),
-                      const FEText.walletTicketSubtext(
+                      FEText.walletTicketSubtext(
                           '(Poblacion 6015 Lapu-Lapu City (Opon) Cebu Philippines'),
-                      const FEText.walletTicketSubtext(
+                      FEText.walletTicketSubtext(
                           '(VAT REG. TIN: 004-271-832-00000'),
                       verticalSpaceSmall,
-                      const FEText.walletTicketTitle('SPECIAL'),
+                      FEText.walletTicketTitle('SPECIAL'),
                       verticalSpaceRegular,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
-                            children: const [
+                            children: [
                               FEText.buyTicketPriceText('Fare'),
                               FEText.buyTicketPriceText('12% VAT'),
                             ],
@@ -99,7 +99,7 @@ class FEUseSpecialTicket extends StatelessWidget {
                           horizontalSpaceRegular,
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               FEText.buyTicketPriceText('P'),
                               FEText.buyTicketPriceText('P'),
                             ],
@@ -107,14 +107,14 @@ class FEUseSpecialTicket extends StatelessWidget {
                           horizontalSpaceRegular,
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
-                            children: const [
+                            children: [
                               FEText.buyTicketPriceText('29.00'),
                               FEText.buyTicketPriceText('3.00'),
                             ],
                           ),
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         width: 250,
                         child: Divider(
                           color: Colors.black,
@@ -123,7 +123,7 @@ class FEUseSpecialTicket extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           horizontalSpaceLarge,
                           horizontalSpaceLarge,
                           FEText.buyTicketPriceText('P'),
@@ -131,16 +131,16 @@ class FEUseSpecialTicket extends StatelessWidget {
                           FEText.buyTicketPriceText('32.00'),
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         width: 300,
                         child: Divider(),
                       ),
                       verticalSpaceSmall,
                       // Gesture Detector when scanning
 
-                      const ScanToUseSpecialTicket(),
+                      ScanToUseSpecialTicket(),
                       verticalSpaceSmall,
-                      const FEText.buyTicketPriceText('Scan to use Ticket'),
+                      FEText.buyTicketPriceText('Scan to use Ticket'),
                     ],
                   ),
                 ),

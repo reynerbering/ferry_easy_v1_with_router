@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../shared/shared_exports.dart';
 import '../../shared/widgets/ferry_easy_buy_special_ticket.dart';
+import '../authentication/domain/user_model.dart';
 
 class BuyTicket extends StatefulWidget {
   static const id = 'buy_ticket';
@@ -15,6 +18,7 @@ class _BuyTicketState extends State<BuyTicket> {
   final PageController _controller = PageController();
   int _currentPage = 0;
   List<Widget> pages = [];
+  List<Widget> page = [];
 
   void _onButton1Pressed() {
     setState(() {
@@ -32,6 +36,8 @@ class _BuyTicketState extends State<BuyTicket> {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
+
     pages = [
       SingleChildScrollView(
         child: Column(
@@ -77,6 +83,25 @@ class _BuyTicketState extends State<BuyTicket> {
       ),
     ];
 
+    page = [
+      SingleChildScrollView(
+        child: Column(
+          children: [
+            const FEWalletLoad(),
+            const FEBuyRegularTicket(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
+              child: FERegularQuantitySelector(
+                initialValue: 0,
+                onChanged: (value) {},
+                ticketType: TicketType.regular,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ];
+
     return FEBackgroundWidget(
       assetImage: const AssetImage('assets/images/login.png'),
       child: Scaffold(
@@ -84,14 +109,41 @@ class _BuyTicketState extends State<BuyTicket> {
           preferredSize: Size.fromHeight(kToolbarHeight),
           child: FEAppBar(title: 'Select Ticket'),
         ),
-        body: PageView(
-          controller: _controller,
-          onPageChanged: (int page) {
-            setState(() {
-              _currentPage = page;
-            });
+        body: StreamBuilder<UserModel?>(
+          stream: getUser(auth.currentUser!.uid),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final user = snapshot.data!;
+              if (user.isVerified == true) {
+                return PageView(
+                  controller: _controller,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  children: pages,
+                );
+              } else {
+                return PageView(
+                  controller: _controller,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  children: page,
+                );
+              }
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              return const Center(
+                  child: CircularProgressIndicator(
+                color: kcPrimaryColor,
+              ));
+            }
           },
-          children: pages,
         ),
       ),
     );

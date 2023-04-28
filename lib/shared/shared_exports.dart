@@ -22,5 +22,6 @@ export './widgets/ferry_easy_safety_tips_bottom_sheet.dart';
 export './widgets/ferry_easy_ship_details.dart';
 export './widgets/ferry_easy_text.dart';
 export './widgets/ferry_easy_wallet_load.dart';
+export './widgets/ferry_easy_load_options.dart';
 
 export './shared_exports.dart';

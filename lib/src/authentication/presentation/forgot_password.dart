@@ -34,7 +34,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
-                const FEText.onBoardingHead('Forgot Password'),
+                FEText.onBoardingHead('Forgot Password'),
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,

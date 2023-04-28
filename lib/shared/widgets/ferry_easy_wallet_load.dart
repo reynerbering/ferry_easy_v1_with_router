@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../src/authentication/domain/user_model.dart';
 import '../../src/dashboard/application/bloc_exports.dart';
-import '../../src/dashboard/load_details.dart';
 import '../shared_exports.dart';
 
 class FEWalletLoad extends StatelessWidget {
@@ -21,7 +20,7 @@ class FEWalletLoad extends StatelessWidget {
             if (snapshot.hasData) {
               final user = snapshot.data!;
               return GestureDetector(
-                onTap: () => Navigator.of(context).pushNamed(LoadDetails.id),
+                onTap: () => Navigator.of(context).pushNamed(LoadOptions.id),
                 child: Container(
                   height: 100,
                   width: double.infinity,
@@ -36,7 +35,7 @@ class FEWalletLoad extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const FEText.walletCurrencyText('PHP'),
+                          FEText.walletCurrencyText('PHP'),
                           horizontalSpaceSmall,
                           FEText.walletCreditText(user.wallet.toString()),
                           horizontalSpaceSmall,
@@ -46,9 +45,9 @@ class FEWalletLoad extends StatelessWidget {
                                 color: kcPrimaryColor,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Row(
-                              children: const [
+                              children: [
                                 FEText.walletCashInText('Cash In'),
-                                Icon(
+                                const Icon(
                                   Icons.add,
                                   color: Colors.white,
                                   size: 15,
@@ -60,7 +59,7 @@ class FEWalletLoad extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           FEText.walletBalIndicator('Available Balance')
                         ],
                       ),

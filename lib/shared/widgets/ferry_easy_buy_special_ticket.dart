@@ -45,17 +45,16 @@ class FEBuySpecialTicket extends StatelessWidget {
                     ],
                   ),
                   verticalSpaceSmall,
-                  const FEText.walletTicketCompany('MetroFerry Inc.'),
+                  FEText.walletTicketCompany('MetroFerry Inc.'),
                   verticalSpaceSmall,
-                  const FEText.walletTicketSubtext(
+                  FEText.walletTicketSubtext(
                       '(Outside CPA-Gate 6) Cebu Baseport Muelle, Osmena Wharf'),
-                  const FEText.walletTicketSubtext(
+                  FEText.walletTicketSubtext(
                       '(Poblacion 6015 Lapu-Lapu City (Opon) Cebu Philippines'),
-                  const FEText.walletTicketSubtext(
+                  FEText.walletTicketSubtext(
                       '(VAT REG. TIN: 004-271-832-00000'),
                   verticalSpaceSmall,
-                  const FEText.walletTicketTitle(
-                      'STUDENT / PWD / SENIOR CITIZEN'),
+                  FEText.walletTicketTitle('STUDENT / PWD / SENIOR CITIZEN'),
                   const SizedBox(
                     width: 300,
                     child: Divider(),
@@ -66,7 +65,7 @@ class FEBuySpecialTicket extends StatelessWidget {
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: const [
+                        children: [
                           FEText.buyTicketPriceText('Fare'),
                           FEText.buyTicketPriceText('12% VAT'),
                         ],
@@ -74,7 +73,7 @@ class FEBuySpecialTicket extends StatelessWidget {
                       horizontalSpaceRegular,
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           FEText.buyTicketPriceText('P'),
                           FEText.buyTicketPriceText('P'),
                         ],
@@ -82,7 +81,7 @@ class FEBuySpecialTicket extends StatelessWidget {
                       horizontalSpaceRegular,
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: const [
+                        children: [
                           FEText.buyTicketPriceText('26.00'),
                           FEText.buyTicketPriceText('3.00'),
                         ],
@@ -98,7 +97,7 @@ class FEBuySpecialTicket extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       horizontalSpaceLarge,
                       horizontalSpaceLarge,
                       FEText.buyTicketPriceText('P'),

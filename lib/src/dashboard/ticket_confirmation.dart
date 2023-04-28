@@ -1,6 +1,6 @@
 import 'package:ferry_easy/shared/services/guid_gen.dart';
 import 'package:ferry_easy/src/dashboard/application/bloc_exports.dart';
-import 'package:ferry_easy/src/dashboard/domain/ticket.dart';
+import 'package:ferry_easy/src/dashboard/domain/ticket_model.dart';
 import 'package:intl/intl.dart';
 
 import '../../shared/shared_exports.dart';
@@ -45,18 +45,18 @@ class TicketConfirmationPage extends StatelessWidget {
                       height: 50,
                       width: 50,
                     ),
-                    const FEText.buyTicketCompany('Ferry Easy'),
+                    FEText.buyTicketCompany('Ferry Easy'),
                   ],
                 ),
                 // Row(
-                //   children: const [
+                //   children:  [
                 //     FEText.buyTicketTitle('Transaction Number'),
                 //     horizontalSpaceRegular,
                 //     FEText.buyTicketTitle('ABSCISINFINFJN'),
                 //   ],
                 // ),
                 verticalSpaceLarge,
-                const FEText.buyTicketTitle('YOU ARE ABOUT TO PAY'),
+                FEText.buyTicketTitle('YOU ARE ABOUT TO PAY'),
                 verticalSpaceLarge,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,12 +81,12 @@ class TicketConfirmationPage extends StatelessWidget {
                   thickness: 2,
                 ),
                 verticalSpaceRegular,
-                const FEText.buyTicketTitle('PAYMENT'),
+                FEText.buyTicketTitle('PAYMENT'),
                 verticalSpaceRegular,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const FEText.buyTicketTitle('Ferry Easy Wallet'),
+                    FEText.buyTicketTitle('Ferry Easy Wallet'),
                     horizontalSpaceRegular,
                     FEText.buyTicketTitle('PHP $totalAmount'),
                   ],
@@ -102,7 +102,8 @@ class TicketConfirmationPage extends StatelessWidget {
                     // loops when creating a ticket
                     if (ticket == 'Regular') {
                       for (int i = 0; i < quantity; i++) {
-                        var ticket = Ticket(
+                        var ticket = TicketModel(
+                            ticketType: 'Regular',
                             id: GUIDGen.generate(),
                             datePurchased: DateFormat('MM-dd-yyyy')
                                 .format(DateTime.now()));
@@ -110,6 +111,8 @@ class TicketConfirmationPage extends StatelessWidget {
                             .read<TicketBloc>()
                             .add(BuyRegularTicket(ticket: ticket));
                       }
+                      context.read<TicketBloc>().add(GetAllTickets());
+
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -124,7 +127,8 @@ class TicketConfirmationPage extends StatelessWidget {
                       );
                     } else if (ticket == 'Special') {
                       for (int i = 0; i < quantity; i++) {
-                        var ticket = Ticket(
+                        var ticket = TicketModel(
+                            ticketType: 'Special',
                             id: GUIDGen.generate(),
                             datePurchased: DateFormat('MM-dd-yyyy')
                                 .format(DateTime.now()));
@@ -132,6 +136,7 @@ class TicketConfirmationPage extends StatelessWidget {
                             .read<TicketBloc>()
                             .add(BuySpecialTicket(ticket: ticket));
                       }
+                      context.read<TicketBloc>().add(GetAllTickets());
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {

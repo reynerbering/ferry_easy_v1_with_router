@@ -35,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
-                const FEText.onBoardingHead('Welcome Back'),
+                FEText.onBoardingHead('Welcome Back'),
                 verticalSpaceLarge,
                 verticalSpaceLarge,
                 verticalSpaceLarge,
@@ -91,6 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                   title: 'Log In',
                   onTap: () async {
                     final isValid = _formKey.currentState?.validate();
+
                     try {
                       await _auth
                           .signInWithEmailAndPassword(

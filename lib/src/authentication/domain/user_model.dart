@@ -1,7 +1,4 @@
-import 'dart:typed_data';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class UserModel {
   final String uid;
@@ -69,6 +66,27 @@ class UserModel {
     );
   }
 
+  Map<String, dynamic> get json => {
+        'uid': uid,
+        'firstName': firstName,
+        'lastName': lastName,
+        'email': email,
+        'username': username,
+        'address': address,
+        'birthDate': birthDate.toString(),
+        'wallet': wallet,
+        'isVerified': isVerified,
+        'contactNum': contactNum,
+        'profileImg': profileImg,
+        'validId': validId,
+      };
+
+  static Future<UserModel> fromUid({required String uid}) async {
+    DocumentSnapshot snap =
+        await FirebaseFirestore.instance.collection('Users').doc(uid).get();
+    return UserModel.fromDocumentSnap(snap);
+  }
+
   static UserModel fromDocumentSnap(DocumentSnapshot snap) {
     Map<String, dynamic> json = {};
     if (snap.data() != null) {
@@ -90,27 +108,6 @@ class UserModel {
       profileImg: json['profileImg'] ?? '',
       validId: json['validId'] ?? '',
     );
-  }
-
-  Map<String, dynamic> get json => {
-        'uid': uid,
-        'firstName': firstName,
-        'lastName': lastName,
-        'email': email,
-        'username': username,
-        'address': address,
-        'birthDate': birthDate.toString(),
-        'wallet': wallet,
-        'isVerified': isVerified,
-        'contactNum': contactNum,
-        'profileImg': profileImg,
-        'validId': validId,
-      };
-
-  static Future<UserModel> fromUid({required String uid}) async {
-    DocumentSnapshot snap =
-        await FirebaseFirestore.instance.collection('Users').doc(uid).get();
-    return UserModel.fromDocumentSnap(snap);
   }
 
   static Stream<UserModel> fromUidStream({required String uid}) {

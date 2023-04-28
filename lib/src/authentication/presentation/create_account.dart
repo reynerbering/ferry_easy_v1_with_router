@@ -111,7 +111,7 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget build(BuildContext context) {
     final dateText = _selectedDate != null
         ? '${_selectedDate?.day}/${_selectedDate?.month}/${_selectedDate?.year}'
-        : 'Birthday';
+        : 'Select Birthday';
     return FEBackgroundWidget(
       assetImage: const AssetImage(
         ('assets/images/create-account.png'),
@@ -130,7 +130,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   verticalSpaceLarge,
                   verticalSpaceLarge,
                   verticalSpaceLarge,
-                  const FEText.onBoardingHead('Create Account'),
+                  FEText.onBoardingHead('Create Account'),
                   verticalSpaceLarge,
                   verticalSpaceLarge,
                   verticalSpaceLarge,
@@ -200,7 +200,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   ),
                   FEInputField(
                     controller: _contactNum,
-                    placeholder: 'Contact Number',
+                    placeholder: 'Contact Number (11 Digits)',
                     keyboardType: TextInputType.number,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -266,7 +266,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
                     },
-                  ),
+                  )
                 ],
               ),
             ),

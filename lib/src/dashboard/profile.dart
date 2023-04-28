@@ -1,5 +1,6 @@
 import 'package:ferry_easy/shared/services/image_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
 
 import '../../shared/shared_exports.dart';
 import '../../shared/widgets/ferry_easy_id_container.dart';
@@ -54,7 +55,8 @@ class Profile extends StatelessWidget {
                           ),
                           UserInfo(
                             title: 'Birth Date',
-                            info: user.birthDate.toString(),
+                            info:
+                                DateFormat('MM-dd-yyyy').format(user.birthDate),
                           ),
                           UserInfo(
                             title: 'Username',

@@ -1,10 +1,9 @@
 import 'package:ferry_easy/shared/widgets/scan_to_use_regular.dart';
-import 'package:ferry_easy/src/dashboard/application/bloc_exports.dart';
 
 import '../shared_exports.dart';
 
 class FEUseRegularTicket extends StatelessWidget {
-  const FEUseRegularTicket({
+  FEUseRegularTicket({
     super.key,
   });
 
@@ -25,7 +24,7 @@ class FEUseRegularTicket extends StatelessWidget {
           height: 150,
           width: double.infinity,
           child: Column(
-            children: const [
+            children: [
               verticalSpaceMedium,
               FEText.useTitleHeader('PASSENGER\'S TICKET'),
               verticalSpaceTiny,
@@ -42,7 +41,7 @@ class FEUseRegularTicket extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(35),
             child: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
+                builder: (BuildContext context, BoxConstraints raints) {
               return CustomPaint(
                 size: Size(displayWidth(context),
                     (displayWidth(context) * 0.62).toDouble()),
@@ -75,23 +74,23 @@ class FEUseRegularTicket extends StatelessWidget {
                         ],
                       ),
                       verticalSpaceSmall,
-                      const FEText.walletTicketCompany('MetroFerry Inc.'),
+                      FEText.walletTicketCompany('MetroFerry Inc.'),
                       verticalSpaceSmall,
-                      const FEText.walletTicketSubtext(
+                      FEText.walletTicketSubtext(
                           '(Outside CPA-Gate 6) Cebu Baseport Muelle, Osmena Wharf'),
-                      const FEText.walletTicketSubtext(
+                      FEText.walletTicketSubtext(
                           '(Poblacion 6015 Lapu-Lapu City (Opon) Cebu Philippines'),
-                      const FEText.walletTicketSubtext(
+                      FEText.walletTicketSubtext(
                           '(VAT REG. TIN: 004-271-832-00000'),
                       verticalSpaceSmall,
-                      const FEText.walletTicketTitle('REGULAR'),
+                      FEText.walletTicketTitle('REGULAR'),
                       verticalSpaceRegular,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
-                            children: const [
+                            children: [
                               FEText.buyTicketPriceText('Fare'),
                               FEText.buyTicketPriceText('12% VAT'),
                             ],
@@ -99,7 +98,7 @@ class FEUseRegularTicket extends StatelessWidget {
                           horizontalSpaceRegular,
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               FEText.buyTicketPriceText('P'),
                               FEText.buyTicketPriceText('P'),
                             ],
@@ -107,7 +106,7 @@ class FEUseRegularTicket extends StatelessWidget {
                           horizontalSpaceRegular,
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
-                            children: const [
+                            children: [
                               FEText.buyTicketPriceText('32.00'),
                               FEText.buyTicketPriceText('3.00'),
                             ],
@@ -123,7 +122,7 @@ class FEUseRegularTicket extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           horizontalSpaceLarge,
                           horizontalSpaceLarge,
                           FEText.buyTicketPriceText('P'),
@@ -138,9 +137,9 @@ class FEUseRegularTicket extends StatelessWidget {
                       verticalSpaceSmall,
                       // Gesture Detector when scanning
 
-                      const ScanToUseRegularTicket(),
+                      ScanToUseRegularTicket(),
                       verticalSpaceSmall,
-                      const FEText.buyTicketPriceText('Scan to use Ticket'),
+                      FEText.buyTicketPriceText('Scan to use Ticket'),
                     ],
                   ),
                 ),

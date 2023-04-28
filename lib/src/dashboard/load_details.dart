@@ -53,20 +53,22 @@ class LoadDetails extends StatelessWidget {
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: const [
+                              children: [
                                 FEText.buyTicketCompany('User:'),
                                 FEText.buyTicketCompany('First Name:'),
                                 FEText.buyTicketCompany('Last Name:'),
                               ],
                             ),
                             horizontalSpaceRegular,
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                FEText.buyTicketCompany(user.email),
-                                FEText.buyTicketCompany(user.firstName),
-                                FEText.buyTicketCompany(user.lastName),
-                              ],
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  FEText.buyTicketCompany(user.email),
+                                  FEText.buyTicketCompany(user.firstName),
+                                  FEText.buyTicketCompany(user.lastName),
+                                ],
+                              ),
                             ),
                           ],
                         ),

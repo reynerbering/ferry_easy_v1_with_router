@@ -10,210 +10,495 @@ class FEText extends StatelessWidget {
   final TextOverflow? overflow;
   final bool? softWrap;
   final int? maxLines;
-
+  final Color? color;
   //Onboarding
 
-  const FEText.onBoardingHead(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = onboardingHead;
-  const FEText.onBoardingSub(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = onboardingSub;
+  FEText.onBoardingHead(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = onboardingHead.copyWith(color: color);
+  FEText.onBoardingSub(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = onboardingSub.copyWith(color: color);
 
   //Dashboard
 
-  const FEText.dashTextTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = dashTextTitle;
-  const FEText.dashActiveFerries(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = dashActiveFerries;
-  const FEText.dashFerryName(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = dashFerryName;
-  const FEText.dashDestination(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = dashDestination;
-  const FEText.dashEta(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = dashEta;
-  const FEText.dashEtaTime(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = dashEtaTime;
-  const FEText.dashCdTimer(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = dashCdTimer;
+  FEText.dashTextTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = dashTextTitle.copyWith(color: color);
+  FEText.dashActiveFerries(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = dashActiveFerries.copyWith(color: color);
+  FEText.dashFerryName(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = dashFerryName.copyWith(color: color);
+  FEText.dashDestination(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = dashDestination.copyWith(color: color);
+  FEText.dashEta(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = dashEta.copyWith(color: color);
+  FEText.dashEtaTime(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = dashEtaTime.copyWith(color: color);
+  FEText.dashCdTimer(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = dashCdTimer.copyWith(color: color);
 
   //Side Bar
-  const FEText.sidebarLNHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = sidebarLNHeader;
-  const FEText.sidebarFNHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = sidebarFNHeader;
-  const FEText.sidebarChoice(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = sidebarChoice;
+  FEText.sidebarLNHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = sidebarLNHeader.copyWith(color: color);
+  FEText.sidebarFNHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = sidebarFNHeader.copyWith(color: color);
+  FEText.sidebarChoice(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = sidebarChoice.copyWith(color: color);
 
   //User ( Own Profile Page )
 
-  const FEText.userLNHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = userLNHeader;
-  const FEText.userFNHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = userFNHeader;
-  const FEText.userSubText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = userSubText;
+  FEText.userLNHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = userLNHeader.copyWith(color: color);
+  FEText.userFNHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = userFNHeader.copyWith(color: color);
+  FEText.userSubText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = userSubText.copyWith(color: color);
 
   //Profile
 
-  const FEText.profileLNHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = profileLNHeader;
-  const FEText.profileFNHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = profileFNHeader;
-  const FEText.profileDetailsHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = profileDetailsHeader;
-  const FEText.profileCardTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = profileCardTitle;
-  const FEText.profileCardDetails(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = profileCardDetails;
-  const FEText.profileCardInfo(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = profileCardInfo;
+  FEText.profileLNHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = profileLNHeader.copyWith(color: color);
+  FEText.profileFNHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = profileFNHeader.copyWith(color: color);
+  FEText.profileDetailsHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = profileDetailsHeader.copyWith(color: color);
+  FEText.profileCardTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = profileCardTitle.copyWith(color: color);
+  FEText.profileCardDetails(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = profileCardDetails.copyWith(color: color);
+  FEText.profileCardInfo(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = profileCardInfo.copyWith(color: color);
 
   //Drawer
-  const FEText.drawerListTile(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = drawerListTile;
+  FEText.drawerListTile(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = drawerListTile.copyWith(color: color);
 
   //Wallet
 
-  const FEText.walletHeaderTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletHeaderTitle;
-  const FEText.walletCurrencyText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletCurrencyText;
-  const FEText.walletCashInText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletCashInText;
-  const FEText.walletCreditText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletCreditText;
-  const FEText.walletBalIndicator(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletBalIndicator;
-  const FEText.walletTicketTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletTicketTitle;
-  const FEText.walletTicketCompany(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletTicketCompany;
-  const FEText.walletTicketSubtext(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletTicketSubtext;
-  const FEText.walletTicketPriceText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletTicketPriceText;
-  const FEText.walletTicketQuantity(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = walletTicketQuantity;
+  FEText.walletHeaderTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletHeaderTitle.copyWith(color: color);
+  FEText.walletCurrencyText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletCurrencyText.copyWith(color: color);
+  FEText.walletCashInText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletCashInText.copyWith(color: color);
+  FEText.walletCreditText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletCreditText.copyWith(color: color);
+  FEText.walletBalIndicator(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletBalIndicator.copyWith(color: color);
+  FEText.walletTicketTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletTicketTitle.copyWith(color: color);
+  FEText.walletTicketCompany(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletTicketCompany.copyWith(color: color);
+  FEText.walletTicketSubtext(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletTicketSubtext.copyWith(color: color);
+  FEText.walletTicketPriceText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletTicketPriceText.copyWith(color: color);
+  FEText.walletTicketQuantity(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = walletTicketQuantity.copyWith(color: color);
 
   //Transactions
 
-  const FEText.transacHeaderTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = transacHeaderTitle;
-  const FEText.transacSubTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = transacSubTitle;
-  const FEText.transacTileText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = transacTileText;
+  FEText.transacHeaderTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = transacHeaderTitle.copyWith(color: color);
+  FEText.transacSubTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = transacSubTitle.copyWith(color: color);
+  FEText.transacTileText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = transacTileText.copyWith(color: color);
 
   //Buy Ticket
-  const FEText.buyCurrencyText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyCurrencyText;
-  const FEText.buyCashInText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyCashInText;
-  const FEText.buyCreditText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyCreditText;
-  const FEText.buyBalIndicator(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyBalIndicator;
-  const FEText.buyTicketTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyTicketTitle;
-  const FEText.buyTicketCompany(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyTicketCompany;
-  const FEText.buyTicketSubtext(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyTicketSubtext;
-  const FEText.buyTicketPriceText(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyTicketPriceText;
-  const FEText.buyTicketQuantity(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = buyTicketQuantity;
+  FEText.buyCurrencyText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyCurrencyText.copyWith(color: color);
+  FEText.buyCashInText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyCashInText.copyWith(color: color);
+  FEText.buyCreditText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyCreditText.copyWith(color: color);
+  FEText.buyBalIndicator(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyBalIndicator.copyWith(color: color);
+  FEText.buyTicketTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyTicketTitle.copyWith(color: color);
+  FEText.buyTicketCompany(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyTicketCompany.copyWith(color: color);
+  FEText.buyTicketSubtext(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyTicketSubtext.copyWith(color: color);
+  FEText.buyTicketPriceText(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyTicketPriceText.copyWith(color: color);
+  FEText.buyTicketQuantity(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = buyTicketQuantity.copyWith(color: color);
 
   // Use Ticket
 
-  const FEText.useTitleHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = useTitleHeader;
-  const FEText.useTitleSubtext(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = useTitleSubtext;
-  const FEText.useTicketCompany(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = useTicketCompany;
-  const FEText.useTicketSubtext(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = useTicketSubtext;
-  const FEText.useTotalPrice(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = useTotalPrice;
-  const FEText.useExplodedPrice(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = useExplodedPrice;
+  FEText.useTitleHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = useTitleHeader.copyWith(color: color);
+  FEText.useTitleSubtext(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = useTitleSubtext.copyWith(color: color);
+  FEText.useTicketCompany(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = useTicketCompany.copyWith(color: color);
+  FEText.useTicketSubtext(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = useTicketSubtext.copyWith(color: color);
+  FEText.useTotalPrice(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = useTotalPrice.copyWith(color: color);
+  FEText.useExplodedPrice(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = useExplodedPrice.copyWith(color: color);
 
   // Ticket History
 
-  const FEText.historyTitle(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = historyTitle;
-  const FEText.historyPassTicket(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = historyPassTicket;
-  const FEText.historyTicketLoc(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = historyTicketLoc;
-  const FEText.historyTicketPrice(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = historyTicketPrice;
-  const FEText.historyTicketType(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = historyTicketType;
+  FEText.historyTitle(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = historyTitle.copyWith(color: color);
+  FEText.historyPassTicket(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = historyPassTicket.copyWith(color: color);
+  FEText.historyTicketLoc(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = historyTicketLoc.copyWith(color: color);
+  FEText.historyTicketPrice(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = historyTicketPrice.copyWith(color: color);
+  FEText.historyTicketType(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = historyTicketType.copyWith(color: color);
 
   // Notifications
 
-  const FEText.notifHeader(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = notifHeader;
-  const FEText.notifSubtext(this.text,
-      {super.key, this.textAlign, this.softWrap, this.maxLines, this.overflow})
-      : style = notifSubtext;
+  FEText.notifHeader(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = notifHeader.copyWith(color: color);
+  FEText.notifSubtext(this.text,
+      {super.key,
+      this.textAlign,
+      this.softWrap,
+      this.maxLines,
+      this.overflow,
+      this.color})
+      : style = notifSubtext.copyWith(color: color);
 
   // body
 
@@ -223,7 +508,7 @@ class FEText extends StatelessWidget {
       this.softWrap,
       this.maxLines,
       this.overflow,
-      Color color = kcPrimaryColor})
+      this.color = kcPrimaryColor})
       : style = bodyStyle.copyWith(color: color);
 
   @override

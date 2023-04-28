@@ -14,11 +14,12 @@ class UsedTicketList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TicketBloc, TicketState>(
       builder: (context, state) {
-        List<Ticket> usedRegularTickets = state.usedRegularTickets;
-        List<Ticket> usedSpecialTickets = state.usedSpecialTickets;
+        List<TicketModel> usedRegularTickets = state.usedRegularTickets;
+        List<TicketModel> usedSpecialTickets = state.usedSpecialTickets;
 
-        List<Ticket> combinedUsedTickets = List<Ticket>.from(usedRegularTickets)
-          ..addAll(usedSpecialTickets);
+        List<TicketModel> combinedUsedTickets =
+            List<TicketModel>.from(usedRegularTickets)
+              ..addAll(usedSpecialTickets);
 
         combinedUsedTickets
             .sort((a, b) => b.datePurchased.compareTo(a.datePurchased));

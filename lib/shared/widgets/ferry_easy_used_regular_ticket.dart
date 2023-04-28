@@ -2,9 +2,9 @@ import '../../src/dashboard/domain/ticket_model.dart';
 import '../shared_exports.dart';
 
 class UsedRegularTicket extends StatelessWidget {
-  final Ticket ticket;
+  final TicketModel ticket;
 
-  const UsedRegularTicket({
+  UsedRegularTicket({
     Key? key,
     required this.ticket,
   }) : super(key: key);
@@ -16,7 +16,7 @@ class UsedRegularTicket extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
+            builder: (BuildContext context, BoxConstraints raints) {
           return CustomPaint(
             size: Size(displayWidth(context),
                 (displayWidth(context) * 0.62).toDouble()),
@@ -33,7 +33,7 @@ class UsedRegularTicket extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Column(
-                          children: const [FEText.historyTicketType('REGULAR')],
+                          children: [FEText.historyTicketType('REGULAR')],
                         ),
                       ),
                       const SizedBox(
@@ -44,7 +44,7 @@ class UsedRegularTicket extends StatelessWidget {
                       ),
                       horizontalSpaceMedium,
                       Column(
-                        children: const [
+                        children: [
                           FEText.historyPassTicket('PASSENGER TICKET'),
                           verticalSpaceTiny,
                           FEText.historyTicketLoc('LAPU-LAPU | CEBU'),

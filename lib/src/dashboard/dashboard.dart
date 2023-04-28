@@ -22,8 +22,8 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   final List<Map<String, dynamic>> _pageDetails = [
-    {'pageName': const Home(), 'title': 'FerryEasy'},
-    {'pageName': const Wallet(), 'title': 'My Wallet'},
+    {'pageName': Home(), 'title': 'FerryEasy'},
+    {'pageName': Wallet(), 'title': 'My Wallet'},
     {'pageName': const Placeholder(), 'title': ''},
     {'pageName': const History(), 'title': 'Ticket History'},
     {'pageName': const Notifications(), 'title': 'Notifications'},
@@ -59,16 +59,16 @@ class _DashboardState extends State<Dashboard> {
           child: FEAppBar(
             title: _pageDetails[_selectedPageIndex]['title'],
             tabBar: _selectedPageIndex == 1
-                ? const TabBar(
+                ? TabBar(
                     indicatorWeight: 5,
                     indicatorColor: kcLightGrayColor,
                     tabs: [
                       Padding(
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: FEText.walletHeaderTitle('Wallet'),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: FEText.walletHeaderTitle('Transactions'),
                       ),
                     ],

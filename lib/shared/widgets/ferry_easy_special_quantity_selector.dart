@@ -1,3 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../src/authentication/domain/user_model.dart';
 import '../../src/dashboard/application/bloc_exports.dart';
 import '../../src/dashboard/ticket_confirmation.dart';
 import '../shared_exports.dart';
@@ -50,95 +53,121 @@ class _FESpecialQuantitySelectorState extends State<FESpecialQuantitySelector> {
     _value = widget.initialValue.clamp(1, 10);
   }
 
-  void _incrementValue() {
-    setState(() {
-      if (_value < 10) {
-        _value++;
-        widget.onChanged(
-            _value.clamp(1, 10)); // clamp _value before calling onChanged
-      }
-    });
-  }
-
-  void _decrementValue() {
-    setState(() {
-      if (_value > 1) {
-        _value--;
-        widget.onChanged(
-            _value.clamp(1, 10)); // clamp _value before calling onChanged
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
     return BlocBuilder<TicketBloc, TicketState>(
       builder: (context, state) {
-        return Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const FEText.buyTicketQuantity(
-                  'Quantity',
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(
-                      15,
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+        return StreamBuilder<UserModel?>(
+          stream: getUser(auth.currentUser!.uid),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final walletBalance = snapshot.data!.wallet;
+              return Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.remove),
-                        color: kcPrimaryColor,
-                        onPressed: _decrementValue,
+                      FEText.buyTicketQuantity(
+                        'Quantity',
                       ),
-                      Text(
-                        '$_value',
-                        style: const TextStyle(color: kcPrimaryColor),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.add),
-                        color: kcPrimaryColor,
-                        onPressed: _incrementValue,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            15,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.remove),
+                              color: kcPrimaryColor,
+                              onPressed: () => setState(() {
+                                if (_value > 1) {
+                                  _value--;
+                                  if (getTotalAmount() > walletBalance) {
+                                    widget.onChanged(
+                                        1); // clamp _value to 1 if balance is not enough
+                                  } else {
+                                    widget.onChanged(_value);
+                                  }
+                                }
+                              }),
+                            ),
+                            Text(
+                              '$_value',
+                              style: const TextStyle(color: kcPrimaryColor),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.add),
+                              color: kcPrimaryColor,
+                              onPressed: () => setState(() {
+                                if (_value < 10) {
+                                  _value++;
+                                  if (getTotalAmount() > walletBalance) {
+                                    widget.onChanged(
+                                        10); // clamp _value to 10 if balance is not enough
+                                  } else {
+                                    widget.onChanged(_value);
+                                  }
+                                }
+                              }),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-            verticalSpaceMedium,
-            state.walletBalance < state.specialTicketPrice
-                ? const FEButton(
-                    title: 'Buy Ticket',
-                    disabled: true,
-                  )
-                : FEButton(
-                    title: 'Buy Ticket',
-                    outline: true,
-                    onTap: () {
-                      int totalAmount = getTotalAmount();
-                      int ticketPrice = getTicketPrice();
-                      String ticketType = getTicketType();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TicketConfirmationPage(
-                            ticket: ticketType,
-                            ticketPrice: ticketPrice,
-                            ticketType: widget.ticketType,
-                            quantity: _value,
-                            totalAmount: totalAmount,
-                          ),
+                  verticalSpaceMedium,
+                  walletBalance < getTotalAmount()
+                      ? Column(
+                          children: const [
+                            verticalSpaceTiny,
+                            FEButton(
+                              title: 'Buy Ticket',
+                              disabled: true,
+                            ),
+                            verticalSpaceTiny,
+                            Text(
+                              'Your balance is not enough to buy this ticket',
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        )
+                      : FEButton(
+                          title: 'Buy Ticket',
+                          outline: true,
+                          onTap: () {
+                            int totalAmount = getTotalAmount();
+                            int ticketPrice = getTicketPrice();
+                            String ticketType = getTicketType();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TicketConfirmationPage(
+                                  ticket: ticketType,
+                                  ticketPrice: ticketPrice,
+                                  ticketType: widget.ticketType,
+                                  quantity: _value,
+                                  totalAmount: totalAmount,
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
-          ],
+                ],
+              );
+            } else {
+              return const CircularProgressIndicator(
+                color: kcPrimaryColor,
+              );
+            }
+          },
         );
       },
     );
