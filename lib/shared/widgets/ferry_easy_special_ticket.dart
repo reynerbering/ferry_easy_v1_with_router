@@ -4,7 +4,7 @@ import '../shared_exports.dart';
 class SpecialTicket extends StatelessWidget {
   final void Function()? onTap;
 
-  SpecialTicket({
+  const SpecialTicket({
     super.key,
     this.onTap,
   });

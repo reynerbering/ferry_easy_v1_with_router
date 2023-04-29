@@ -3,7 +3,7 @@ import 'package:ferry_easy/shared/widgets/scan_to_use_regular.dart';
 import '../shared_exports.dart';
 
 class FEUseRegularTicket extends StatelessWidget {
-  FEUseRegularTicket({
+  const FEUseRegularTicket({
     super.key,
   });
 
@@ -137,7 +137,7 @@ class FEUseRegularTicket extends StatelessWidget {
                       verticalSpaceSmall,
                       // Gesture Detector when scanning
 
-                      ScanToUseRegularTicket(),
+                      const ScanToUseRegularTicket(),
                       verticalSpaceSmall,
                       FEText.buyTicketPriceText('Scan to use Ticket'),
                     ],

@@ -5,7 +5,7 @@ import '../shared_exports.dart';
 class FEShipDetails extends StatelessWidget {
   final String shipName;
 
-  FEShipDetails({
+  const FEShipDetails({
     super.key,
     required this.shipName,
   });
@@ -13,7 +13,7 @@ class FEShipDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20.0),
+      margin: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,7 +45,7 @@ class FEShipDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      padding: EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(15.0),
                       decoration: BoxDecoration(
                         color: kcLightGrayColor,
                         borderRadius: BorderRadius.circular(15.0),
@@ -64,13 +64,13 @@ class FEShipDetails extends StatelessWidget {
 }
 
 class FEDivider extends StatelessWidget {
-  FEDivider({
+  const FEDivider({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Divider(
+    return const Divider(
       color: kcPrimaryColor,
       height: 15,
     );

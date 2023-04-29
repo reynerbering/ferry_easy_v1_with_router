@@ -5,19 +5,19 @@ import '../../shared/shared_exports.dart';
 class ConsumeSpecialTicket extends StatelessWidget {
   static const id = 'consume_regular_ticket';
 
-  ConsumeSpecialTicket({super.key});
+  const ConsumeSpecialTicket({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FEBackgroundWidget(
-      assetImage: AssetImage('assets/images/login.png'),
+      assetImage: const AssetImage('assets/images/login.png'),
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        appBar: PreferredSize(
+        appBar: const PreferredSize(
             preferredSize: Size.fromHeight(kToolbarHeight),
             child: FEAppBar(title: 'Passenger Ticket')),
         body: Column(
-          children: [
+          children: const [
             verticalSpaceRegular,
             FEUseSpecialTicket(),
           ],

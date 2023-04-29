@@ -22,8 +22,8 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   final List<Map<String, dynamic>> _pageDetails = [
-    {'pageName': Home(), 'title': 'FerryEasy'},
-    {'pageName': Wallet(), 'title': 'My Wallet'},
+    {'pageName': const Home(), 'title': 'FerryEasy'},
+    {'pageName': const Wallet(), 'title': 'My Wallet'},
     {'pageName': const Placeholder(), 'title': ''},
     {'pageName': const History(), 'title': 'Ticket History'},
     {'pageName': const Notifications(), 'title': 'Notifications'},

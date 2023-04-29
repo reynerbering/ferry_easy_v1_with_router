@@ -1,10 +1,9 @@
-import 'package:ferry_easy/shared/widgets/scan_to_use_regular.dart';
 import 'package:ferry_easy/shared/widgets/scan_to_use_special.dart';
 
 import '../shared_exports.dart';
 
 class FEUseSpecialTicket extends StatelessWidget {
-  FEUseSpecialTicket({
+  const FEUseSpecialTicket({
     super.key,
   });
 
@@ -15,9 +14,9 @@ class FEUseSpecialTicket extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: Color(0xffEFCBDE),
+            color: const Color(0xffEFCBDE),
           ),
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
             top: 25,
             left: 25,
             right: 25,
@@ -36,7 +35,7 @@ class FEUseSpecialTicket extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 25,
           ),
           child: ClipRRect(
@@ -65,7 +64,7 @@ class FEUseSpecialTicket extends StatelessWidget {
                             height: 25,
                             width: 25,
                           ),
-                          Text(
+                          const Text(
                             'FerryEasy',
                             style: TextStyle(
                               color: kcPrimaryColor,
@@ -114,7 +113,7 @@ class FEUseSpecialTicket extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 250,
                         child: Divider(
                           color: Colors.black,
@@ -131,14 +130,14 @@ class FEUseSpecialTicket extends StatelessWidget {
                           FEText.buyTicketPriceText('32.00'),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 300,
                         child: Divider(),
                       ),
                       verticalSpaceSmall,
                       // Gesture Detector when scanning
 
-                      ScanToUseSpecialTicket(),
+                      const ScanToUseSpecialTicket(),
                       verticalSpaceSmall,
                       FEText.buyTicketPriceText('Scan to use Ticket'),
                     ],

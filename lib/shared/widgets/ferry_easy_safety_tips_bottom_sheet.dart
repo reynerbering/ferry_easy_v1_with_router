@@ -1,12 +1,12 @@
 import '../shared_exports.dart';
 
 class FESafetyTips extends StatelessWidget {
-  FESafetyTips({super.key});
+  const FESafetyTips({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Stack(
         children: [
           Column(
@@ -18,7 +18,7 @@ class FESafetyTips extends StatelessWidget {
                 height: 200,
                 width: double.infinity,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25),
                   ),
@@ -29,7 +29,7 @@ class FESafetyTips extends StatelessWidget {
                 ),
               ),
               verticalSpaceMedium,
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
                   'Safety Tips for Ferry Passengers',
@@ -41,7 +41,7 @@ class FESafetyTips extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text(
                   'Before Boarding',
@@ -53,37 +53,37 @@ class FESafetyTips extends StatelessWidget {
                   ),
                 ),
               ),
-              TipTile(
+              const TipTile(
                 image: 'locked.png',
                 title: 'Make sure your car is locked and valuables are hidden.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'clock-time.png',
                 title: 'Give yourself enough time to board prior to departure.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'roadblock.png',
                 title: 'Refrain from climbing over railings or other barriers.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'biker.png',
                 title:
                     'Don\'t board the ferry on a bike, skateboard, or rollerblades.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'correct.png',
                 title: 'Don\'t touch, move, or manipulate ramps or walkways.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'moon.png',
                 title:
                     'At night, stay in well-lit areas and within sight of incoming ferries.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'dragon.png',
                 title: 'Don\'t allow children to play on the dock.',
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(25.0),
                 child: Text(
                   'Safety While on the Dock',
@@ -95,7 +95,7 @@ class FESafetyTips extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text(
                   '     People typically disembark before you can board. Allow them room to leave before the deckhand gives the signal to board. Gangways can be dangerous if you’re not careful. Therefore, always hold the handrail, keep an eye on your footing, and stay off your mobile phone while boarding.',
@@ -107,7 +107,7 @@ class FESafetyTips extends StatelessWidget {
                   textAlign: TextAlign.justify,
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text(
                   '     Also, give careful attention to the elderly and individuals accompanied by caregivers or who use mobility aids. Let them go in front so they have room to board. This also gives them time to do so safely.',
@@ -119,7 +119,7 @@ class FESafetyTips extends StatelessWidget {
                   textAlign: TextAlign.justify,
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text(
                   'When Aboard the Vessel',
@@ -131,7 +131,7 @@ class FESafetyTips extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text(
                   '     Rushing to a vessel and carelessness on the dock can lead to serious injuries or even falling overboard. Once you find your seat:',
@@ -143,36 +143,36 @@ class FESafetyTips extends StatelessWidget {
                   textAlign: TextAlign.justify,
                 ),
               ),
-              TipTile(
+              const TipTile(
                 image: 'suitcase.png',
                 title:
                     'Keep luggage out of the way and ask for help stowing large items.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'vest.png',
                 title: 'Note where the exits and lifejackets are located.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'standing-bike.png',
                 title: 'Hold on to a bicycle or secure it to a bike rack.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'window.png',
                 title: 'Don\'t lean out the window.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'seat.png',
                 title: 'Refrain from standing on top of seats.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'man-sitting.png',
                 title: 'Don\'t sit children on your shoulders or rails.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'boat.png',
                 title: 'Don\'t sit on the boat\'s edge or on the bow.',
               ),
-              TipTile(
+              const TipTile(
                 image: 'water.png',
                 title:
                     'Stay seated, as ferries are prone to sudden movements with the water.',
@@ -190,7 +190,7 @@ class FESafetyTips extends StatelessWidget {
                 ],
               ),
               verticalSpaceTiny,
-              Center(
+              const Center(
                 child: Text(
                   'METRO FERRY, INC.',
                   style: TextStyle(
@@ -209,8 +209,8 @@ class FESafetyTips extends StatelessWidget {
               onPressed: () =>
                   Navigator.popUntil(context, ModalRoute.withName('home')),
               color: Colors.white,
-              shape: CircleBorder(),
-              child: Icon(
+              shape: const CircleBorder(),
+              child: const Icon(
                 Icons.close,
                 color: kcPrimaryColor,
               ),
@@ -225,7 +225,7 @@ class FESafetyTips extends StatelessWidget {
 class TipTile extends StatelessWidget {
   final String image;
   final String title;
-  TipTile({
+  const TipTile({
     super.key,
     required this.image,
     required this.title,
@@ -247,7 +247,7 @@ class TipTile extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.black,
           fontFamily: 'Inter',
           fontSize: 13,

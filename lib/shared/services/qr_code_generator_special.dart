@@ -1,12 +1,19 @@
+import 'package:qr_flutter/qr_flutter.dart';
+
+// Add your custom imports here
 import '../../src/dashboard/application/bloc_exports.dart';
 import '../../src/dashboard/domain/ticket_model.dart';
-import '../services/qr_code_generator_special.dart';
 import '../shared_exports.dart';
 
-class ScanToUseSpecialTicket extends StatelessWidget {
-  const ScanToUseSpecialTicket({
-    super.key,
-  });
+class QRGeneratorSpecial extends StatefulWidget {
+  const QRGeneratorSpecial({super.key});
+
+  @override
+  _QRGeneratorSpecialState createState() => _QRGeneratorSpecialState();
+}
+
+class _QRGeneratorSpecialState extends State<QRGeneratorSpecial> {
+  String qrData = "Hello World";
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +37,22 @@ class ScanToUseSpecialTicket extends StatelessWidget {
                 return const FESafetyTips();
               },
             );
+
+            // Update the QR data with the ticket information
+            setState(() {
+              // qrData = ticket.toJson().toString();
+            });
           },
-          child: Container(
-            color: Colors.grey,
-            height: 150,
-            width: 150,
-            child: const QRGeneratorSpecial(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              QrImage(
+                data: qrData,
+                version: QrVersions.auto,
+                size: 150,
+                gapless: false,
+              ),
+            ],
           ),
         );
       },

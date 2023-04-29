@@ -16,53 +16,51 @@ class AppRouter {
     switch (routeSettings.name) {
       case WelcomeScreen.id:
         return MaterialPageRoute(
-          settings: RouteSettings(name: 'welcome'),
+          settings: const RouteSettings(name: 'welcome'),
           builder: (context) => WelcomeScreen(),
         );
       case Onboarding.id:
         return MaterialPageRoute(
-          builder: (context) => Onboarding(),
+          builder: (context) => const Onboarding(),
         );
       case CreateAccount.id:
         return MaterialPageRoute(
-          builder: (context) => CreateAccount(),
+          builder: (context) => const CreateAccount(),
         );
       case Dashboard.id:
         return MaterialPageRoute(
-          settings: RouteSettings(name: 'home'),
+          settings: const RouteSettings(name: 'home'),
           builder: (context) => Dashboard(
             selectedIndex: 0,
           ),
         );
       case ForgotPassword.id:
         return MaterialPageRoute(
-          builder: (context) => ForgotPassword(),
+          builder: (context) => const ForgotPassword(),
         );
       case LoadDetails.id:
         return MaterialPageRoute(
-          builder: (context) => LoadDetails(),
+          builder: (context) => const LoadDetails(),
         );
       case Profile.id:
         return MaterialPageRoute(
-          builder: (context) => Profile(),
+          builder: (context) => const Profile(),
         );
       case BuyTicket.id:
         return MaterialPageRoute(
-          builder: (context) => BuyTicket(),
+          builder: (context) => const BuyTicket(),
         );
-
       case LoadOptions.id:
         return MaterialPageRoute(
-          builder: (context) => LoadOptions(),
+          builder: (context) => const LoadOptions(),
         );
-
       case ConsumeRegularTicket.id:
         return MaterialPageRoute(
-          builder: (context) => ConsumeRegularTicket(),
+          builder: (context) => const ConsumeRegularTicket(),
         );
       case ConsumeSpecialTicket.id:
         return MaterialPageRoute(
-          builder: (context) => ConsumeSpecialTicket(),
+          builder: (context) => const ConsumeSpecialTicket(),
         );
 
       default:

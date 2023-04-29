@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Column(
-                  children: [
+                  children: const [
                     FEShipDetails(
                       shipName: 'Princesa',
                     ),

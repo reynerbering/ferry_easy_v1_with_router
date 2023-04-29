@@ -4,7 +4,7 @@ import '../shared_exports.dart';
 class UsedRegularTicket extends StatelessWidget {
   final TicketModel ticket;
 
-  UsedRegularTicket({
+  const UsedRegularTicket({
     Key? key,
     required this.ticket,
   }) : super(key: key);
@@ -33,7 +33,9 @@ class UsedRegularTicket extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Column(
-                          children: [FEText.historyTicketType('REGULAR')],
+                          children: [
+                            FEText.historyTicketType('REGULAR'),
+                          ],
                         ),
                       ),
                       const SizedBox(

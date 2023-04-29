@@ -57,7 +57,8 @@ class Onboarding extends StatelessWidget {
               FEButton(
                 title: 'Log In',
                 outline: true,
-                onTap: () => Navigator.of(context).pushNamed(WelcomeScreen.id),
+                onTap: () => Navigator.of(context)
+                    .pushReplacementNamed(WelcomeScreen.id),
               ),
               verticalSpaceRegular,
               FEButton(

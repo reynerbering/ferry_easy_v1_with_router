@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ferry_easy/shared/styles/ui_helpers.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_alert_box.dart';
 import 'package:ferry_easy/shared/widgets/ferry_easy_background_image.dart';
@@ -77,18 +76,6 @@ class _CreateAccountState extends State<CreateAccount> {
     }
 
     return true;
-  }
-
-  void _onSave() async {
-    final birthday = _selectedDate;
-    if (birthday != null) {
-      final timestamp = Timestamp.fromDate(birthday);
-      // Save the timestamp to Firestore
-      await FirebaseFirestore.instance
-          .collection('Users')
-          .doc('user_id')
-          .set({'birthday': timestamp}, SetOptions(merge: true));
-    }
   }
 
   Future<void> _showDatePicker() async {
@@ -236,7 +223,6 @@ class _CreateAccountState extends State<CreateAccount> {
                           password: _password.text,
                         );
                         _registerUser();
-                        _onSave();
                         if (context.mounted) {
                           showDialog(
                             context: context,

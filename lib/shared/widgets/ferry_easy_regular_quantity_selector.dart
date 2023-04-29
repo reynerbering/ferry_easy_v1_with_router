@@ -12,7 +12,7 @@ class FERegularQuantitySelector extends StatefulWidget {
   final Function(int) onChanged;
   final TicketType ticketType;
 
-  FERegularQuantitySelector({
+  const FERegularQuantitySelector({
     super.key,
     required this.initialValue,
     required this.onChanged,
