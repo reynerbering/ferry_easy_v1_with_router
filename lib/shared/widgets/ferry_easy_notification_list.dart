@@ -3,13 +3,15 @@ import 'package:ferry_easy/shared/shared_exports.dart';
 import 'package:intl/intl.dart';
 
 class NotificationList extends StatelessWidget {
-  const NotificationList({super.key});
+  const NotificationList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream:
-          FirebaseFirestore.instance.collection('Announcements').snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection('Announcements')
+          .orderBy('dateCreated', descending: true)
+          .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
@@ -29,6 +31,7 @@ class NotificationList extends StatelessWidget {
                 color: Colors.black,
                 thickness: 1,
               ),
+              controller: ScrollController(),
               shrinkWrap: true,
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (context, index) {

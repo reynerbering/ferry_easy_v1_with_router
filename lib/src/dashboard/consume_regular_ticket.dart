@@ -15,11 +15,14 @@ class ConsumeRegularTicket extends StatelessWidget {
         appBar: const PreferredSize(
             preferredSize: Size.fromHeight(kToolbarHeight),
             child: FEAppBar(title: 'Passenger Ticket')),
-        body: Column(
-          children: const [
-            verticalSpaceRegular,
-            FEUseRegularTicket(),
-          ],
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: const [
+              verticalSpaceRegular,
+              FEUseRegularTicket(),
+            ],
+          ),
         ),
       ),
     );

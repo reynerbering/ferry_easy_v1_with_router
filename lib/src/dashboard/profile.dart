@@ -67,8 +67,10 @@ class Profile extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () => ImageService.updateId(context),
-                      child: IdContainer(
-                        uid: auth.currentUser!.uid,
+                      child: Flexible(
+                        child: IdContainer(
+                          uid: auth.currentUser!.uid,
+                        ),
                       ),
                     )
                   ],

@@ -9,10 +9,10 @@ class QRGeneratorSpecial extends StatefulWidget {
   const QRGeneratorSpecial({super.key});
 
   @override
-  _QRGeneratorSpecialState createState() => _QRGeneratorSpecialState();
+  QRGeneratorSpecialState createState() => QRGeneratorSpecialState();
 }
 
-class _QRGeneratorSpecialState extends State<QRGeneratorSpecial> {
+class QRGeneratorSpecialState extends State<QRGeneratorSpecial> {
   String qrData = "Hello World";
 
   @override

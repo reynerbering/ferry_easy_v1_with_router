@@ -101,8 +101,7 @@ class _WalletState extends State<Wallet> {
                       padding: const EdgeInsets.all(15.0),
                       width: double.infinity,
                       color: kcVeryLightGrayColor,
-                      child: FEText.transacSubTitle(
-                          'Transactions as of 2022-23-09'),
+                      child: FEText.transacSubTitle('Transactions as of'),
                     ),
                     ListView(
                       scrollDirection: Axis.vertical,
@@ -112,15 +111,14 @@ class _WalletState extends State<Wallet> {
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FEText.transacTileText('Online Payment'),
-                              FEText.transacTileText('-32.00'),
+                              FEText.transacTileText('GCash'),
+                              FEText.transacTileText('+200.00'),
                             ],
                           ),
                           subtitle: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FEText.transacTileText('Online Payment'),
-                              FEText.transacTileText('Details'),
+                              FEText.transacTileText('Type'),
                             ],
                           ),
                         ),
@@ -128,15 +126,14 @@ class _WalletState extends State<Wallet> {
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FEText.transacTileText('Online Payment'),
-                              FEText.transacTileText('-32.00'),
+                              FEText.transacTileText('Maya'),
+                              FEText.transacTileText('+500.00'),
                             ],
                           ),
                           subtitle: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FEText.transacTileText('Online Payment'),
-                              FEText.transacTileText('Details'),
+                              FEText.transacTileText('Type'),
                             ],
                           ),
                         ),
@@ -144,15 +141,14 @@ class _WalletState extends State<Wallet> {
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FEText.transacTileText('Online Payment'),
-                              FEText.transacTileText('-32.00'),
+                              FEText.transacTileText('Over-the-Counter'),
+                              FEText.transacTileText('+30.00'),
                             ],
                           ),
                           subtitle: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FEText.transacTileText('Online Payment'),
-                              FEText.transacTileText('Details'),
+                              FEText.transacTileText('Type'),
                             ],
                           ),
                         ),

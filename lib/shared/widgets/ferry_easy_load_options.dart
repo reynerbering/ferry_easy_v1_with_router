@@ -39,6 +39,12 @@ class LoadOptions extends StatelessWidget {
               onTap: () {},
             ),
             verticalSpaceRegular,
+            FEButton(
+              disabled: true,
+              title: 'Bank Transfer',
+              onTap: () {},
+            ),
+            verticalSpaceRegular,
           ],
         ),
       ),

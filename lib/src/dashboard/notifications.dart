@@ -9,10 +9,13 @@ class Notifications extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: const [
-          NotificationList(),
-        ],
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: const [
+            NotificationList(),
+          ],
+        ),
       ),
     );
   }

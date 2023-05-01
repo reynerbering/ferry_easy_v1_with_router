@@ -1,19 +1,53 @@
+import 'dart:async';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:uni_links/uni_links.dart';
 
-// Add your custom imports here
 import '../../src/dashboard/application/bloc_exports.dart';
 import '../../src/dashboard/domain/ticket_model.dart';
 import '../shared_exports.dart';
 
 class QRGeneratorRegular extends StatefulWidget {
-  const QRGeneratorRegular({super.key});
+  const QRGeneratorRegular({Key? key}) : super(key: key);
 
   @override
-  _QRGeneratorRegularState createState() => _QRGeneratorRegularState();
+  QRGeneratorRegularState createState() => QRGeneratorRegularState();
 }
 
-class _QRGeneratorRegularState extends State<QRGeneratorRegular> {
-  String qrData = "Hello World";
+class QRGeneratorRegularState extends State<QRGeneratorRegular> {
+  final String qrData = "ferryeasy://trigger_function/";
+  StreamSubscription? _sub;
+
+  @override
+  void initState() {
+    super.initState();
+    initUniLinks();
+  }
+
+  @override
+  void dispose() {
+    _sub?.cancel();
+    super.dispose();
+  }
+
+  Future<void> initUniLinks() async {
+    try {
+      // Attach a listener to the incoming links
+      _sub = uriLinkStream.listen((Uri? uri) async {
+        if (uri?.toString() == qrData) {
+          executeOnTapFunction();
+        }
+      }, onError: (Object err) {
+        // Handle error here
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  void executeOnTapFunction() {
+    print('Scanned!');
+    // Add your onTap function logic here
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +71,6 @@ class _QRGeneratorRegularState extends State<QRGeneratorRegular> {
                 return const FESafetyTips();
               },
             );
-
-            // Update the QR data with the ticket information
-            setState(() {
-              // qrData = ticket.toJson().toString();
-            });
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

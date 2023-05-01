@@ -1,13 +1,16 @@
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../shared_exports.dart';
+import 'fake_timer.dart';
 
 class FEShipDetails extends StatelessWidget {
   final String shipName;
+  final int minutes;
 
   const FEShipDetails({
     super.key,
     required this.shipName,
+    required this.minutes,
   });
 
   @override
@@ -50,7 +53,9 @@ class FEShipDetails extends StatelessWidget {
                         color: kcLightGrayColor,
                         borderRadius: BorderRadius.circular(15.0),
                       ),
-                      child: FEText.dashCdTimer('34:00'),
+                      child: FakeCountdownTimer(
+                        minutes: minutes,
+                      ),
                     ),
                   ],
                 ),

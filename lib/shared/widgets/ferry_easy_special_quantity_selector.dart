@@ -18,11 +18,11 @@ class FESpecialQuantitySelector extends StatefulWidget {
   });
 
   @override
-  _FESpecialQuantitySelectorState createState() =>
-      _FESpecialQuantitySelectorState();
+  FESpecialQuantitySelectorState createState() =>
+      FESpecialQuantitySelectorState();
 }
 
-class _FESpecialQuantitySelectorState extends State<FESpecialQuantitySelector> {
+class FESpecialQuantitySelectorState extends State<FESpecialQuantitySelector> {
   late int _value;
 
   int getTotalAmount() {

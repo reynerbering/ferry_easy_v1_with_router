@@ -20,11 +20,11 @@ class FERegularQuantitySelector extends StatefulWidget {
   });
 
   @override
-  _FERegularQuantitySelectorState createState() =>
-      _FERegularQuantitySelectorState();
+  FERegularQuantitySelectorState createState() =>
+      FERegularQuantitySelectorState();
 }
 
-class _FERegularQuantitySelectorState extends State<FERegularQuantitySelector> {
+class FERegularQuantitySelectorState extends State<FERegularQuantitySelector> {
   late int _value;
 
   int getTotalAmount() {

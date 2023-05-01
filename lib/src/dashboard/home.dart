@@ -37,22 +37,27 @@ class Home extends StatelessWidget {
                   children: const [
                     FEShipDetails(
                       shipName: 'Princesa',
+                      minutes: 24,
                     ),
                     FEDivider(),
                     FEShipDetails(
                       shipName: 'Carmen Uno',
+                      minutes: 18,
                     ),
                     FEDivider(),
                     FEShipDetails(
                       shipName: 'Tommy 1',
+                      minutes: 30,
                     ),
                     FEDivider(),
                     FEShipDetails(
-                      shipName: 'Tommy 1',
+                      shipName: 'Tommy 2',
+                      minutes: 90,
                     ),
                     FEDivider(),
                     FEShipDetails(
-                      shipName: 'Tommy 1',
+                      shipName: 'Megg',
+                      minutes: 15,
                     ),
                   ],
                 ),

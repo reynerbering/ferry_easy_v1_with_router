@@ -14,6 +14,7 @@ class FENotificationTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () => showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -38,9 +39,12 @@ class FENotificationTile extends StatelessWidget {
                     radius: 5,
                   ),
                   horizontalSpaceRegular,
-                  FEText.notifHeader(
-                    title,
-                    overflow: TextOverflow.ellipsis,
+                  SizedBox(
+                    width: displayWidth(context) * 0.62,
+                    child: FEText.notifHeader(
+                      title,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
