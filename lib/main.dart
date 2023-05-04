@@ -47,8 +47,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TicketBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TicketBloc(),
+        ),
+        BlocProvider(
+          create: (context) => NotificationBloc(),
+        ),
+      ],
       child: MaterialApp(
         title: 'FerryEasy',
         debugShowCheckedModeBanner: false,

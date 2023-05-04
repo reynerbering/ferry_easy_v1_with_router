@@ -28,8 +28,8 @@ class UsedRegularTicket extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      horizontalSpaceSmall,
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Column(
@@ -38,6 +38,7 @@ class UsedRegularTicket extends StatelessWidget {
                           ],
                         ),
                       ),
+                      horizontalSpaceSmall,
                       const SizedBox(
                         height: 50,
                         child: VerticalDivider(
@@ -47,14 +48,13 @@ class UsedRegularTicket extends StatelessWidget {
                       horizontalSpaceMedium,
                       Column(
                         children: [
-                          FEText.historyPassTicket('PASSENGER TICKET'),
+                          FEText.historyPassTicket('METRO FERRY INC.'),
                           verticalSpaceTiny,
-                          FEText.historyTicketLoc('LAPU-LAPU | CEBU'),
+                          FEText.historyTicketLoc('ID: ${ticket.id}'),
                           verticalSpaceTiny,
-                          FEText.historyTicketPrice('PHP 35.00')
+                          FEText.historyTicketPrice('${ticket.dateUsed}')
                         ],
                       ),
-                      horizontalSpaceMedium,
                     ],
                   ),
                 ],

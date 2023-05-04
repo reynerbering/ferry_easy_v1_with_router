@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../src/dashboard/application/bloc_exports.dart';
 import '../../src/dashboard/domain/ticket_model.dart';
+import '../services/ticket_sorter.dart';
 import 'ferry_easy_used_special_ticket.dart';
 
 class UsedTicketList extends StatelessWidget {
   const UsedTicketList({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +22,21 @@ class UsedTicketList extends StatelessWidget {
             List<TicketModel>.from(usedRegularTickets)
               ..addAll(usedSpecialTickets);
 
-        combinedUsedTickets
-            .sort((a, b) => b.datePurchased.compareTo(a.datePurchased));
+        List<TicketModel> sortedUsedTickets =
+            TicketUtils.sortTicketsDescendingByDate(combinedUsedTickets);
 
-        // combinedUsedTickets.addAll(usedRegularTickets);
-        // combinedUsedTickets.addAll(usedSpecialTickets);
         return ListView.builder(
           shrinkWrap: true,
-          itemCount: combinedUsedTickets.length,
+          itemCount: sortedUsedTickets.length,
           itemBuilder: (context, index) {
-            if (index < usedRegularTickets.length) {
-              var ticketRegular = usedRegularTickets[index];
+            var ticket = sortedUsedTickets[index];
+            if (usedRegularTickets.contains(ticket)) {
               return UsedRegularTicket(
-                ticket: ticketRegular,
+                ticket: ticket,
               );
             } else {
-              // Adjust the index to the second list's index range
-              var ticketSpecial =
-                  usedSpecialTickets[index - usedRegularTickets.length];
               return UsedSpecialTicket(
-                ticket: ticketSpecial,
+                ticket: ticket,
               );
             }
           },

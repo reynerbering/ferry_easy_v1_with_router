@@ -14,12 +14,12 @@ class History extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpaceMedium,
           Container(
-              padding: const EdgeInsets.all(15.0),
-              width: double.infinity,
-              color: kcVeryLightGrayColor,
-              child: FEText.transacSubTitle('Tickets Used')),
+            padding: const EdgeInsets.all(15.0),
+            width: double.infinity,
+            color: kcVeryLightGrayColor,
+            child: FEText.transacSubTitle('Tickets Used:'),
+          ),
           const Expanded(
             child: UsedTicketList(),
           ),
