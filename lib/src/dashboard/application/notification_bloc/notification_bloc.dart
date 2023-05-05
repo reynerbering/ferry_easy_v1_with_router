@@ -14,15 +14,15 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
       ReadNotification event, Emitter<NotificationState> emit) async {
     emit(
       NotificationState(
-        notificationCounter: state.notificationCounter--,
-      ),
+          notificationCounter: state.notificationCounter - 1,
+          currentCounter: state.currentCounter),
     );
   }
 
   void _onGetNotification(
       GetNotification event, Emitter<NotificationState> emit) async {
     NotificationState(
-      notificationCounter: state.notificationCounter++,
-    );
+        notificationCounter: state.notificationCounter++,
+        currentCounter: state.currentCounter);
   }
 }

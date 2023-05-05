@@ -39,6 +39,7 @@ class _CreateAccountState extends State<CreateAccount> {
         firstName: _firstName.text.trim(),
         lastName: _lastName.text.trim(),
         email: _email.text.trim(),
+        accountType: 'User',
         username: _username.text.trim(),
         address: {
           'city': _city.text.trim(),

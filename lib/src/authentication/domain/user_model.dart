@@ -5,6 +5,7 @@ class UserModel {
   final String firstName;
   final String lastName;
   final String email;
+  final String accountType;
   final String username;
   final String profileImg;
   final String contactNum;
@@ -19,6 +20,7 @@ class UserModel {
     required this.firstName,
     required this.lastName,
     required this.email,
+    required this.accountType,
     required this.username,
     required this.address,
     required this.birthDate,
@@ -36,6 +38,7 @@ class UserModel {
       'firstName': firstName,
       'lastName': lastName,
       'email': email,
+      'accountType': accountType,
       'username': username,
       'address': address,
       'birthDate': Timestamp.fromDate(birthDate),
@@ -55,6 +58,7 @@ class UserModel {
       firstName: map['firstName'],
       lastName: map['lastName'],
       email: map['email'],
+      accountType: map['accountType'],
       username: map['username'],
       address: map['address'],
       birthDate: (map['birthDate'] as Timestamp).toDate(),
@@ -71,6 +75,7 @@ class UserModel {
         'firstName': firstName,
         'lastName': lastName,
         'email': email,
+        'accountType': accountType,
         'username': username,
         'address': address,
         'birthDate': birthDate.toString(),
@@ -97,6 +102,7 @@ class UserModel {
       firstName: json['firstName'] ?? '',
       lastName: json['lastName'] ?? '',
       email: json['email'] ?? '',
+      accountType: json['accountType'] ?? '',
       username: json['username'] ?? '',
       address: json['address'] ?? {},
       birthDate: (json['birthDate'] != null)

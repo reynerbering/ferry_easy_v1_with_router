@@ -5,6 +5,7 @@ import 'package:ferry_easy/src/dashboard/history.dart';
 import 'package:ferry_easy/src/dashboard/notifications.dart';
 import 'package:ferry_easy/src/dashboard/wallet.dart';
 
+import 'application/bloc_exports.dart';
 import 'home.dart';
 
 class Dashboard extends StatefulWidget {
@@ -49,104 +50,121 @@ class _DashboardState extends State<Dashboard> {
     return DefaultTabController(
       length: 2,
       initialIndex: 0,
-      child: Scaffold(
-        extendBody: true,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        appBar: PreferredSize(
-          preferredSize: _selectedPageIndex == 1
-              ? const Size.fromHeight(100)
-              : const Size.fromHeight(kToolbarHeight),
-          child: FEAppBar(
-            title: _pageDetails[_selectedPageIndex]['title'],
-            tabBar: _selectedPageIndex == 1
-                ? TabBar(
-                    indicatorWeight: 5,
-                    indicatorColor: kcLightGrayColor,
-                    tabs: [
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: FEText.walletHeaderTitle('Wallet'),
+      child: BlocBuilder<NotificationBloc, NotificationState>(
+        builder: (context, state) {
+          return Scaffold(
+            extendBody: true,
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            appBar: PreferredSize(
+              preferredSize: _selectedPageIndex == 1
+                  ? const Size.fromHeight(100)
+                  : const Size.fromHeight(kToolbarHeight),
+              child: FEAppBar(
+                title: _pageDetails[_selectedPageIndex]['title'],
+                tabBar: _selectedPageIndex == 1
+                    ? TabBar(
+                        indicatorWeight: 5,
+                        indicatorColor: kcLightGrayColor,
+                        tabs: [
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: FEText.walletHeaderTitle('Wallet'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: FEText.walletHeaderTitle('Transactions'),
+                          ),
+                        ],
+                      )
+                    : null,
+              ),
+            ),
+            body: _pageDetails[_selectedPageIndex]['pageName'],
+            endDrawer: FEDrawer(),
+            bottomNavigationBar: BottomAppBar(
+              elevation: 0,
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                showUnselectedLabels: true,
+                currentIndex: _selectedPageIndex,
+                selectedItemColor: kcPrimaryColor,
+                onTap: _onItemTapped,
+                selectedLabelStyle:
+                    const TextStyle(fontWeight: FontWeight.w700),
+                unselectedLabelStyle:
+                    const TextStyle(fontWeight: FontWeight.w700),
+                items: <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    label: 'Home',
+                    icon: SvgPicture.asset(
+                      'assets/icons/home-outline.svg',
+                      height: 25,
+                      width: 25,
+                      fit: BoxFit.scaleDown,
+                      colorFilter: _selectedPageIndex == 0
+                          ? const ColorFilter.mode(
+                              kcPrimaryColor, BlendMode.srcIn)
+                          : null,
+                    ),
+                  ),
+                  BottomNavigationBarItem(
+                    label: 'Wallet',
+                    icon: SvgPicture.asset(
+                      'assets/icons/wallet-filled.svg',
+                      height: 25,
+                      width: 25,
+                      fit: BoxFit.scaleDown,
+                      colorFilter: _selectedPageIndex == 1
+                          ? const ColorFilter.mode(
+                              kcPrimaryColor, BlendMode.srcIn)
+                          : null,
+                    ),
+                  ),
+                  const BottomNavigationBarItem(
+                    icon: Icon(Icons.add, color: Colors.transparent),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SvgPicture.asset(
+                      'assets/icons/history.svg',
+                      height: 25,
+                      width: 25,
+                      fit: BoxFit.scaleDown,
+                      colorFilter: _selectedPageIndex == 3
+                          ? const ColorFilter.mode(
+                              kcPrimaryColor, BlendMode.srcIn)
+                          : null,
+                    ),
+                    label: 'History',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Badge(
+                      label: state.notificationCounter > 0
+                          ? Text('${state.notificationCounter}',
+                              style: const TextStyle(color: Colors.white))
+                          : null,
+                      child: SvgPicture.asset(
+                        'assets/icons/notifications-outline.svg',
+                        height: 25,
+                        width: 25,
+                        fit: BoxFit.scaleDown,
+                        colorFilter: _selectedPageIndex == 4
+                            ? const ColorFilter.mode(
+                                kcPrimaryColor, BlendMode.srcIn)
+                            : null,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: FEText.walletHeaderTitle('Transactions'),
-                      ),
-                    ],
-                  )
-                : null,
-          ),
-        ),
-        body: _pageDetails[_selectedPageIndex]['pageName'],
-        endDrawer: FEDrawer(),
-        bottomNavigationBar: BottomAppBar(
-          elevation: 0,
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            showUnselectedLabels: true,
-            currentIndex: _selectedPageIndex,
-            selectedItemColor: kcPrimaryColor,
-            onTap: _onItemTapped,
-            selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
-            unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                label: 'Home',
-                icon: SvgPicture.asset(
-                  'assets/icons/home-outline.svg',
-                  height: 25,
-                  width: 25,
-                  fit: BoxFit.scaleDown,
-                  colorFilter: _selectedPageIndex == 0
-                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
-                      : null,
-                ),
+                    ),
+                    label: 'Notifs',
+                  ),
+                ],
               ),
-              BottomNavigationBarItem(
-                label: 'Wallet',
-                icon: SvgPicture.asset(
-                  'assets/icons/wallet-filled.svg',
-                  height: 25,
-                  width: 25,
-                  fit: BoxFit.scaleDown,
-                  colorFilter: _selectedPageIndex == 1
-                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
-                      : null,
-                ),
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.add, color: Colors.transparent),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/icons/history.svg',
-                  height: 25,
-                  width: 25,
-                  fit: BoxFit.scaleDown,
-                  colorFilter: _selectedPageIndex == 3
-                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
-                      : null,
-                ),
-                label: 'History',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/icons/notifications-outline.svg',
-                  height: 25,
-                  width: 25,
-                  fit: BoxFit.scaleDown,
-                  colorFilter: _selectedPageIndex == 4
-                      ? const ColorFilter.mode(kcPrimaryColor, BlendMode.srcIn)
-                      : null,
-                ),
-                label: 'Notifs',
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FECustomFAB(
-          onTap: () => Navigator.pushNamed(context, BuyTicket.id),
-        ),
+            ),
+            floatingActionButton: FECustomFAB(
+              onTap: () => Navigator.pushNamed(context, BuyTicket.id),
+            ),
+          );
+        },
       ),
     );
   }

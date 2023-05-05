@@ -4,23 +4,27 @@ part of 'notification_bloc.dart';
 
 class NotificationState extends Equatable {
   int notificationCounter;
+  int currentCounter;
 
   NotificationState({
     this.notificationCounter = 0,
+    this.currentCounter = 0,
   });
 
   @override
-  List<Object> get props => [notificationCounter];
+  List<Object> get props => [notificationCounter, currentCounter];
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'readNotifications': notificationCounter,
+      'notificationCounter': notificationCounter,
+      'currentCounter': currentCounter,
     };
   }
 
   factory NotificationState.fromMap(Map<String, dynamic> map) {
     return NotificationState(
-      notificationCounter: map['readNotifications'] as int,
+      notificationCounter: map['notificationCounter'] as int,
+      currentCounter: map['currentCounter'] as int,
     );
   }
 }
