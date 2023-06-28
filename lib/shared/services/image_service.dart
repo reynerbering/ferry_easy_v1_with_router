@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -14,6 +16,8 @@ class ImageService {
         final storageRef = FirebaseStorage.instance.ref();
         final profileRef = storageRef.child(
             'profiles/${FirebaseAuth.instance.currentUser!.uid}/${image.path.split('/').last}');
+        File file = File(image.path);
+        TaskSnapshot result = await profileRef.putFile(file);
         String publicUrl = await profileRef.getDownloadURL();
         FirebaseFirestore.instance
             .collection('Users')
@@ -65,6 +69,8 @@ class ImageService {
         final storageRef = FirebaseStorage.instance.ref();
         final profileRef = storageRef.child(
             'validId/${FirebaseAuth.instance.currentUser!.uid}/${image.path.split('/').last}');
+        File file = File(image.path);
+        TaskSnapshot result = await profileRef.putFile(file);
         String publicUrl = await profileRef.getDownloadURL();
         FirebaseFirestore.instance
             .collection('Users')
